@@ -10,7 +10,6 @@
   <meta property="og:description" content="Guiding discerning investors through Dubai's most prestigious real estate opportunities.">
   <meta property="og:type" content="website">
 
-  <!-- Schema Markup -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,21 +51,17 @@
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-    /* CURSOR */
     .cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s; }
     .cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.18s ease; }
 
-    /* SCROLL PROGRESS */
     .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-light)); z-index: 201; width: 0%; transition: width 0.1s; }
 
-    /* LANGUAGE SWITCHER */
     .lang-bar { background: rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 0.4rem 4rem; display: flex; justify-content: flex-end; align-items: center; gap: 1rem; position: relative; z-index: 199; }
     .lang-btn { background: none; border: none; color: var(--gray); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding: 0.2rem 0.5rem; transition: color 0.2s; font-family: 'DM Sans', sans-serif; }
     .lang-btn.active, .lang-btn:hover { color: var(--gold); }
     .lang-sep { color: rgba(201,168,76,0.3); font-size: 0.6rem; }
     .lang-label { font-size: 0.65rem; color: var(--gray); letter-spacing: 0.15em; text-transform: uppercase; margin-right: 0.5rem; }
 
-    /* TRANSACTION TICKER */
     .ticker-wrap { background: var(--gold); overflow: hidden; height: 34px; display: flex; align-items: center; position: relative; z-index: 198; }
     .ticker-label { background: var(--black); color: var(--gold); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 1.2rem; height: 100%; display: flex; align-items: center; white-space: nowrap; flex-shrink: 0; font-weight: 500; }
     .ticker-track { display: flex; gap: 3rem; animation: ticker 40s linear infinite; white-space: nowrap; }
@@ -74,7 +69,6 @@
     .ticker-item span { opacity: 0.7; margin: 0 0.5rem; }
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* NAV */
     nav { position: fixed; top: 68px; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: linear-gradient(to bottom, rgba(10,10,10,0.97), transparent); transition: background 0.4s, padding 0.4s, top 0.4s; }
     nav.scrolled { background: rgba(8,8,8,0.98); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 4rem; backdrop-filter: blur(10px); top: 0; }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
@@ -91,7 +85,6 @@
     .nav-cta:hover::before { transform: translateX(0); }
     .nav-cta span { position: relative; z-index: 1; }
 
-    /* HERO */
     .hero { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; margin-top: 68px; }
     .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0A0A0A 0%, #1a1510 40%, #0f0d08 100%); }
     .hero-img-side { position: absolute; right: 0; top: 0; bottom: 0; width: 52%; overflow: hidden; }
@@ -139,7 +132,6 @@
     .gold-line { width: 60px; height: 1px; background: linear-gradient(to right, var(--gold), transparent); margin: 1.5rem 0; }
     .gold-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.2; }
 
-    /* MARKET SNAPSHOT */
     .snapshot-section { background: linear-gradient(135deg, #0f0d08, #1a1510, #0f0d08); position: relative; overflow: hidden; }
     .snapshot-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.03) 0, rgba(201,168,76,0.03) 1px, transparent 0, transparent 50%); background-size: 28px 28px; }
     .snapshot-header { text-align: center; margin-bottom: 3.5rem; position: relative; }
@@ -160,7 +152,6 @@
     .area-yield { font-size: 0.75rem; color: var(--gold); font-weight: 500; }
     .area-price { font-size: 0.7rem; color: var(--gray); }
 
-    /* ABOUT */
     .about-section { background: var(--off-black); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
     .about-img-wrap { position: relative; }
@@ -176,7 +167,6 @@
     .value-text h4 { font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.35rem; font-weight: 500; }
     .value-text p { font-size: 0.82rem; color: var(--gray); line-height: 1.75; }
 
-    /* PROPERTIES */
     .properties-section { background: var(--black); overflow: hidden; }
     .props-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
     .slider-wrap { position: relative; overflow: hidden; }
@@ -206,7 +196,6 @@
     .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,0.3); cursor: pointer; transition: all 0.3s; }
     .slider-dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
 
-    /* COMPARE PANEL */
     .compare-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.97); border-top: 1px solid rgba(201,168,76,0.3); z-index: 400; transform: translateY(100%); transition: transform 0.4s ease; backdrop-filter: blur(10px); }
     .compare-bar.show { transform: translateY(0); }
     .compare-bar-inner { display: flex; align-items: center; gap: 2rem; padding: 1.2rem 4rem; }
@@ -218,7 +207,6 @@
     .compare-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
     .compare-actions { display: flex; gap: 0.75rem; }
 
-    /* AREA GUIDE */
     .areas-section { background: var(--dark); }
     .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.08); margin-top: 3rem; }
     .area-card { background: var(--dark); overflow: hidden; position: relative; cursor: pointer; }
@@ -234,7 +222,6 @@
     .area-stat-val { font-size: 0.85rem; color: var(--gold); font-weight: 500; }
     .area-stat-key { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
 
-    /* ROI CALCULATOR */
     .calculator-section { background: var(--off-black); }
     .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .calc-form { background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.15); padding: 3rem; }
@@ -255,7 +242,6 @@
     .calc-bar { flex: 1; background: linear-gradient(to top, var(--gold-dark), var(--gold)); min-height: 4px; transition: height 0.6s ease; position: relative; }
     .calc-bar-year { position: absolute; bottom: -1.4rem; left: 50%; transform: translateX(-50%); font-size: 0.6rem; color: var(--gray); white-space: nowrap; }
 
-    /* CEO */
     .ceo-section { background: var(--dark); }
     .ceo-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 7rem; align-items: center; }
     .ceo-img-wrap { position: relative; }
@@ -275,7 +261,6 @@
     .ceo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); }
     .ceo-title { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-top: 0.3rem; }
 
-    /* TEAM */
     .team-section { background: var(--off-black); }
     .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: rgba(201,168,76,0.08); margin-top: 3rem; }
     .team-card { background: var(--dark); overflow: hidden; position: relative; }
@@ -292,7 +277,6 @@
     .team-contact-link { font-size: 0.7rem; color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
     .team-contact-link:hover { opacity: 0.7; }
 
-    /* TESTIMONIALS */
     .testimonials-section { background: var(--black); overflow: hidden; }
     .testi-header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
     .testi-track-wrap { overflow: hidden; }
@@ -316,7 +300,6 @@
     .rating-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.08); }
     .rating-bar-fill { height: 100%; background: var(--gold); }
 
-    /* DEVELOPERS */
     .developers-section { background: var(--off-black); }
     .dev-logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,168,76,0.1); margin-top: 3rem; }
     .dev-logo-item { background: var(--off-black); padding: 2.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; cursor: pointer; }
@@ -326,7 +309,6 @@
     .dev-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gray); letter-spacing: 0.05em; transition: color 0.3s; }
     .dev-logo-item:hover .dev-logo-text { color: var(--gold); }
 
-    /* FAQ */
     .faq-section { background: var(--dark); }
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
     .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 1rem; }
@@ -347,7 +329,6 @@
     .faq-trust-item span:first-child { color: var(--gold); font-size: 1.1rem; }
     .faq-trust-item span:last-child { font-size: 0.85rem; color: var(--light-gray); }
 
-    /* CONTACT */
     .contact-section { background: var(--off-black); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; }
     .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
@@ -369,7 +350,6 @@
     .form-submit { background: var(--gold); color: var(--black); border: none; padding: 1.1rem 2.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; align-self: flex-start; }
     .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.25); }
 
-    /* FOOTER */
     footer { background: #080808; padding: 4rem 4rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
     .footer-brand img { height: 48px; margin-bottom: 1.2rem; }
@@ -385,7 +365,6 @@
     .footer-copy { font-size: 0.74rem; color: rgba(255,255,255,0.25); }
     .footer-rera { font-size: 0.74rem; color: rgba(201,168,76,0.45); }
 
-    /* WHATSAPP FLOAT */
     .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 300; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
     .whatsapp-btn { width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s; animation: pulse-green 2.5s ease infinite; }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.55); }
@@ -393,14 +372,12 @@
     .whatsapp-tooltip { background: var(--off-black); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 0.5rem 1rem; font-size: 0.75rem; white-space: nowrap; opacity: 0; transform: translateX(10px); transition: all 0.3s; pointer-events: none; }
     .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; transform: translateX(0); }
 
-    /* STICKY BOOK BUTTON */
     .book-float { position: fixed; bottom: 7rem; right: 2rem; z-index: 300; }
     .book-float-btn { background: var(--gold); color: var(--black); border: none; padding: 0.85rem 1.5rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-weight: 500; font-family: 'DM Sans', sans-serif; box-shadow: 0 8px 30px rgba(201,168,76,0.35); transition: all 0.3s; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem; }
     .book-float-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
     .book-pulse { width: 8px; height: 8px; background: var(--black); border-radius: 50%; animation: blink 1.5s ease infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    /* BOOKING POPUP */
     .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(4px); }
     .popup-overlay.show { opacity: 1; pointer-events: all; }
     .popup-box { background: var(--off-black); border: 1px solid rgba(201,168,76,0.25); padding: 3rem; max-width: 500px; width: 90%; position: relative; transform: translateY(20px); transition: transform 0.3s; }
@@ -419,7 +396,6 @@
     .popup-submit { background: var(--gold); color: var(--black); border: none; padding: 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-weight: 500; width: 100%; transition: all 0.3s; }
     .popup-submit:hover { background: var(--gold-light); }
 
-    /* EXIT POPUP */
     .exit-popup { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 600; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
     .exit-popup.show { opacity: 1; pointer-events: all; }
     .exit-box { background: var(--dark); border: 1px solid rgba(201,168,76,0.3); max-width: 520px; width: 90%; overflow: hidden; position: relative; transform: scale(0.95); transition: transform 0.4s; }
@@ -434,7 +410,6 @@
     .exit-close { display: block; text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--gray); cursor: pointer; transition: color 0.2s; background: none; border: none; font-family: 'DM Sans', sans-serif; width: 100%; }
     .exit-close:hover { color: var(--gold); }
 
-    /* COOKIE BANNER */
     .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.97); border-top: 1px solid rgba(201,168,76,0.2); z-index: 800; padding: 1.5rem 4rem; display: flex; align-items: center; gap: 2rem; transform: translateY(100%); transition: transform 0.5s ease 1s; backdrop-filter: blur(10px); }
     .cookie-banner.show { transform: translateY(0); }
     .cookie-text { flex: 1; font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
@@ -444,21 +419,18 @@
     .cookie-decline { background: none; border: 1px solid rgba(255,255,255,0.15); color: var(--gray); padding: 0.65rem 1.2rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
     .cookie-decline:hover { border-color: var(--gray); }
 
-    /* HAMBURGER MENU */
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 201; background: none; border: none; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s ease; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* MOBILE MENU OVERLAY */
     .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(8,8,8,0.98); z-index: 199; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; backdrop-filter: blur(10px); }
     .mobile-menu.open { opacity: 1; pointer-events: all; }
     .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--white); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--gold); }
     .mobile-menu .mobile-cta { background: var(--gold); color: var(--black); padding: 1rem 2.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-top: 1rem; }
 
-    /* TABLET — 1024px */
     @media (max-width: 1024px) {
       section { padding: 5rem 2.5rem; }
       nav { padding: 1.2rem 2.5rem; }
@@ -475,22 +447,15 @@
       .snap-area-grid { grid-template-columns: repeat(2,1fr); }
     }
 
-    /* MOBILE — 900px */
     @media (max-width: 900px) {
       .lang-bar { padding: 0.4rem 1.5rem; }
       .lang-label { display: none; }
-
-      /* NAV */
       nav { padding: 1rem 1.5rem; top: 34px; }
       nav.scrolled { top: 0; padding: 0.8rem 1.5rem; }
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
-
-      /* SECTIONS */
       section { padding: 4rem 1.5rem; }
-
-      /* HERO */
       .hero { margin-top: 34px; min-height: 100vh; }
       .hero-content { padding: 0 1.5rem; max-width: 100%; }
       .hero-img-side { width: 100%; opacity: 0.15; }
@@ -503,31 +468,19 @@
       .stat-item { min-width: 50%; padding: 1.2rem 1.5rem; }
       .stat-num { font-size: 2rem; }
       .stat-label { font-size: 0.6rem; }
-
-      /* MARKET SNAPSHOT */
       .snapshot-grid { grid-template-columns: repeat(2,1fr); }
       .snap-area-grid { grid-template-columns: 1fr; }
       .snap-num { font-size: 2.2rem; }
-
-      /* ABOUT */
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-img-wrap::after { display: none; }
       .about-img-wrap img { height: 320px; }
       .about-img-badge { left: 0; bottom: 1rem; }
-
-      /* PROPERTIES */
       .props-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .prop-card { min-width: calc(88% - 1px); }
       .prop-img { height: 220px; }
-
-      /* CALCULATOR */
       .calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .calc-form { padding: 2rem; }
-
-      /* AREAS */
       .areas-grid { grid-template-columns: 1fr; }
-
-      /* CEO */
       .ceo-grid { grid-template-columns: 1fr; gap: 3rem; }
       .ceo-img-wrap::before { display: none; }
       .ceo-img-wrap img { height: 380px; }
@@ -535,99 +488,64 @@
       .ceo-journey { flex-direction: column; }
       .journey-step { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); padding: 1.2rem; }
       .journey-step:last-child { border-bottom: none; }
-
-      /* TEAM */
       .team-grid { grid-template-columns: repeat(2,1fr); }
       .team-photo { height: 280px; }
-
-      /* TESTIMONIALS */
       .testi-card { min-width: calc(90% - 1rem); }
       .rating-summary { flex-direction: column; gap: 1.5rem; text-align: center; }
       .rating-bars { max-width: 100%; }
-
-      /* DEVELOPERS */
       .dev-logos { grid-template-columns: repeat(2,1fr); }
-
-      /* FAQ */
       .faq-grid { grid-template-columns: 1fr; gap: 3rem; }
-
-      /* CONTACT */
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
-
-      /* FOOTER */
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { padding: 3rem 1.5rem 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
-
-      /* FLOATING BUTTONS */
       .cursor, .cursor-ring { display: none; }
       .book-float { bottom: 8rem; right: 1.2rem; }
       .whatsapp-float { bottom: 1.5rem; right: 1.2rem; }
       .book-float-btn { padding: 0.75rem 1.2rem; font-size: 0.65rem; }
-
-      /* POPUPS */
       .popup-box { padding: 2rem 1.5rem; margin: 1rem; }
       .cookie-banner { flex-direction: column; padding: 1.5rem; gap: 1rem; }
       .compare-bar-inner { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
       .compare-slots { flex-direction: column; }
       .compare-slot { max-width: 100%; }
-
-      /* COMPARE */
-      .compare-bar-inner { padding: 1rem; }
     }
 
-    /* SMALL MOBILE — 600px */
     @media (max-width: 600px) {
       .lang-bar { display: none; }
       nav { top: 0; }
       .hero { margin-top: 0; }
-
       section { padding: 3.5rem 1.2rem; }
       .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
-
       .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
       .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
       .stat-item { min-width: unset; }
-
       .snapshot-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
       .snap-num { font-size: 1.8rem; }
       .snap-card { padding: 1.5rem 1rem; }
-
       .team-grid { grid-template-columns: 1fr; }
       .team-photo { height: 320px; }
-
       .areas-grid { grid-template-columns: 1fr; }
       .area-card-img { height: 160px; }
-
       .dev-logos { grid-template-columns: repeat(2,1fr); }
-
       .about-img-wrap img { height: 260px; }
       .ceo-img-wrap img { height: 300px; }
-
       .calc-form { padding: 1.5rem; }
       .calc-result-val { font-size: 2rem; }
-
       .faq-cta-box { padding: 2rem 1.5rem; }
-
       .testi-card { padding: 1.8rem 1.5rem; min-width: calc(95% - 1rem); }
       .testi-text { font-size: 0.95rem; }
-
       .popup-times { grid-template-columns: repeat(2,1fr); }
       .popup-box { width: 95%; padding: 1.8rem 1.2rem; }
       .popup-title { font-size: 1.6rem; }
-
       .exit-box { width: 95%; }
       .exit-top { padding: 2rem 1.5rem; }
       .exit-bottom { padding: 1.5rem; }
-
       .footer-socials { gap: 0.5rem; }
       .social-link { width: 34px; height: 34px; }
-
       .compare-bar-inner { display: none; }
     }
 
-    /* IPHONE SE / very small — 380px */
     @media (max-width: 380px) {
       section { padding: 3rem 1rem; }
       .hero h1 { font-size: 1.9rem; }
@@ -648,7 +566,7 @@
 
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
-  <span class="lang-label">Language:</span>
+  <span class="lang-label" data-i18n="lang_label">Language:</span>
   <button class="lang-btn active" onclick="setLang('en')">EN</button>
   <span class="lang-sep">|</span>
   <button class="lang-btn" onclick="setLang('ar')">AR</button>
@@ -658,38 +576,37 @@
 
 <!-- TRANSACTION TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-label">◆ Live Activity</div>
+  <div class="ticker-label">◆ <span data-i18n="ticker_label">Live Activity</span></div>
   <div style="overflow:hidden;flex:1">
     <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item">✓ Just Sold <span>·</span> DAMAC Hills Villa <span>·</span> AED 3.2M</span>
-      <span class="ticker-item">✓ New Booking <span>·</span> Emaar Creek Harbour Studio <span>·</span> AED 890K</span>
-      <span class="ticker-item">✓ Consultation Booked <span>·</span> Investor from 🇫🇷 France</span>
-      <span class="ticker-item">✓ Just Sold <span>·</span> Azizi Venice Apartment <span>·</span> AED 1.4M</span>
-      <span class="ticker-item">✓ New Inquiry <span>·</span> Ellington Marvia Shores <span>·</span> Penthouse</span>
-      <span class="ticker-item">✓ Portfolio Review <span>·</span> Client from 🇸🇦 Saudi Arabia</span>
-      <span class="ticker-item">✓ Just Sold <span>·</span> Silicon Oasis 2BR <span>·</span> AED 1.1M</span>
-      <!-- duplicate for loop -->
-      <span class="ticker-item">✓ Just Sold <span>·</span> DAMAC Hills Villa <span>·</span> AED 3.2M</span>
-      <span class="ticker-item">✓ New Booking <span>·</span> Emaar Creek Harbour Studio <span>·</span> AED 890K</span>
-      <span class="ticker-item">✓ Consultation Booked <span>·</span> Investor from 🇫🇷 France</span>
-      <span class="ticker-item">✓ Just Sold <span>·</span> Azizi Venice Apartment <span>·</span> AED 1.4M</span>
-      <span class="ticker-item">✓ New Inquiry <span>·</span> Ellington Marvia Shores <span>·</span> Penthouse</span>
-      <span class="ticker-item">✓ Portfolio Review <span>·</span> Client from 🇸🇦 Saudi Arabia</span>
-      <span class="ticker-item">✓ Just Sold <span>·</span> Silicon Oasis 2BR <span>·</span> AED 1.1M</span>
+      <span class="ticker-item">✓ <span data-i18n="tick1">Just Sold</span> <span>·</span> DAMAC Hills Villa <span>·</span> AED 3.2M</span>
+      <span class="ticker-item">✓ <span data-i18n="tick2">New Booking</span> <span>·</span> Emaar Creek Harbour Studio <span>·</span> AED 890K</span>
+      <span class="ticker-item">✓ <span data-i18n="tick3">Consultation Booked</span> <span>·</span> <span data-i18n="tick3b">Investor from</span> 🇫🇷 France</span>
+      <span class="ticker-item">✓ <span data-i18n="tick1">Just Sold</span> <span>·</span> Azizi Venice Apartment <span>·</span> AED 1.4M</span>
+      <span class="ticker-item">✓ <span data-i18n="tick4">New Inquiry</span> <span>·</span> Ellington Marvia Shores <span>·</span> Penthouse</span>
+      <span class="ticker-item">✓ <span data-i18n="tick5">Portfolio Review</span> <span>·</span> <span data-i18n="tick3b">Investor from</span> 🇸🇦 Saudi Arabia</span>
+      <span class="ticker-item">✓ <span data-i18n="tick1">Just Sold</span> <span>·</span> Silicon Oasis 2BR <span>·</span> AED 1.1M</span>
+      <span class="ticker-item">✓ <span data-i18n="tick1">Just Sold</span> <span>·</span> DAMAC Hills Villa <span>·</span> AED 3.2M</span>
+      <span class="ticker-item">✓ <span data-i18n="tick2">New Booking</span> <span>·</span> Emaar Creek Harbour Studio <span>·</span> AED 890K</span>
+      <span class="ticker-item">✓ <span data-i18n="tick3">Consultation Booked</span> <span>·</span> <span data-i18n="tick3b">Investor from</span> 🇫🇷 France</span>
+      <span class="ticker-item">✓ <span data-i18n="tick1">Just Sold</span> <span>·</span> Azizi Venice Apartment <span>·</span> AED 1.4M</span>
+      <span class="ticker-item">✓ <span data-i18n="tick4">New Inquiry</span> <span>·</span> Ellington Marvia Shores <span>·</span> Penthouse</span>
+      <span class="ticker-item">✓ <span data-i18n="tick5">Portfolio Review</span> <span>·</span> <span data-i18n="tick3b">Investor from</span> 🇸🇦 Saudi Arabia</span>
+      <span class="ticker-item">✓ <span data-i18n="tick1">Just Sold</span> <span>·</span> Silicon Oasis 2BR <span>·</span> AED 1.1M</span>
     </div>
   </div>
 </div>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#properties" onclick="closeMobileMenu()">Properties</a>
-  <a href="#calculator" onclick="closeMobileMenu()">ROI Calculator</a>
-  <a href="#areas" onclick="closeMobileMenu()">Area Guide</a>
-  <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#about" onclick="closeMobileMenu()" data-i18n="nav_about">About</a>
+  <a href="#properties" onclick="closeMobileMenu()" data-i18n="nav_props">Properties</a>
+  <a href="#calculator" onclick="closeMobileMenu()" data-i18n="nav_calc">ROI Calculator</a>
+  <a href="#areas" onclick="closeMobileMenu()" data-i18n="nav_areas">Area Guide</a>
+  <a href="#testimonials" onclick="closeMobileMenu()" data-i18n="nav_rev">Reviews</a>
   <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <button class="mobile-cta" onclick="closeMobileMenu();openPopup()">Book Free Consultation</button>
+  <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
+  <button class="mobile-cta" onclick="closeMobileMenu();openPopup()" data-i18n="book_cta">Book Free Consultation</button>
 </div>
 
 <!-- NAV -->
@@ -699,15 +616,15 @@
     <span class="nav-brand">Falcon Edge</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#properties">Properties</a></li>
-    <li><a href="#calculator">ROI Calculator</a></li>
-    <li><a href="#areas">Area Guide</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#about" data-i18n="nav_about">About</a></li>
+    <li><a href="#properties" data-i18n="nav_props">Properties</a></li>
+    <li><a href="#calculator" data-i18n="nav_calc">ROI Calculator</a></li>
+    <li><a href="#areas" data-i18n="nav_areas">Area Guide</a></li>
+    <li><a href="#testimonials" data-i18n="nav_rev">Reviews</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
-  <a href="#" class="nav-cta" onclick="openPopup()"><span>Book Consultation</span></a>
+  <a href="#" class="nav-cta" onclick="openPopup()"><span data-i18n="nav_book">Book Consultation</span></a>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
   </button>
@@ -722,19 +639,19 @@
   <div class="hero-pattern"></div>
   <div class="hero-particles" id="particles"></div>
   <div class="hero-content">
-    <div class="hero-tag">Premium Real Estate · Dubai</div>
-    <h1>Where Vision<br>Meets <span class="line2">Structure</span></h1>
-    <p class="hero-sub">Guiding discerning investors and homebuyers through Dubai's most prestigious real estate opportunities — with precision, transparency, and integrity.</p>
+    <div class="hero-tag" data-i18n="hero_tag">Premium Real Estate · Dubai</div>
+    <h1 data-i18n-html="hero_h1">Where Vision<br>Meets <span class="line2">Structure</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Guiding discerning investors and homebuyers through Dubai's most prestigious real estate opportunities — with precision, transparency, and integrity.</p>
     <div class="hero-btns">
-      <a href="#properties" class="btn-primary">Explore Properties</a>
-      <button class="btn-outline" onclick="openPopup()">Free Consultation</button>
+      <a href="#properties" class="btn-primary" data-i18n="hero_btn1">Explore Properties</a>
+      <button class="btn-outline" onclick="openPopup()" data-i18n="hero_btn2">Free Consultation</button>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-item"><span class="stat-num" data-target="10" data-suffix="+">0</span><span class="stat-label">Years Experience</span></div>
-    <div class="stat-item"><span class="stat-num" data-target="500" data-suffix="+">0</span><span class="stat-label">Clients Served</span></div>
-    <div class="stat-item"><span class="stat-num" data-target="3">0</span><span class="stat-label">Countries Expertise</span></div>
-    <div class="stat-item"><span class="stat-num">AED 1B+</span><span class="stat-label">Transactions Managed</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="10" data-suffix="+">0</span><span class="stat-label" data-i18n="stat1">Years Experience</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="500" data-suffix="+">0</span><span class="stat-label" data-i18n="stat2">Clients Served</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="3">0</span><span class="stat-label" data-i18n="stat3">Countries Expertise</span></div>
+    <div class="stat-item"><span class="stat-num">AED 1B+</span><span class="stat-label" data-i18n="stat4">Transactions Managed</span></div>
   </div>
 </section>
 
@@ -743,34 +660,34 @@
 <!-- MARKET SNAPSHOT -->
 <section class="snapshot-section" id="market">
   <div class="snapshot-header reveal">
-    <span class="section-tag" style="justify-content:center;">Live Market Data</span>
-    <h2 class="section-title">Dubai Real Estate <em>Market Snapshot</em></h2>
-    <p class="section-desc" style="margin:0 auto;text-align:center;">Updated quarterly — key indicators for informed investment decisions.</p>
+    <span class="section-tag" style="justify-content:center;" data-i18n="market_tag">Live Market Data</span>
+    <h2 class="section-title">Dubai Real Estate <em data-i18n="market_title_em">Market Snapshot</em></h2>
+    <p class="section-desc" style="margin:0 auto;text-align:center;" data-i18n="market_desc">Updated quarterly — key indicators for informed investment decisions.</p>
   </div>
   <div class="snapshot-grid reveal">
     <div class="snap-card">
       <div class="snap-icon">🏙️</div>
       <div class="snap-num">8.4%</div>
-      <div class="snap-label">Avg Rental Yield</div>
-      <div class="snap-trend">▲ +0.6% vs last year</div>
+      <div class="snap-label" data-i18n="snap1_label">Avg Rental Yield</div>
+      <div class="snap-trend" data-i18n="snap1_trend">▲ +0.6% vs last year</div>
     </div>
     <div class="snap-card">
       <div class="snap-icon">📈</div>
       <div class="snap-num">+17%</div>
-      <div class="snap-label">Price Growth (2024)</div>
-      <div class="snap-trend">▲ Outpacing global avg</div>
+      <div class="snap-label" data-i18n="snap2_label">Price Growth (2024)</div>
+      <div class="snap-trend" data-i18n="snap2_trend">▲ Outpacing global avg</div>
     </div>
     <div class="snap-card">
       <div class="snap-icon">🏗️</div>
       <div class="snap-num">92K+</div>
-      <div class="snap-label">New Units Delivered</div>
-      <div class="snap-trend">▲ Record year</div>
+      <div class="snap-label" data-i18n="snap3_label">New Units Delivered</div>
+      <div class="snap-trend" data-i18n="snap3_trend">▲ Record year</div>
     </div>
     <div class="snap-card">
       <div class="snap-icon">🌍</div>
       <div class="snap-num">0%</div>
-      <div class="snap-label">Capital Gains Tax</div>
-      <div class="snap-trend" style="color:var(--gold);">◆ UAE Advantage</div>
+      <div class="snap-label" data-i18n="snap4_label">Capital Gains Tax</div>
+      <div class="snap-trend" style="color:var(--gold);" data-i18n="snap4_trend">◆ UAE Advantage</div>
     </div>
   </div>
   <div class="snap-area-grid reveal" style="margin-top:2rem;">
@@ -790,17 +707,17 @@
   <div class="about-grid">
     <div class="about-img-wrap reveal-left">
       <img src="wp-content/uploads/2022/06/Agency-Story.webp" alt="Falcon Edge Properties Office" onerror="this.style.display='none'">
-      <div class="about-img-badge"><span class="num">10+</span><span class="lbl">Years<br>in Market</span></div>
+      <div class="about-img-badge"><span class="num">10+</span><span class="lbl" data-i18n="about_badge">Years<br>in Market</span></div>
     </div>
     <div class="reveal-right">
-      <span class="section-tag">Our Story</span>
-      <h2 class="section-title">Building Trust.<br>Delivering <em>Value.</em></h2>
+      <span class="section-tag" data-i18n="about_tag">Our Story</span>
+      <h2 class="section-title" data-i18n-html="about_title">Building Trust.<br>Delivering <em>Value.</em></h2>
       <div class="gold-line"></div>
-      <p class="section-desc">A Dubai-based real estate company specializing in premium properties, smart investments, and client-focused advisory services. We combine deep market knowledge with a personalized, client-first approach.</p>
+      <p class="section-desc" data-i18n="about_desc">A Dubai-based real estate company specializing in premium properties, smart investments, and client-focused advisory services. We combine deep market knowledge with a personalized, client-first approach.</p>
       <div class="about-values">
-        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4>Precision Over Pressure</h4><p>Every decision is informed, strategic, and aligned with your long-term investment goals.</p></div></div>
-        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4>Transparent Process</h4><p>We believe in clarity at every step — no hidden fees, no surprises, just honest guidance.</p></div></div>
-        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4>Premium Opportunities</h4><p>Access to exclusive off-plan projects and premium properties across Dubai's key districts.</p></div></div>
+        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4 data-i18n="val1_title">Precision Over Pressure</h4><p data-i18n="val1_desc">Every decision is informed, strategic, and aligned with your long-term investment goals.</p></div></div>
+        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4 data-i18n="val2_title">Transparent Process</h4><p data-i18n="val2_desc">We believe in clarity at every step — no hidden fees, no surprises, just honest guidance.</p></div></div>
+        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4 data-i18n="val3_title">Premium Opportunities</h4><p data-i18n="val3_desc">Access to exclusive off-plan projects and premium properties across Dubai's key districts.</p></div></div>
       </div>
     </div>
   </div>
@@ -812,87 +729,87 @@
 <section class="properties-section" id="properties">
   <div class="props-header reveal">
     <div>
-      <span class="section-tag">Featured Projects</span>
-      <h2 class="section-title">Premium <em>Off-Plan</em><br>Properties in Dubai</h2>
+      <span class="section-tag" data-i18n="props_tag">Featured Projects</span>
+      <h2 class="section-title" data-i18n-html="props_title">Premium <em>Off-Plan</em><br>Properties in Dubai</h2>
     </div>
-    <button class="btn-outline" onclick="openPopup()">Request All Listings</button>
+    <button class="btn-outline" onclick="openPopup()" data-i18n="props_cta">Request All Listings</button>
   </div>
   <div class="slider-wrap reveal">
     <div class="slider-track" id="propsTrack">
       <div class="prop-card">
         <div class="prop-img">
           <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-193114-1024x471.png" alt="DAMAC Islands 2" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>DAMAC</div>'">
-          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-badge" data-i18n="badge_offplan">Off Plan</div><div class="prop-overlay"></div>
           <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
         </div>
         <div class="prop-info">
           <div class="prop-developer">DAMAC Properties</div>
           <div class="prop-name">DAMAC Islands 2</div>
           <div class="prop-location">📍 Dubai, UAE</div>
-          <div class="prop-price">Island-Inspired Waterfront Living</div>
-          <button class="prop-compare-btn" onclick="addCompare(this,'DAMAC Islands 2')">+ Add to Compare</button>
+          <div class="prop-price" data-i18n="prop1_price">Island-Inspired Waterfront Living</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'DAMAC Islands 2')" data-i18n="compare_btn">+ Add to Compare</button>
         </div>
       </div>
       <div class="prop-card">
         <div class="prop-img">
           <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-191931-1024x607.png" alt="Emaar Dubai Creek" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>EMAAR</div>'">
-          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-badge" data-i18n="badge_offplan">Off Plan</div><div class="prop-overlay"></div>
           <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
         </div>
         <div class="prop-info">
           <div class="prop-developer">Emaar Properties</div>
           <div class="prop-name">Emaar Dubai Creek</div>
           <div class="prop-location">📍 Dubai Creek Harbour</div>
-          <div class="prop-price">Iconic Waterfront Living</div>
-          <button class="prop-compare-btn" onclick="addCompare(this,'Emaar Dubai Creek')">+ Add to Compare</button>
+          <div class="prop-price" data-i18n="prop2_price">Iconic Waterfront Living</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Emaar Dubai Creek')" data-i18n="compare_btn">+ Add to Compare</button>
         </div>
       </div>
       <div class="prop-card">
         <div class="prop-img">
           <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-185951.png" alt="Venice Next Legacy" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>AZIZI</div>'">
-          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-badge" data-i18n="badge_offplan">Off Plan</div><div class="prop-overlay"></div>
           <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
         </div>
         <div class="prop-info">
           <div class="prop-developer">Azizi Developments</div>
           <div class="prop-name">Venice Next Legacy</div>
           <div class="prop-location">📍 Dubai, UAE</div>
-          <div class="prop-price">Modern Living. Timeless Elegance.</div>
-          <button class="prop-compare-btn" onclick="addCompare(this,'Venice Next Legacy')">+ Add to Compare</button>
+          <div class="prop-price" data-i18n="prop3_price">Modern Living. Timeless Elegance.</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Venice Next Legacy')" data-i18n="compare_btn">+ Add to Compare</button>
         </div>
       </div>
       <div class="prop-card">
         <div class="prop-img">
           <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-192504.png" alt="Marvia Shores" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>ELLINGTON</div>'">
-          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-badge" data-i18n="badge_offplan">Off Plan</div><div class="prop-overlay"></div>
           <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
         </div>
         <div class="prop-info">
           <div class="prop-developer">Ellington Properties</div>
           <div class="prop-name">Marvia Shores Collection</div>
           <div class="prop-location">📍 Dubai, UAE</div>
-          <div class="prop-price">Where Luxury Meets Lifestyle</div>
-          <button class="prop-compare-btn" onclick="addCompare(this,'Marvia Shores')">+ Add to Compare</button>
+          <div class="prop-price" data-i18n="prop4_price">Where Luxury Meets Lifestyle</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Marvia Shores')" data-i18n="compare_btn">+ Add to Compare</button>
         </div>
       </div>
       <div class="prop-card">
         <div class="prop-img">
           <img src="wp-content/uploads/2021/11/sec-bg.webp" alt="Silicon Oasis" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>VILLA</div>'">
-          <div class="prop-badge">Premium</div><div class="prop-overlay"></div>
+          <div class="prop-badge" data-i18n="badge_premium">Premium</div><div class="prop-overlay"></div>
           <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
         </div>
         <div class="prop-info">
-          <div class="prop-developer">Featured Listing</div>
+          <div class="prop-developer" data-i18n="prop5_dev">Featured Listing</div>
           <div class="prop-name">Silicon Oasis Residence</div>
           <div class="prop-location">📍 Silicon Oasis, Dubai</div>
-          <div class="prop-price">Contemporary Urban Living</div>
-          <button class="prop-compare-btn" onclick="addCompare(this,'Silicon Oasis Residence')">+ Add to Compare</button>
+          <div class="prop-price" data-i18n="prop5_price">Contemporary Urban Living</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Silicon Oasis Residence')" data-i18n="compare_btn">+ Add to Compare</button>
         </div>
       </div>
       <div class="prop-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:3rem;text-align:center;background:linear-gradient(135deg,#1a1510,#2a2010);">
         <div style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--gold);opacity:0.35;">+</div>
-        <p style="color:var(--gray);font-size:0.85rem;line-height:1.8;">More exclusive projects<br>available on request.</p>
-        <button class="btn-primary" style="font-size:0.72rem;padding:0.75rem 1.5rem;" onclick="openPopup()">Request Listings</button>
+        <p style="color:var(--gray);font-size:0.85rem;line-height:1.8;" data-i18n="more_props">More exclusive projects<br>available on request.</p>
+        <button class="btn-primary" style="font-size:0.72rem;padding:0.75rem 1.5rem;" onclick="openPopup()" data-i18n="props_cta">Request Listings</button>
       </div>
     </div>
     <div class="slider-controls">
@@ -906,15 +823,15 @@
 <!-- COMPARE BAR -->
 <div class="compare-bar" id="compareBar">
   <div class="compare-bar-inner">
-    <span class="compare-label">Compare Properties:</span>
+    <span class="compare-label" data-i18n="compare_label">Compare Properties:</span>
     <div class="compare-slots" id="compareSlots">
-      <div class="compare-slot" id="slot0"><span class="compare-slot-empty">Select a property</span></div>
-      <div class="compare-slot" id="slot1"><span class="compare-slot-empty">Select a property</span></div>
-      <div class="compare-slot" id="slot2"><span class="compare-slot-empty">Select a property</span></div>
+      <div class="compare-slot" id="slot0"><span class="compare-slot-empty" data-i18n="slot_empty">Select a property</span></div>
+      <div class="compare-slot" id="slot1"><span class="compare-slot-empty" data-i18n="slot_empty">Select a property</span></div>
+      <div class="compare-slot" id="slot2"><span class="compare-slot-empty" data-i18n="slot_empty">Select a property</span></div>
     </div>
     <div class="compare-actions">
-      <button class="btn-primary" style="padding:0.7rem 1.5rem;font-size:0.7rem;" onclick="openPopup()">Compare Now</button>
-      <button class="btn-outline" style="padding:0.7rem 1.2rem;font-size:0.7rem;" onclick="clearCompare()">Clear</button>
+      <button class="btn-primary" style="padding:0.7rem 1.5rem;font-size:0.7rem;" onclick="openPopup()" data-i18n="compare_now">Compare Now</button>
+      <button class="btn-outline" style="padding:0.7rem 1.2rem;font-size:0.7rem;" onclick="clearCompare()" data-i18n="clear">Clear</button>
     </div>
   </div>
 </div>
@@ -924,51 +841,49 @@
 <!-- ROI CALCULATOR -->
 <section class="calculator-section" id="calculator">
   <div style="text-align:center;max-width:560px;margin:0 auto 4rem;" class="reveal">
-    <span class="section-tag" style="justify-content:center;">Smart Investing</span>
-    <h2 class="section-title">ROI & Mortgage <em>Calculator</em></h2>
-    <p class="section-desc" style="margin:0 auto;">Estimate your rental yield, monthly returns, and 5-year property value growth.</p>
+    <span class="section-tag" style="justify-content:center;" data-i18n="calc_tag">Smart Investing</span>
+    <h2 class="section-title">ROI &amp; Mortgage <em data-i18n="calc_title_em">Calculator</em></h2>
+    <p class="section-desc" style="margin:0 auto;" data-i18n="calc_desc">Estimate your rental yield, monthly returns, and 5-year property value growth.</p>
   </div>
   <div class="calc-grid reveal">
     <div class="calc-form">
-      <h3>Your Investment</h3>
+      <h3 data-i18n="calc_form_title">Your Investment</h3>
       <div class="calc-group">
-        <div class="calc-label">Property Price (AED) <span id="priceLabel">1,500,000</span></div>
+        <div class="calc-label"><span data-i18n="calc_price">Property Price (AED)</span> <span id="priceLabel">1,500,000</span></div>
         <input type="range" class="calc-slider" id="priceSlider" min="500000" max="10000000" step="50000" value="1500000" oninput="updateCalc()">
       </div>
       <div class="calc-group">
-        <div class="calc-label">Down Payment % <span id="dpLabel">20%</span></div>
+        <div class="calc-label"><span data-i18n="calc_dp">Down Payment %</span> <span id="dpLabel">20%</span></div>
         <input type="range" class="calc-slider" id="dpSlider" min="10" max="50" step="1" value="20" oninput="updateCalc()">
       </div>
       <div class="calc-group">
-        <div class="calc-label">Expected Rental Yield % <span id="yieldLabel">8%</span></div>
+        <div class="calc-label"><span data-i18n="calc_yield">Expected Rental Yield %</span> <span id="yieldLabel">8%</span></div>
         <input type="range" class="calc-slider" id="yieldSlider" min="4" max="14" step="0.5" value="8" oninput="updateCalc()">
       </div>
       <div class="calc-group">
-        <div class="calc-label">Annual Appreciation % <span id="appLabel">10%</span></div>
+        <div class="calc-label"><span data-i18n="calc_app">Annual Appreciation %</span> <span id="appLabel">10%</span></div>
         <input type="range" class="calc-slider" id="appSlider" min="3" max="20" step="0.5" value="10" oninput="updateCalc()">
       </div>
       <div class="calc-group">
-        <div class="calc-label">Mortgage Rate % <span id="rateLabel">4.5%</span></div>
+        <div class="calc-label"><span data-i18n="calc_rate">Mortgage Rate %</span> <span id="rateLabel">4.5%</span></div>
         <input type="range" class="calc-slider" id="rateSlider" min="2" max="8" step="0.1" value="4.5" oninput="updateCalc()">
       </div>
     </div>
     <div class="calc-results">
-      <div class="calc-result-card"><div class="calc-result-label">Annual Rental Income</div><div class="calc-result-val" id="annualRent">AED 120,000</div><div class="calc-result-sub">Based on your yield estimate</div></div>
-      <div class="calc-result-card"><div class="calc-result-label">Monthly Mortgage Payment</div><div class="calc-result-val" id="monthlyMort">AED 6,600</div><div class="calc-result-sub">Over 25 years</div></div>
-      <div class="calc-result-card"><div class="calc-result-label">Net Monthly Cash Flow</div><div class="calc-result-val" id="cashFlow">AED 3,400</div><div class="calc-result-sub">After mortgage — before expenses</div></div>
+      <div class="calc-result-card"><div class="calc-result-label" data-i18n="res1_label">Annual Rental Income</div><div class="calc-result-val" id="annualRent">AED 120,000</div><div class="calc-result-sub" data-i18n="res1_sub">Based on your yield estimate</div></div>
+      <div class="calc-result-card"><div class="calc-result-label" data-i18n="res2_label">Monthly Mortgage Payment</div><div class="calc-result-val" id="monthlyMort">AED 6,600</div><div class="calc-result-sub" data-i18n="res2_sub">Over 25 years</div></div>
+      <div class="calc-result-card"><div class="calc-result-label" data-i18n="res3_label">Net Monthly Cash Flow</div><div class="calc-result-val" id="cashFlow">AED 3,400</div><div class="calc-result-sub" data-i18n="res3_sub">After mortgage — before expenses</div></div>
       <div class="calc-result-card">
-        <div class="calc-result-label">5-Year Property Value</div>
+        <div class="calc-result-label" data-i18n="res4_label">5-Year Property Value</div>
         <div class="calc-result-val" id="fiveYear">AED 2,415,765</div>
-        <div class="calc-result-sub">Estimated with compounding growth</div>
-        <div class="calc-chart">
-          <div class="calc-bar-wrap" id="calcBars"></div>
-        </div>
+        <div class="calc-result-sub" data-i18n="res4_sub">Estimated with compounding growth</div>
+        <div class="calc-chart"><div class="calc-bar-wrap" id="calcBars"></div></div>
       </div>
     </div>
   </div>
   <div style="text-align:center;margin-top:3rem;" class="reveal">
-    <p style="font-size:0.75rem;color:var(--gray);margin-bottom:1.5rem;">* Estimates only. Actual returns depend on market conditions, property type, and management. Consult our advisors for a personalised analysis.</p>
-    <button class="btn-primary" onclick="openPopup()">Get a Personalised Investment Analysis →</button>
+    <p style="font-size:0.75rem;color:var(--gray);margin-bottom:1.5rem;" data-i18n="calc_disclaimer">* Estimates only. Actual returns depend on market conditions, property type, and management. Consult our advisors for a personalised analysis.</p>
+    <button class="btn-primary" onclick="openPopup()" data-i18n="calc_cta">Get a Personalised Investment Analysis →</button>
   </div>
 </section>
 
@@ -977,20 +892,20 @@
 <!-- AREA GUIDE -->
 <section class="areas-section" id="areas">
   <div style="text-align:center;max-width:560px;margin:0 auto 1rem;" class="reveal">
-    <span class="section-tag" style="justify-content:center;">Explore Dubai</span>
-    <h2 class="section-title">Dubai <em>Area Guide</em></h2>
-    <p class="section-desc" style="margin:0 auto;">Find the neighbourhood that matches your lifestyle and investment goals.</p>
+    <span class="section-tag" style="justify-content:center;" data-i18n="areas_tag">Explore Dubai</span>
+    <h2 class="section-title">Dubai <em data-i18n="areas_title_em">Area Guide</em></h2>
+    <p class="section-desc" style="margin:0 auto;" data-i18n="areas_desc">Find the neighbourhood that matches your lifestyle and investment goals.</p>
   </div>
   <div class="areas-grid reveal">
     <div class="area-card">
       <div class="area-card-img"><div class="area-card-emoji">🏙️</div><div class="area-card-overlay"></div></div>
       <div class="area-card-body">
         <div class="area-card-name">Downtown Dubai</div>
-        <div class="area-card-desc">Home to the Burj Khalifa and Dubai Mall. A global icon offering ultra-luxury living with world-class retail and dining at your doorstep.</div>
+        <div class="area-card-desc" data-i18n="area1_desc">Home to the Burj Khalifa and Dubai Mall. A global icon offering ultra-luxury living with world-class retail and dining at your doorstep.</div>
         <div class="area-card-stats">
-          <div class="area-stat"><div class="area-stat-val">7.2%</div><div class="area-stat-key">Avg Yield</div></div>
-          <div class="area-stat"><div class="area-stat-val">AED 2,800</div><div class="area-stat-key">per sqft</div></div>
-          <div class="area-stat"><div class="area-stat-val">Very High</div><div class="area-stat-key">Demand</div></div>
+          <div class="area-stat"><div class="area-stat-val">7.2%</div><div class="area-stat-key" data-i18n="avg_yield">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 2,800</div><div class="area-stat-key" data-i18n="per_sqft">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val" data-i18n="very_high">Very High</div><div class="area-stat-key" data-i18n="demand">Demand</div></div>
         </div>
       </div>
     </div>
@@ -998,11 +913,11 @@
       <div class="area-card-img"><div class="area-card-emoji">⚓</div><div class="area-card-overlay"></div></div>
       <div class="area-card-body">
         <div class="area-card-name">Dubai Marina</div>
-        <div class="area-card-desc">A vibrant waterfront community with yacht clubs, beach access, and a cosmopolitan lifestyle favoured by expats and investors.</div>
+        <div class="area-card-desc" data-i18n="area2_desc">A vibrant waterfront community with yacht clubs, beach access, and a cosmopolitan lifestyle favoured by expats and investors.</div>
         <div class="area-card-stats">
-          <div class="area-stat"><div class="area-stat-val">8.1%</div><div class="area-stat-key">Avg Yield</div></div>
-          <div class="area-stat"><div class="area-stat-val">AED 2,100</div><div class="area-stat-key">per sqft</div></div>
-          <div class="area-stat"><div class="area-stat-val">High</div><div class="area-stat-key">Demand</div></div>
+          <div class="area-stat"><div class="area-stat-val">8.1%</div><div class="area-stat-key" data-i18n="avg_yield">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 2,100</div><div class="area-stat-key" data-i18n="per_sqft">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val" data-i18n="high">High</div><div class="area-stat-key" data-i18n="demand">Demand</div></div>
         </div>
       </div>
     </div>
@@ -1010,11 +925,11 @@
       <div class="area-card-img"><div class="area-card-emoji">🌿</div><div class="area-card-overlay"></div></div>
       <div class="area-card-body">
         <div class="area-card-name">JVC (Jumeirah Village)</div>
-        <div class="area-card-desc">Dubai's highest-yielding district. Affordable, family-friendly, and rapidly developing with excellent ROI potential for investors.</div>
+        <div class="area-card-desc" data-i18n="area3_desc">Dubai's highest-yielding district. Affordable, family-friendly, and rapidly developing with excellent ROI potential for investors.</div>
         <div class="area-card-stats">
-          <div class="area-stat"><div class="area-stat-val">9.4%</div><div class="area-stat-key">Avg Yield</div></div>
-          <div class="area-stat"><div class="area-stat-val">AED 1,050</div><div class="area-stat-key">per sqft</div></div>
-          <div class="area-stat"><div class="area-stat-val">Very High</div><div class="area-stat-key">Demand</div></div>
+          <div class="area-stat"><div class="area-stat-val">9.4%</div><div class="area-stat-key" data-i18n="avg_yield">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 1,050</div><div class="area-stat-key" data-i18n="per_sqft">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val" data-i18n="very_high">Very High</div><div class="area-stat-key" data-i18n="demand">Demand</div></div>
         </div>
       </div>
     </div>
@@ -1022,11 +937,11 @@
       <div class="area-card-img"><div class="area-card-emoji">🌊</div><div class="area-card-overlay"></div></div>
       <div class="area-card-body">
         <div class="area-card-name">Dubai Creek Harbour</div>
-        <div class="area-card-desc">Emaar's flagship mega-development. A new city within a city featuring the world's tallest tower, creek views, and strong appreciation.</div>
+        <div class="area-card-desc" data-i18n="area4_desc">Emaar's flagship mega-development. A new city within a city featuring the world's tallest tower, creek views, and strong appreciation.</div>
         <div class="area-card-stats">
-          <div class="area-stat"><div class="area-stat-val">8.6%</div><div class="area-stat-key">Avg Yield</div></div>
-          <div class="area-stat"><div class="area-stat-val">AED 1,900</div><div class="area-stat-key">per sqft</div></div>
-          <div class="area-stat"><div class="area-stat-val">High</div><div class="area-stat-key">Demand</div></div>
+          <div class="area-stat"><div class="area-stat-val">8.6%</div><div class="area-stat-key" data-i18n="avg_yield">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 1,900</div><div class="area-stat-key" data-i18n="per_sqft">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val" data-i18n="high">High</div><div class="area-stat-key" data-i18n="demand">Demand</div></div>
         </div>
       </div>
     </div>
@@ -1034,11 +949,11 @@
       <div class="area-card-img"><div class="area-card-emoji">🏡</div><div class="area-card-overlay"></div></div>
       <div class="area-card-body">
         <div class="area-card-name">DAMAC Hills</div>
-        <div class="area-card-desc">A luxury villa community surrounding the Trump International Golf Club. Ideal for families seeking privacy, greenery, and a resort-like lifestyle.</div>
+        <div class="area-card-desc" data-i18n="area5_desc">A luxury villa community surrounding the Trump International Golf Club. Ideal for families seeking privacy, greenery, and a resort-like lifestyle.</div>
         <div class="area-card-stats">
-          <div class="area-stat"><div class="area-stat-val">7.8%</div><div class="area-stat-key">Avg Yield</div></div>
-          <div class="area-stat"><div class="area-stat-val">AED 1,350</div><div class="area-stat-key">per sqft</div></div>
-          <div class="area-stat"><div class="area-stat-val">High</div><div class="area-stat-key">Demand</div></div>
+          <div class="area-stat"><div class="area-stat-val">7.8%</div><div class="area-stat-key" data-i18n="avg_yield">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 1,350</div><div class="area-stat-key" data-i18n="per_sqft">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val" data-i18n="high">High</div><div class="area-stat-key" data-i18n="demand">Demand</div></div>
         </div>
       </div>
     </div>
@@ -1046,11 +961,11 @@
       <div class="area-card-img"><div class="area-card-emoji">💻</div><div class="area-card-overlay"></div></div>
       <div class="area-card-body">
         <div class="area-card-name">Silicon Oasis</div>
-        <div class="area-card-desc">Dubai's tech hub. Affordable, self-contained, and growing fast. A top pick for budget-conscious investors seeking high rental yields.</div>
+        <div class="area-card-desc" data-i18n="area6_desc">Dubai's tech hub. Affordable, self-contained, and growing fast. A top pick for budget-conscious investors seeking high rental yields.</div>
         <div class="area-card-stats">
-          <div class="area-stat"><div class="area-stat-val">9.1%</div><div class="area-stat-key">Avg Yield</div></div>
-          <div class="area-stat"><div class="area-stat-val">AED 820</div><div class="area-stat-key">per sqft</div></div>
-          <div class="area-stat"><div class="area-stat-val">Growing</div><div class="area-stat-key">Demand</div></div>
+          <div class="area-stat"><div class="area-stat-val">9.1%</div><div class="area-stat-key" data-i18n="avg_yield">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 820</div><div class="area-stat-key" data-i18n="per_sqft">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val" data-i18n="growing">Growing</div><div class="area-stat-key" data-i18n="demand">Demand</div></div>
         </div>
       </div>
     </div>
@@ -1066,20 +981,20 @@
       <img src="wp-content/uploads/2025/12/mohamed.jpg" alt="Mohamed Frigui - CEO">
     </div>
     <div class="reveal-right">
-      <span class="section-tag">Leadership</span>
+      <span class="section-tag" data-i18n="ceo_tag">Leadership</span>
       <h2 class="section-title">Mohamed<br><em>Frigui</em></h2>
       <div class="gold-line"></div>
-      <blockquote class="ceo-quote">"Real estate is not simply about buying and selling properties — it is about building legacies, creating value, and earning trust."</blockquote>
-      <p class="ceo-text">A civil engineer by education with over 10 years of international experience in real estate across Tunisia, France, and Dubai. Engineering taught precision and responsibility. Real estate revealed the human side of investment and vision.</p>
-      <p class="ceo-text">This rare combination allows evaluation of projects beyond appearance — focusing on structure, quality, sustainability, and real return on investment.</p>
+      <blockquote class="ceo-quote" data-i18n="ceo_quote">"Real estate is not simply about buying and selling properties — it is about building legacies, creating value, and earning trust."</blockquote>
+      <p class="ceo-text" data-i18n="ceo_text1">A civil engineer by education with over 10 years of international experience in real estate across Tunisia, France, and Dubai. Engineering taught precision and responsibility. Real estate revealed the human side of investment and vision.</p>
+      <p class="ceo-text" data-i18n="ceo_text2">This rare combination allows evaluation of projects beyond appearance — focusing on structure, quality, sustainability, and real return on investment.</p>
       <div class="ceo-journey">
-        <div class="journey-step"><div class="journey-flag">🇹🇳</div><div class="journey-country">Tunisia</div><div class="journey-desc">Relationship-driven approach and human values</div></div>
-        <div class="journey-step"><div class="journey-flag">🇫🇷</div><div class="journey-country">France</div><div class="journey-desc">Regulated markets and asset protection</div></div>
-        <div class="journey-step"><div class="journey-flag">🇦🇪</div><div class="journey-country">Dubai</div><div class="journey-desc">Speed, innovation, and limitless ambition</div></div>
+        <div class="journey-step"><div class="journey-flag">🇹🇳</div><div class="journey-country" data-i18n="j1_country">Tunisia</div><div class="journey-desc" data-i18n="j1_desc">Relationship-driven approach and human values</div></div>
+        <div class="journey-step"><div class="journey-flag">🇫🇷</div><div class="journey-country" data-i18n="j2_country">France</div><div class="journey-desc" data-i18n="j2_desc">Regulated markets and asset protection</div></div>
+        <div class="journey-step"><div class="journey-flag">🇦🇪</div><div class="journey-country" data-i18n="j3_country">Dubai</div><div class="journey-desc" data-i18n="j3_desc">Speed, innovation, and limitless ambition</div></div>
       </div>
       <div class="ceo-signature">
         <div class="ceo-name">Mohamed Frigui</div>
-        <div class="ceo-title">Founder & CEO — Falcon Edge Properties</div>
+        <div class="ceo-title" data-i18n="ceo_title_role">Founder &amp; CEO — Falcon Edge Properties</div>
       </div>
     </div>
   </div>
@@ -1090,46 +1005,46 @@
 <!-- TEAM -->
 <section class="team-section" id="team">
   <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto;">
-    <span class="section-tag" style="justify-content:center;">Our People</span>
-    <h2 class="section-title">Meet the <em>Team</em></h2>
+    <span class="section-tag" style="justify-content:center;" data-i18n="team_tag">Our People</span>
+    <h2 class="section-title" data-i18n-html="team_title">Meet the <em>Team</em></h2>
     <div class="gold-line" style="margin:1.5rem auto;"></div>
-    <p class="section-desc" style="margin:0 auto;">Experienced professionals united by a shared commitment to excellence, integrity, and client-first service.</p>
+    <p class="section-desc" style="margin:0 auto;" data-i18n="team_desc">Experienced professionals united by a shared commitment to excellence, integrity, and client-first service.</p>
   </div>
   <div class="team-grid reveal">
     <div class="team-card">
       <div class="team-photo"><img src="wp-content/uploads/2025/12/abdulrazak.png" alt="Abdulrazak"><div class="team-card-overlay"></div></div>
       <div class="team-info">
-        <div class="team-role">Property Consultant</div>
+        <div class="team-role" data-i18n="role_consultant">Property Consultant</div>
         <div class="team-name">Abdulrazak</div>
-        <div class="team-bio">Expert in guiding clients through Dubai's most exclusive residential and investment properties.</div>
-        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a></div>
+        <div class="team-bio" data-i18n="team1_bio">Expert in guiding clients through Dubai's most exclusive residential and investment properties.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link" data-i18n="email_link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link" data-i18n="call_link">📞 Call</a></div>
       </div>
     </div>
     <div class="team-card">
       <div class="team-photo"><img src="wp-content/uploads/2025/12/safa.jpg" alt="Safa"><div class="team-card-overlay"></div></div>
       <div class="team-info">
-        <div class="team-role">Property Consultant</div>
+        <div class="team-role" data-i18n="role_consultant">Property Consultant</div>
         <div class="team-name">Safa</div>
-        <div class="team-bio">Specialist in off-plan projects and investor relations across Dubai's key districts.</div>
-        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152349106" class="team-contact-link">📞 Call</a></div>
+        <div class="team-bio" data-i18n="team2_bio">Specialist in off-plan projects and investor relations across Dubai's key districts.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link" data-i18n="email_link">✉ Email</a><a href="tel:+97152349106" class="team-contact-link" data-i18n="call_link">📞 Call</a></div>
       </div>
     </div>
     <div class="team-card">
-      <div class="team-photo"><img src="wp-content/uploads/2025/12/Yaman.jpg" alt="Yaman"><div class="team-card-overlay"></div></div>
+      <div class="team-photo"><img src="wp-content/uploads/2025/12/yaman.jpg" alt="Yaman"><div class="team-card-overlay"></div></div>
       <div class="team-info">
-        <div class="team-role">Sales Director</div>
+        <div class="team-role" data-i18n="role_director">Sales Director</div>
         <div class="team-name">Yaman</div>
-        <div class="team-bio">Leading the sales team with strategic vision and deep expertise in Dubai's premium property market.</div>
-        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:0456633270" class="team-contact-link">📞 Call</a></div>
+        <div class="team-bio" data-i18n="team3_bio">Leading the sales team with strategic vision and deep expertise in Dubai's premium property market.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link" data-i18n="email_link">✉ Email</a><a href="tel:0456633270" class="team-contact-link" data-i18n="call_link">📞 Call</a></div>
       </div>
     </div>
     <div class="team-card">
       <div class="team-photo"><img src="wp-content/uploads/2025/12/Bashar.jpg" alt="Bashar"><div class="team-card-overlay"></div></div>
       <div class="team-info">
-        <div class="team-role">Property Consultant</div>
+        <div class="team-role" data-i18n="role_consultant">Property Consultant</div>
         <div class="team-name">Bashar</div>
-        <div class="team-bio">Dedicated to matching clients with premium residential and commercial opportunities in Dubai.</div>
-        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a></div>
+        <div class="team-bio" data-i18n="team4_bio">Dedicated to matching clients with premium residential and commercial opportunities in Dubai.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link" data-i18n="email_link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link" data-i18n="call_link">📞 Call</a></div>
       </div>
     </div>
   </div>
@@ -1140,15 +1055,15 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimonials">
   <div class="testi-header reveal">
-    <span class="section-tag" style="justify-content:center;">Client Stories</span>
-    <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+    <span class="section-tag" style="justify-content:center;" data-i18n="testi_tag">Client Stories</span>
+    <h2 class="section-title" data-i18n-html="testi_title">What Our <em>Clients</em> Say</h2>
     <div class="gold-line" style="margin:1.5rem auto;"></div>
   </div>
   <div class="rating-summary reveal">
     <div style="text-align:center">
       <div class="rating-big">5.0</div>
       <div class="rating-stars-big">★★★★★</div>
-      <div class="rating-count">Based on 127 verified reviews</div>
+      <div class="rating-count" data-i18n="rating_count">Based on 127 verified reviews</div>
     </div>
     <div class="rating-bars">
       <div class="rating-bar-row"><span class="rating-bar-label">5</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:94%"></div></div><span style="font-size:0.65rem;color:var(--gray)">119</span></div>
@@ -1158,7 +1073,7 @@
       <div class="rating-bar-row"><span class="rating-bar-label">1</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span style="font-size:0.65rem;color:var(--gray)">0</span></div>
     </div>
     <div style="text-align:center">
-      <div style="font-size:0.65rem;color:var(--gray);margin-bottom:0.5rem;letter-spacing:0.1em;text-transform:uppercase">Also Rated On</div>
+      <div style="font-size:0.65rem;color:var(--gray);margin-bottom:0.5rem;letter-spacing:0.1em;text-transform:uppercase" data-i18n="also_rated">Also Rated On</div>
       <div style="display:flex;gap:1rem;align-items:center;justify-content:center">
         <div style="font-size:0.8rem;color:var(--light-gray);border:1px solid rgba(255,255,255,0.1);padding:0.4rem 0.8rem;">Google ★★★★★</div>
         <div style="font-size:0.8rem;color:var(--light-gray);border:1px solid rgba(255,255,255,0.1);padding:0.4rem 0.8rem;">Trustpilot ★★★★★</div>
@@ -1167,11 +1082,11 @@
   </div>
   <div class="testi-track-wrap reveal">
     <div class="testi-track" id="testiTrack">
-      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">Mohamed and his team were exceptional. They found us a perfect off-plan investment in Dubai Creek Harbour — handled everything from paperwork to payment plans with complete transparency.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">KA</div><div><div class="testi-name">Khalid Al-Rashidi</div><div class="testi-origin">🇸🇦 Saudi Arabia · Investor</div></div></div></div>
-      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">As a first-time buyer in Dubai, I was nervous. Falcon Edge made the entire process seamless. Their knowledge of the market saved me from bad deals and found me something truly premium.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">SM</div><div><div class="testi-name">Sophie Martin</div><div class="testi-origin">🇫🇷 France · Homebuyer</div></div></div></div>
-      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">I have worked with many agencies in Dubai. Falcon Edge stands apart — Mohamed's engineering background gives him a unique eye for structural quality that most brokers simply don't have.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">RA</div><div><div class="testi-name">Rami Aoun</div><div class="testi-origin">🇱🇧 Lebanon · Portfolio Investor</div></div></div></div>
-      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">Excellent service from start to finish. The team was always available and the property they recommended has already appreciated 18% in one year. Highly recommend to any serious investor.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">YB</div><div><div class="testi-name">Yasmine Ben Ali</div><div class="testi-origin">🇹🇳 Tunisia · Investor</div></div></div></div>
-      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">We relocated from London and needed everything — school districts, community feel, ROI potential. Falcon Edge delivered on all fronts. Our villa in DAMAC Hills is beyond expectations.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">JW</div><div><div class="testi-name">James & Emma Wilson</div><div class="testi-origin">🇬🇧 United Kingdom · Family Buyer</div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text" data-i18n="t1_text">Mohamed and his team were exceptional. They found us a perfect off-plan investment in Dubai Creek Harbour — handled everything from paperwork to payment plans with complete transparency.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">KA</div><div><div class="testi-name">Khalid Al-Rashidi</div><div class="testi-origin">🇸🇦 Saudi Arabia · <span data-i18n="investor">Investor</span></div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text" data-i18n="t2_text">As a first-time buyer in Dubai, I was nervous. Falcon Edge made the entire process seamless. Their knowledge of the market saved me from bad deals and found me something truly premium.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">SM</div><div><div class="testi-name">Sophie Martin</div><div class="testi-origin">🇫🇷 France · <span data-i18n="homebuyer">Homebuyer</span></div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text" data-i18n="t3_text">I have worked with many agencies in Dubai. Falcon Edge stands apart — Mohamed's engineering background gives him a unique eye for structural quality that most brokers simply don't have.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">RA</div><div><div class="testi-name">Rami Aoun</div><div class="testi-origin">🇱🇧 Lebanon · <span data-i18n="investor">Investor</span></div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text" data-i18n="t4_text">Excellent service from start to finish. The team was always available and the property they recommended has already appreciated 18% in one year. Highly recommend to any serious investor.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">YB</div><div><div class="testi-name">Yasmine Ben Ali</div><div class="testi-origin">🇹🇳 Tunisia · <span data-i18n="investor">Investor</span></div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text" data-i18n="t5_text">We relocated from London and needed everything — school districts, community feel, ROI potential. Falcon Edge delivered on all fronts. Our villa in DAMAC Hills is beyond expectations.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">JW</div><div><div class="testi-name">James &amp; Emma Wilson</div><div class="testi-origin">🇬🇧 United Kingdom · <span data-i18n="family_buyer">Family Buyer</span></div></div></div></div>
     </div>
     <div class="slider-controls">
       <button class="slider-btn" id="testiPrev">&#8592;</button>
@@ -1186,9 +1101,9 @@
 <!-- DEVELOPERS -->
 <section class="developers-section" id="developers">
   <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto;">
-    <span class="section-tag" style="justify-content:center;">Our Partners</span>
-    <h2 class="section-title">Trusted <em>Developer</em><br>Partnerships</h2>
-    <p class="section-desc" style="margin:0 auto;">We collaborate exclusively with Dubai's most reputable and established property developers.</p>
+    <span class="section-tag" style="justify-content:center;" data-i18n="dev_tag">Our Partners</span>
+    <h2 class="section-title" data-i18n-html="dev_title">Trusted <em>Developer</em><br>Partnerships</h2>
+    <p class="section-desc" style="margin:0 auto;" data-i18n="dev_desc">We collaborate exclusively with Dubai's most reputable and established property developers.</p>
   </div>
   <div class="dev-logos reveal">
     <div class="dev-logo-item"><img src="wp-content/uploads/2026/02/emaar-logo-png-emaar-properties-dubai-united-arab-emirates-279x236-1.png" alt="Emaar" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'dev-logo-text\'>EMAAR</span>'"></div>
@@ -1204,31 +1119,31 @@
 <section class="faq-section" id="faq">
   <div class="faq-grid">
     <div class="reveal-left">
-      <span class="section-tag">Investor Guide</span>
-      <h2 class="section-title">Frequently<br><em>Asked</em> Questions</h2>
+      <span class="section-tag" data-i18n="faq_tag">Investor Guide</span>
+      <h2 class="section-title" data-i18n-html="faq_title">Frequently<br><em>Asked</em> Questions</h2>
       <div class="gold-line"></div>
       <div class="faq-list">
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can foreigners buy property in Dubai? <span class="faq-icon">+</span></div><div class="faq-answer">Yes. Dubai allows 100% foreign ownership in designated freehold areas. As a non-resident, you can own property outright with full title deed rights — no local sponsor required.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is an off-plan property? <span class="faq-icon">+</span></div><div class="faq-answer">Off-plan means purchasing a property before it is built, directly from the developer. These typically offer lower entry prices, flexible payment plans (often 10–20% down), and strong appreciation potential upon completion.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What ROI can I expect in Dubai? <span class="faq-icon">+</span></div><div class="faq-answer">Dubai offers some of the highest rental yields globally — typically 6–10% annually depending on location and property type. Plus, there is no property tax or capital gains tax in the UAE.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I need to be in Dubai to buy? <span class="faq-icon">+</span></div><div class="faq-answer">No. We assist clients remotely — from virtual property tours to digital document signing and power of attorney arrangements. Many of our clients invest from abroad.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What fees are involved in buying property? <span class="faq-icon">+</span></div><div class="faq-answer">Typically: 4% Dubai Land Department transfer fee, 2% agency commission (often covered by developer on off-plan), plus registration fees. We provide a full cost breakdown upfront — no surprises.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How does Falcon Edge earn its commission? <span class="faq-icon">+</span></div><div class="faq-answer">For off-plan properties, our commission is paid by the developer — meaning our services are free for the buyer. For secondary market resales, we work on a transparent agreed fee.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is Dubai real estate a safe investment? <span class="faq-icon">+</span></div><div class="faq-answer">Dubai has a highly regulated real estate market governed by RERA (Real Estate Regulatory Agency). Developer escrow accounts, title deed protections, and strong legal frameworks make it one of the most secure markets globally.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq1_q">Can foreigners buy property in Dubai?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq1_a">Yes. Dubai allows 100% foreign ownership in designated freehold areas. As a non-resident, you can own property outright with full title deed rights — no local sponsor required.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq2_q">What is an off-plan property?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq2_a">Off-plan means purchasing a property before it is built, directly from the developer. These typically offer lower entry prices, flexible payment plans (often 10–20% down), and strong appreciation potential upon completion.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq3_q">What ROI can I expect in Dubai?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq3_a">Dubai offers some of the highest rental yields globally — typically 6–10% annually depending on location and property type. Plus, there is no property tax or capital gains tax in the UAE.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq4_q">Do I need to be in Dubai to buy?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq4_a">No. We assist clients remotely — from virtual property tours to digital document signing and power of attorney arrangements. Many of our clients invest from abroad.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq5_q">What fees are involved in buying property?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq5_a">Typically: 4% Dubai Land Department transfer fee, 2% agency commission (often covered by developer on off-plan), plus registration fees. We provide a full cost breakdown upfront — no surprises.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq6_q">How does Falcon Edge earn its commission?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq6_a">For off-plan properties, our commission is paid by the developer — meaning our services are free for the buyer. For secondary market resales, we work on a transparent agreed fee.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq7_q">Is Dubai real estate a safe investment?</span> <span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq7_a">Dubai has a highly regulated real estate market governed by RERA (Real Estate Regulatory Agency). Developer escrow accounts, title deed protections, and strong legal frameworks make it one of the most secure markets globally.</div></div>
       </div>
     </div>
     <div class="reveal-right">
       <div class="faq-cta-box">
-        <span class="section-tag">Ready to Invest?</span>
-        <h3>Start Your Dubai<br><em>Journey</em> Today</h3>
-        <p>Book a free 30-minute consultation with our team. We will walk you through the best opportunities matching your budget, goals, and timeline — with zero pressure.</p>
-        <button class="btn-primary" onclick="openPopup()">Book Free Consultation</button>
+        <span class="section-tag" data-i18n="faq_cta_tag">Ready to Invest?</span>
+        <h3 data-i18n-html="faq_cta_title">Start Your Dubai<br><em>Journey</em> Today</h3>
+        <p data-i18n="faq_cta_desc">Book a free 30-minute consultation with our team. We will walk you through the best opportunities matching your budget, goals, and timeline — with zero pressure.</p>
+        <button class="btn-primary" onclick="openPopup()" data-i18n="book_cta">Book Free Consultation</button>
       </div>
       <div class="faq-trust">
-        <div class="faq-trust-item"><span>✓</span><span>No obligation — completely free</span></div>
-        <div class="faq-trust-item"><span>✓</span><span>Available in Arabic, English & French</span></div>
-        <div class="faq-trust-item"><span>✓</span><span>Remote or in-office sessions available</span></div>
-        <div class="faq-trust-item"><span>✓</span><span>RERA registered & fully compliant</span></div>
+        <div class="faq-trust-item"><span>✓</span><span data-i18n="trust1">No obligation — completely free</span></div>
+        <div class="faq-trust-item"><span>✓</span><span data-i18n="trust2">Available in Arabic, English &amp; French</span></div>
+        <div class="faq-trust-item"><span>✓</span><span data-i18n="trust3">Remote or in-office sessions available</span></div>
+        <div class="faq-trust-item"><span>✓</span><span data-i18n="trust4">RERA registered &amp; fully compliant</span></div>
       </div>
     </div>
   </div>
@@ -1240,46 +1155,46 @@
 <section class="contact-section" id="contact">
   <div class="contact-grid">
     <div class="reveal-left">
-      <span class="section-tag">Get In Touch</span>
-      <h2 class="section-title">Start Your<br><em>Journey</em> Today</h2>
+      <span class="section-tag" data-i18n="contact_tag">Get In Touch</span>
+      <h2 class="section-title" data-i18n-html="contact_title">Start Your<br><em>Journey</em> Today</h2>
       <div class="gold-line"></div>
-      <p class="section-desc">Our experts are ready to guide you through Dubai's premier real estate opportunities. Schedule your free consultation today.</p>
+      <p class="section-desc" data-i18n="contact_desc">Our experts are ready to guide you through Dubai's premier real estate opportunities. Schedule your free consultation today.</p>
       <div class="contact-info">
-        <div class="contact-item"><span class="contact-icon">📍</span><div class="contact-detail"><h4>Office</h4><p>Office No. 509, Apricot Tower<br>Silicon Oasis, Dubai, UAE</p></div></div>
-        <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-detail"><h4>Phone</h4><p><a href="tel:+97152299405">+971 52 299 4057</a><br><a href="tel:+97152349106">+971 52 349 1060</a></p></div></div>
-        <div class="contact-item"><span class="contact-icon">✉</span><div class="contact-detail"><h4>Email</h4><p><a href="mailto:falconedge1@gmail.com">falconedge1@gmail.com</a><br><a href="mailto:friguison@gmail.com">friguison@gmail.com</a></p></div></div>
-        <div class="contact-item"><span class="contact-icon">🕐</span><div class="contact-detail"><h4>Hours</h4><p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</p></div></div>
+        <div class="contact-item"><span class="contact-icon">📍</span><div class="contact-detail"><h4 data-i18n="office_label">Office</h4><p data-i18n="office_addr">Office No. 509, Apricot Tower<br>Silicon Oasis, Dubai, UAE</p></div></div>
+        <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-detail"><h4 data-i18n="phone_label">Phone</h4><p><a href="tel:+97152299405">+971 52 299 4057</a><br><a href="tel:+97152349106">+971 52 349 1060</a></p></div></div>
+        <div class="contact-item"><span class="contact-icon">✉</span><div class="contact-detail"><h4 data-i18n="email_label">Email</h4><p><a href="mailto:falconedge1@gmail.com">falconedge1@gmail.com</a><br><a href="mailto:friguison@gmail.com">friguison@gmail.com</a></p></div></div>
+        <div class="contact-item"><span class="contact-icon">🕐</span><div class="contact-detail"><h4 data-i18n="hours_label">Hours</h4><p data-i18n="hours_val">Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</p></div></div>
       </div>
     </div>
     <div class="reveal-right">
       <div class="contact-form" id="mainContactForm">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="cf_first"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="cf_last"></div>
+          <div class="form-group"><label data-i18n="form_fname">First Name</label><input type="text" placeholder="John" id="cf_first"></div>
+          <div class="form-group"><label data-i18n="form_lname">Last Name</label><input type="text" placeholder="Smith" id="cf_last"></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com" id="cf_email"></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+971 XX XXX XXXX" id="cf_phone"></div>
-        <div class="form-group"><label>Budget (AED)</label>
+        <div class="form-group"><label data-i18n="form_email">Email Address</label><input type="email" placeholder="john@example.com" id="cf_email"></div>
+        <div class="form-group"><label data-i18n="form_phone">Phone Number</label><input type="tel" placeholder="+971 XX XXX XXXX" id="cf_phone"></div>
+        <div class="form-group"><label data-i18n="form_budget">Budget (AED)</label>
           <select id="cf_budget">
-            <option value="">Select budget range</option>
-            <option>Under AED 500,000</option>
-            <option>AED 500K – 1M</option>
-            <option>AED 1M – 2M</option>
-            <option>AED 2M – 5M</option>
-            <option>AED 5M+</option>
+            <option value="" data-i18n="budget_select">Select budget range</option>
+            <option data-i18n="budget1">Under AED 500,000</option>
+            <option data-i18n="budget2">AED 500K – 1M</option>
+            <option data-i18n="budget3">AED 1M – 2M</option>
+            <option data-i18n="budget4">AED 2M – 5M</option>
+            <option data-i18n="budget5">AED 5M+</option>
           </select>
         </div>
-        <div class="form-group"><label>I'm Interested In</label>
+        <div class="form-group"><label data-i18n="form_interest">I'm Interested In</label>
           <select id="cf_interest">
-            <option value="">Select an option</option>
-            <option>Off-Plan Investment</option>
-            <option>Residential Property</option>
-            <option>Commercial Property</option>
-            <option>Portfolio Consultation</option>
+            <option value="" data-i18n="interest_select">Select an option</option>
+            <option data-i18n="interest1">Off-Plan Investment</option>
+            <option data-i18n="interest2">Residential Property</option>
+            <option data-i18n="interest3">Commercial Property</option>
+            <option data-i18n="interest4">Portfolio Consultation</option>
           </select>
         </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your requirements..." id="cf_msg"></textarea></div>
-        <button class="form-submit" onclick="submitForm()">Send Message →</button>
+        <div class="form-group"><label data-i18n="form_msg">Message</label><textarea placeholder="Tell us about your requirements..." id="cf_msg" data-i18n-placeholder="form_msg_placeholder"></textarea></div>
+        <button class="form-submit" onclick="submitForm()" data-i18n="form_submit">Send Message →</button>
       </div>
     </div>
   </div>
@@ -1291,7 +1206,7 @@
     <div>
       <div class="footer-brand"><img src="wp-content/uploads/2025/12/cropped-WhatsApp_Image_2025-12-11_at_23.49.18_da0ae57a-removebg-preview.png" alt="Falcon Edge Properties" onerror="this.style.display='none'"></div>
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin-bottom:0.5rem;">Falcon Edge Properties</p>
-      <p class="footer-desc">A premium Dubai real estate consultancy built on precision, transparency, and strategic guidance. Your trusted partner in property investment.</p>
+      <p class="footer-desc" data-i18n="footer_desc">A premium Dubai real estate consultancy built on precision, transparency, and strategic guidance. Your trusted partner in property investment.</p>
       <div class="footer-socials">
         <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
         <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">ig</a>
@@ -1300,38 +1215,38 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>Navigation</h4>
+      <h4 data-i18n="footer_nav">Navigation</h4>
       <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#properties">Properties</a></li>
-        <li><a href="#calculator">ROI Calculator</a></li>
-        <li><a href="#areas">Area Guide</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+        <li><a href="#properties" data-i18n="nav_props">Properties</a></li>
+        <li><a href="#calculator" data-i18n="nav_calc">ROI Calculator</a></li>
+        <li><a href="#areas" data-i18n="nav_areas">Area Guide</a></li>
+        <li><a href="#testimonials" data-i18n="nav_rev">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <h4 data-i18n="footer_services">Services</h4>
       <ul>
-        <li><a href="#">Off-Plan Projects</a></li>
-        <li><a href="#">Investment Advisory</a></li>
-        <li><a href="#">Property Management</a></li>
-        <li><a href="#">Portfolio Review</a></li>
-        <li><a href="#">Relocation Support</a></li>
-        <li><a href="#">Mortgage Guidance</a></li>
+        <li><a href="#" data-i18n="serv1">Off-Plan Projects</a></li>
+        <li><a href="#" data-i18n="serv2">Investment Advisory</a></li>
+        <li><a href="#" data-i18n="serv3">Property Management</a></li>
+        <li><a href="#" data-i18n="serv4">Portfolio Review</a></li>
+        <li><a href="#" data-i18n="serv5">Relocation Support</a></li>
+        <li><a href="#" data-i18n="serv6">Mortgage Guidance</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Falcon Edge Properties. All Rights Reserved.</span>
-    <span class="footer-rera">RERA Registered · Dubai, UAE · Operated in compliance with Dubai Real Estate Law</span>
+    <span class="footer-copy" data-i18n="footer_copy">© 2025 Falcon Edge Properties. All Rights Reserved.</span>
+    <span class="footer-rera" data-i18n="footer_rera">RERA Registered · Dubai, UAE · Operated in compliance with Dubai Real Estate Law</span>
   </div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
 <div class="whatsapp-float">
-  <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+  <div class="whatsapp-tooltip" data-i18n="wa_tooltip">Chat with us on WhatsApp</div>
   <a href="https://wa.me/97152299405" target="_blank" class="whatsapp-btn" title="WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
@@ -1341,7 +1256,7 @@
 <div class="book-float">
   <button class="book-float-btn" onclick="openPopup()">
     <div class="book-pulse"></div>
-    Book Consultation
+    <span data-i18n="book_float_btn">Book Consultation</span>
   </button>
 </div>
 
@@ -1349,24 +1264,24 @@
 <div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()">✕</button>
-    <div class="popup-title">Book a Free<br>Consultation</div>
-    <p class="popup-sub">30 minutes with our experts. Zero pressure. Available in English, Arabic & French.</p>
+    <div class="popup-title" data-i18n="popup_title">Book a Free<br>Consultation</div>
+    <p class="popup-sub" data-i18n="popup_sub">30 minutes with our experts. Zero pressure. Available in English, Arabic &amp; French.</p>
     <div class="popup-form">
-      <input class="popup-input" type="text" placeholder="Your Full Name" id="p_name">
-      <input class="popup-input" type="email" placeholder="Email Address" id="p_email">
-      <input class="popup-input" type="tel" placeholder="Phone / WhatsApp" id="p_phone">
+      <input class="popup-input" type="text" id="p_name" data-i18n-placeholder="popup_name">
+      <input class="popup-input" type="email" id="p_email" data-i18n-placeholder="popup_email">
+      <input class="popup-input" type="tel" id="p_phone" data-i18n-placeholder="popup_phone">
       <div>
-        <div class="popup-time-label">Preferred Time Slot:</div>
+        <div class="popup-time-label" data-i18n="popup_time_label">Preferred Time Slot:</div>
         <div class="popup-times" id="popupTimes">
-          <div class="popup-time" onclick="selectTime(this)">Morning<br><span style="font-size:0.6rem;opacity:0.7">9–12 AM</span></div>
-          <div class="popup-time" onclick="selectTime(this)">Afternoon<br><span style="font-size:0.6rem;opacity:0.7">12–4 PM</span></div>
-          <div class="popup-time" onclick="selectTime(this)">Evening<br><span style="font-size:0.6rem;opacity:0.7">4–7 PM</span></div>
-          <div class="popup-time" onclick="selectTime(this)">Mon</div>
-          <div class="popup-time" onclick="selectTime(this)">Tue</div>
-          <div class="popup-time" onclick="selectTime(this)">Wed</div>
+          <div class="popup-time" onclick="selectTime(this)" data-i18n="time_morning">Morning<br><span style="font-size:0.6rem;opacity:0.7">9–12 AM</span></div>
+          <div class="popup-time" onclick="selectTime(this)" data-i18n="time_afternoon">Afternoon<br><span style="font-size:0.6rem;opacity:0.7">12–4 PM</span></div>
+          <div class="popup-time" onclick="selectTime(this)" data-i18n="time_evening">Evening<br><span style="font-size:0.6rem;opacity:0.7">4–7 PM</span></div>
+          <div class="popup-time" onclick="selectTime(this)" data-i18n="day_mon">Mon</div>
+          <div class="popup-time" onclick="selectTime(this)" data-i18n="day_tue">Tue</div>
+          <div class="popup-time" onclick="selectTime(this)" data-i18n="day_wed">Wed</div>
         </div>
       </div>
-      <button class="popup-submit" onclick="submitPopup()">Confirm Booking →</button>
+      <button class="popup-submit" onclick="submitPopup()" data-i18n="popup_submit">Confirm Booking →</button>
     </div>
   </div>
 </div>
@@ -1376,27 +1291,431 @@
   <div class="exit-box">
     <div class="exit-top">
       <div class="exit-icon">📋</div>
-      <div class="exit-title">Free Dubai Investment Guide</div>
-      <p class="exit-sub">Before you go — get our exclusive 2025 Dubai Real Estate Investment Guide. Market insights, area yields, payment plan strategies, and more. Completely free.</p>
+      <div class="exit-title" data-i18n="exit_title">Free Dubai Investment Guide</div>
+      <p class="exit-sub" data-i18n="exit_sub">Before you go — get our exclusive 2025 Dubai Real Estate Investment Guide. Market insights, area yields, payment plan strategies, and more. Completely free.</p>
     </div>
     <div class="exit-bottom">
-      <input class="exit-email" type="email" placeholder="Enter your email address" id="exitEmail">
-      <button class="btn-primary" style="width:100%;padding:1rem;justify-content:center;" onclick="submitExit()">Send Me the Guide →</button>
-      <button class="exit-close" onclick="closeExit()">No thanks, I'll figure it out myself</button>
+      <input class="exit-email" type="email" id="exitEmail" data-i18n-placeholder="exit_email_placeholder">
+      <button class="btn-primary" style="width:100%;padding:1rem;justify-content:center;" onclick="submitExit()" data-i18n="exit_submit">Send Me the Guide →</button>
+      <button class="exit-close" onclick="closeExit()" data-i18n="exit_close">No thanks, I'll figure it out myself</button>
     </div>
   </div>
 </div>
 
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
-  <p class="cookie-text">We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="#">Privacy Policy</a>. This site complies with GDPR for our European clients.</p>
+  <p class="cookie-text" data-i18n="cookie_text">We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="#">Privacy Policy</a>. This site complies with GDPR for our European clients.</p>
   <div class="cookie-btns">
-    <button class="cookie-accept" onclick="acceptCookies()">Accept All</button>
-    <button class="cookie-decline" onclick="acceptCookies()">Decline</button>
+    <button class="cookie-accept" onclick="acceptCookies()" data-i18n="cookie_accept">Accept All</button>
+    <button class="cookie-decline" onclick="acceptCookies()" data-i18n="cookie_decline">Decline</button>
   </div>
 </div>
 
 <script>
+  // ── TRANSLATIONS ──
+  const translations = {
+    en: {
+      lang_label: 'Language:',
+      ticker_label: 'Live Activity',
+      tick1: 'Just Sold', tick2: 'New Booking', tick3: 'Consultation Booked', tick3b: 'Investor from', tick4: 'New Inquiry', tick5: 'Portfolio Review',
+      nav_about: 'About', nav_props: 'Properties', nav_calc: 'ROI Calculator', nav_areas: 'Area Guide', nav_rev: 'Reviews', nav_contact: 'Contact', nav_book: 'Book Consultation',
+      book_cta: 'Book Free Consultation', book_float_btn: 'Book Consultation',
+      hero_tag: 'Premium Real Estate · Dubai',
+      hero_h1: 'Where Vision<br>Meets <span class="line2">Structure</span>',
+      hero_sub: "Guiding discerning investors and homebuyers through Dubai's most prestigious real estate opportunities — with precision, transparency, and integrity.",
+      hero_btn1: 'Explore Properties', hero_btn2: 'Free Consultation',
+      stat1: 'Years Experience', stat2: 'Clients Served', stat3: 'Countries Expertise', stat4: 'Transactions Managed',
+      market_tag: 'Live Market Data', market_title_em: 'Market Snapshot', market_desc: 'Updated quarterly — key indicators for informed investment decisions.',
+      snap1_label: 'Avg Rental Yield', snap1_trend: '▲ +0.6% vs last year',
+      snap2_label: 'Price Growth (2024)', snap2_trend: '▲ Outpacing global avg',
+      snap3_label: 'New Units Delivered', snap3_trend: '▲ Record year',
+      snap4_label: 'Capital Gains Tax', snap4_trend: '◆ UAE Advantage',
+      about_tag: 'Our Story', about_title: 'Building Trust.<br>Delivering <em>Value.</em>',
+      about_desc: "A Dubai-based real estate company specializing in premium properties, smart investments, and client-focused advisory services. We combine deep market knowledge with a personalized, client-first approach.",
+      about_badge: 'Years<br>in Market',
+      val1_title: 'Precision Over Pressure', val1_desc: 'Every decision is informed, strategic, and aligned with your long-term investment goals.',
+      val2_title: 'Transparent Process', val2_desc: 'We believe in clarity at every step — no hidden fees, no surprises, just honest guidance.',
+      val3_title: 'Premium Opportunities', val3_desc: "Access to exclusive off-plan projects and premium properties across Dubai's key districts.",
+      props_tag: 'Featured Projects', props_title: 'Premium <em>Off-Plan</em><br>Properties in Dubai', props_cta: 'Request All Listings',
+      badge_offplan: 'Off Plan', badge_premium: 'Premium',
+      prop1_price: 'Island-Inspired Waterfront Living', prop2_price: 'Iconic Waterfront Living',
+      prop3_price: 'Modern Living. Timeless Elegance.', prop4_price: 'Where Luxury Meets Lifestyle',
+      prop5_dev: 'Featured Listing', prop5_price: 'Contemporary Urban Living',
+      compare_btn: '+ Add to Compare', more_props: 'More exclusive projects<br>available on request.',
+      compare_label: 'Compare Properties:', slot_empty: 'Select a property', compare_now: 'Compare Now', clear: 'Clear',
+      calc_tag: 'Smart Investing', calc_title_em: 'Calculator',
+      calc_desc: 'Estimate your rental yield, monthly returns, and 5-year property value growth.',
+      calc_form_title: 'Your Investment', calc_price: 'Property Price (AED)',
+      calc_dp: 'Down Payment %', calc_yield: 'Expected Rental Yield %',
+      calc_app: 'Annual Appreciation %', calc_rate: 'Mortgage Rate %',
+      res1_label: 'Annual Rental Income', res1_sub: 'Based on your yield estimate',
+      res2_label: 'Monthly Mortgage Payment', res2_sub: 'Over 25 years',
+      res3_label: 'Net Monthly Cash Flow', res3_sub: 'After mortgage — before expenses',
+      res4_label: '5-Year Property Value', res4_sub: 'Estimated with compounding growth',
+      calc_disclaimer: '* Estimates only. Actual returns depend on market conditions, property type, and management. Consult our advisors for a personalised analysis.',
+      calc_cta: 'Get a Personalised Investment Analysis →',
+      areas_tag: 'Explore Dubai', areas_title_em: 'Area Guide', areas_desc: 'Find the neighbourhood that matches your lifestyle and investment goals.',
+      area1_desc: 'Home to the Burj Khalifa and Dubai Mall. A global icon offering ultra-luxury living with world-class retail and dining at your doorstep.',
+      area2_desc: 'A vibrant waterfront community with yacht clubs, beach access, and a cosmopolitan lifestyle favoured by expats and investors.',
+      area3_desc: "Dubai's highest-yielding district. Affordable, family-friendly, and rapidly developing with excellent ROI potential for investors.",
+      area4_desc: "Emaar's flagship mega-development. A new city within a city featuring the world's tallest tower, creek views, and strong appreciation.",
+      area5_desc: 'A luxury villa community surrounding the Trump International Golf Club. Ideal for families seeking privacy, greenery, and a resort-like lifestyle.',
+      area6_desc: "Dubai's tech hub. Affordable, self-contained, and growing fast. A top pick for budget-conscious investors seeking high rental yields.",
+      avg_yield: 'Avg Yield', per_sqft: 'per sqft', demand: 'Demand',
+      very_high: 'Very High', high: 'High', growing: 'Growing',
+      ceo_tag: 'Leadership',
+      ceo_quote: '"Real estate is not simply about buying and selling properties — it is about building legacies, creating value, and earning trust."',
+      ceo_text1: 'A civil engineer by education with over 10 years of international experience in real estate across Tunisia, France, and Dubai. Engineering taught precision and responsibility. Real estate revealed the human side of investment and vision.',
+      ceo_text2: 'This rare combination allows evaluation of projects beyond appearance — focusing on structure, quality, sustainability, and real return on investment.',
+      j1_country: 'Tunisia', j1_desc: 'Relationship-driven approach and human values',
+      j2_country: 'France', j2_desc: 'Regulated markets and asset protection',
+      j3_country: 'Dubai', j3_desc: 'Speed, innovation, and limitless ambition',
+      ceo_title_role: 'Founder & CEO — Falcon Edge Properties',
+      team_tag: 'Our People', team_title: 'Meet the <em>Team</em>',
+      team_desc: 'Experienced professionals united by a shared commitment to excellence, integrity, and client-first service.',
+      role_consultant: 'Property Consultant', role_director: 'Sales Director',
+      team1_bio: "Expert in guiding clients through Dubai's most exclusive residential and investment properties.",
+      team2_bio: "Specialist in off-plan projects and investor relations across Dubai's key districts.",
+      team3_bio: "Leading the sales team with strategic vision and deep expertise in Dubai's premium property market.",
+      team4_bio: 'Dedicated to matching clients with premium residential and commercial opportunities in Dubai.',
+      email_link: '✉ Email', call_link: '📞 Call',
+      testi_tag: 'Client Stories', testi_title: 'What Our <em>Clients</em> Say',
+      rating_count: 'Based on 127 verified reviews', also_rated: 'Also Rated On',
+      t1_text: 'Mohamed and his team were exceptional. They found us a perfect off-plan investment in Dubai Creek Harbour — handled everything from paperwork to payment plans with complete transparency.',
+      t2_text: 'As a first-time buyer in Dubai, I was nervous. Falcon Edge made the entire process seamless. Their knowledge of the market saved me from bad deals and found me something truly premium.',
+      t3_text: "I have worked with many agencies in Dubai. Falcon Edge stands apart — Mohamed's engineering background gives him a unique eye for structural quality that most brokers simply don't have.",
+      t4_text: 'Excellent service from start to finish. The team was always available and the property they recommended has already appreciated 18% in one year. Highly recommend to any serious investor.',
+      t5_text: 'We relocated from London and needed everything — school districts, community feel, ROI potential. Falcon Edge delivered on all fronts. Our villa in DAMAC Hills is beyond expectations.',
+      investor: 'Investor', homebuyer: 'Homebuyer', family_buyer: 'Family Buyer',
+      dev_tag: 'Our Partners', dev_title: 'Trusted <em>Developer</em><br>Partnerships',
+      dev_desc: "We collaborate exclusively with Dubai's most reputable and established property developers.",
+      faq_tag: 'Investor Guide', faq_title: 'Frequently<br><em>Asked</em> Questions',
+      faq1_q: 'Can foreigners buy property in Dubai?', faq1_a: 'Yes. Dubai allows 100% foreign ownership in designated freehold areas. As a non-resident, you can own property outright with full title deed rights — no local sponsor required.',
+      faq2_q: 'What is an off-plan property?', faq2_a: 'Off-plan means purchasing a property before it is built, directly from the developer. These typically offer lower entry prices, flexible payment plans (often 10–20% down), and strong appreciation potential upon completion.',
+      faq3_q: 'What ROI can I expect in Dubai?', faq3_a: 'Dubai offers some of the highest rental yields globally — typically 6–10% annually depending on location and property type. Plus, there is no property tax or capital gains tax in the UAE.',
+      faq4_q: 'Do I need to be in Dubai to buy?', faq4_a: 'No. We assist clients remotely — from virtual property tours to digital document signing and power of attorney arrangements. Many of our clients invest from abroad.',
+      faq5_q: 'What fees are involved in buying property?', faq5_a: 'Typically: 4% Dubai Land Department transfer fee, 2% agency commission (often covered by developer on off-plan), plus registration fees. We provide a full cost breakdown upfront — no surprises.',
+      faq6_q: 'How does Falcon Edge earn its commission?', faq6_a: 'For off-plan properties, our commission is paid by the developer — meaning our services are free for the buyer. For secondary market resales, we work on a transparent agreed fee.',
+      faq7_q: 'Is Dubai real estate a safe investment?', faq7_a: 'Dubai has a highly regulated real estate market governed by RERA (Real Estate Regulatory Agency). Developer escrow accounts, title deed protections, and strong legal frameworks make it one of the most secure markets globally.',
+      faq_cta_tag: 'Ready to Invest?', faq_cta_title: 'Start Your Dubai<br><em>Journey</em> Today',
+      faq_cta_desc: 'Book a free 30-minute consultation with our team. We will walk you through the best opportunities matching your budget, goals, and timeline — with zero pressure.',
+      trust1: 'No obligation — completely free', trust2: 'Available in Arabic, English & French',
+      trust3: 'Remote or in-office sessions available', trust4: 'RERA registered & fully compliant',
+      contact_tag: 'Get In Touch', contact_title: 'Start Your<br><em>Journey</em> Today',
+      contact_desc: "Our experts are ready to guide you through Dubai's premier real estate opportunities. Schedule your free consultation today.",
+      office_label: 'Office', office_addr: 'Office No. 509, Apricot Tower<br>Silicon Oasis, Dubai, UAE',
+      phone_label: 'Phone', email_label: 'Email', hours_label: 'Hours',
+      hours_val: 'Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Appointment',
+      form_fname: 'First Name', form_lname: 'Last Name', form_email: 'Email Address',
+      form_phone: 'Phone Number', form_budget: 'Budget (AED)', form_interest: "I'm Interested In",
+      form_msg: 'Message', form_msg_placeholder: 'Tell us about your requirements...',
+      form_submit: 'Send Message →',
+      budget_select: 'Select budget range', budget1: 'Under AED 500,000', budget2: 'AED 500K – 1M',
+      budget3: 'AED 1M – 2M', budget4: 'AED 2M – 5M', budget5: 'AED 5M+',
+      interest_select: 'Select an option', interest1: 'Off-Plan Investment',
+      interest2: 'Residential Property', interest3: 'Commercial Property', interest4: 'Portfolio Consultation',
+      footer_desc: 'A premium Dubai real estate consultancy built on precision, transparency, and strategic guidance. Your trusted partner in property investment.',
+      footer_nav: 'Navigation', footer_services: 'Services',
+      serv1: 'Off-Plan Projects', serv2: 'Investment Advisory', serv3: 'Property Management',
+      serv4: 'Portfolio Review', serv5: 'Relocation Support', serv6: 'Mortgage Guidance',
+      footer_copy: '© 2025 Falcon Edge Properties. All Rights Reserved.',
+      footer_rera: 'RERA Registered · Dubai, UAE · Operated in compliance with Dubai Real Estate Law',
+      wa_tooltip: 'Chat with us on WhatsApp',
+      popup_title: 'Book a Free<br>Consultation',
+      popup_sub: 'Zero pressure. Available in English, Arabic & French.',
+      popup_name: 'Your Full Name', popup_email: 'Email Address', popup_phone: 'Phone / WhatsApp',
+      popup_time_label: 'Preferred Time Slot:', popup_submit: 'Confirm Booking →',
+      time_morning: 'Morning', time_afternoon: 'Afternoon', time_evening: 'Evening',
+      day_mon: 'Mon', day_tue: 'Tue', day_wed: 'Wed',
+      exit_title: 'Free Dubai Investment Guide',
+      exit_sub: 'Before you go — get our exclusive 2025 Dubai Real Estate Investment Guide. Market insights, area yields, payment plan strategies, and more. Completely free.',
+      exit_email_placeholder: 'Enter your email address', exit_submit: 'Send Me the Guide →',
+      exit_close: "No thanks, I'll figure it out myself",
+      cookie_text: 'We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="#">Privacy Policy</a>. This site complies with GDPR for our European clients.',
+      cookie_accept: 'Accept All', cookie_decline: 'Decline'
+    },
+
+    fr: {
+      lang_label: 'Langue :',
+      ticker_label: 'Activité en direct',
+      tick1: 'Vendu', tick2: 'Nouvelle réservation', tick3: 'Consultation réservée', tick3b: 'Investisseur de', tick4: 'Nouvelle demande', tick5: 'Revue de portefeuille',
+      nav_about: 'À propos', nav_props: 'Propriétés', nav_calc: 'Calculateur ROI', nav_areas: 'Guide des zones', nav_rev: 'Avis', nav_contact: 'Contact', nav_book: 'Réserver une consultation',
+      book_cta: 'Consultation gratuite', book_float_btn: 'Réserver',
+      hero_tag: 'Immobilier Premium · Dubaï',
+      hero_h1: 'Où la Vision<br>Rencontre <span class="line2">la Structure</span>',
+      hero_sub: 'Nous guidons les investisseurs exigeants à travers les opportunités immobilières les plus prestigieuses de Dubaï — avec précision, transparence et intégrité.',
+      hero_btn1: 'Explorer les biens', hero_btn2: 'Consultation gratuite',
+      stat1: 'Ans d\'expérience', stat2: 'Clients servis', stat3: 'Pays d\'expertise', stat4: 'Transactions gérées',
+      market_tag: 'Données du marché', market_title_em: 'Aperçu du marché', market_desc: 'Mis à jour trimestriellement — indicateurs clés pour des décisions d\'investissement éclairées.',
+      snap1_label: 'Rendement locatif moy.', snap1_trend: '▲ +0.6% vs l\'an dernier',
+      snap2_label: 'Croissance des prix (2024)', snap2_trend: '▲ Dépasse la moyenne mondiale',
+      snap3_label: 'Nouveaux logements livrés', snap3_trend: '▲ Année record',
+      snap4_label: 'Impôt sur les plus-values', snap4_trend: '◆ Avantage EAU',
+      about_tag: 'Notre histoire', about_title: 'Bâtir la confiance.<br>Créer de la <em>valeur.</em>',
+      about_desc: 'Une société immobilière basée à Dubaï, spécialisée dans les propriétés premium, les investissements intelligents et les services de conseil. Nous combinons une connaissance approfondie du marché avec une approche personnalisée centrée sur le client.',
+      about_badge: 'Ans<br>sur le marché',
+      val1_title: 'Précision avant pression', val1_desc: 'Chaque décision est informée, stratégique et alignée sur vos objectifs d\'investissement à long terme.',
+      val2_title: 'Processus transparent', val2_desc: 'Nous croyons en la clarté à chaque étape — pas de frais cachés, pas de surprises, juste des conseils honnêtes.',
+      val3_title: 'Opportunités premium', val3_desc: 'Accès à des projets off-plan exclusifs et des propriétés premium dans les quartiers clés de Dubaï.',
+      props_tag: 'Projets en vedette', props_title: 'Propriétés <em>Off-Plan</em> Premium<br>à Dubaï', props_cta: 'Demander toutes les annonces',
+      badge_offplan: 'Sur plan', badge_premium: 'Premium',
+      prop1_price: 'Vie en bord de mer, style île', prop2_price: 'Vie en bord de mer emblématique',
+      prop3_price: 'Vie moderne. Élégance intemporelle.', prop4_price: 'Où le luxe rencontre le style de vie',
+      prop5_dev: 'Annonce en vedette', prop5_price: 'Vie urbaine contemporaine',
+      compare_btn: '+ Comparer', more_props: 'Plus de projets exclusifs<br>disponibles sur demande.',
+      compare_label: 'Comparer les biens :', slot_empty: 'Sélectionnez un bien', compare_now: 'Comparer maintenant', clear: 'Effacer',
+      calc_tag: 'Investissement intelligent', calc_title_em: 'Calculateur',
+      calc_desc: 'Estimez votre rendement locatif, vos revenus mensuels et la croissance de valeur sur 5 ans.',
+      calc_form_title: 'Votre investissement', calc_price: 'Prix du bien (AED)',
+      calc_dp: 'Apport initial %', calc_yield: 'Rendement locatif estimé %',
+      calc_app: 'Appréciation annuelle %', calc_rate: 'Taux hypothécaire %',
+      res1_label: 'Revenu locatif annuel', res1_sub: 'Basé sur votre estimation de rendement',
+      res2_label: 'Mensualité hypothécaire', res2_sub: 'Sur 25 ans',
+      res3_label: 'Cash flow mensuel net', res3_sub: 'Après hypothèque — avant charges',
+      res4_label: 'Valeur du bien dans 5 ans', res4_sub: 'Estimation avec croissance composée',
+      calc_disclaimer: '* Estimations uniquement. Les rendements réels dépendent des conditions du marché, du type de bien et de la gestion. Consultez nos conseillers pour une analyse personnalisée.',
+      calc_cta: 'Obtenir une analyse d\'investissement personnalisée →',
+      areas_tag: 'Explorer Dubaï', areas_title_em: 'Guide des zones', areas_desc: 'Trouvez le quartier qui correspond à votre style de vie et vos objectifs d\'investissement.',
+      area1_desc: 'Accueille le Burj Khalifa et le Dubai Mall. Une icône mondiale offrant une vie ultra-luxueuse avec des commerces et restaurants de classe mondiale à votre porte.',
+      area2_desc: 'Une communauté balnéaire animée avec clubs nautiques, accès à la plage et un style de vie cosmopolite apprécié des expatriés et investisseurs.',
+      area3_desc: 'Le quartier au rendement le plus élevé de Dubaï. Abordable, familial et en plein développement avec un excellent potentiel de ROI pour les investisseurs.',
+      area4_desc: 'Le développement phare d\'Emaar. Une nouvelle ville dans la ville avec la plus haute tour du monde, des vues sur la crique et une forte appréciation.',
+      area5_desc: 'Une communauté de villas de luxe entourant le Trump International Golf Club. Idéal pour les familles cherchant intimité, verdure et style de vie de villégiature.',
+      area6_desc: 'Le hub technologique de Dubaï. Abordable, autonome et en pleine croissance. Un choix de premier rang pour les investisseurs recherchant des rendements locatifs élevés.',
+      avg_yield: 'Rendement moy.', per_sqft: 'par pied²', demand: 'Demande',
+      very_high: 'Très forte', high: 'Forte', growing: 'En hausse',
+      ceo_tag: 'Direction',
+      ceo_quote: '"L\'immobilier ne se résume pas à acheter et vendre des propriétés — il s\'agit de construire des héritages, de créer de la valeur et de gagner la confiance."',
+      ceo_text1: 'Ingénieur civil de formation avec plus de 10 ans d\'expérience internationale dans l\'immobilier en Tunisie, en France et à Dubaï. L\'ingénierie lui a appris la précision et la responsabilité. L\'immobilier a révélé le côté humain de l\'investissement et de la vision.',
+      ceo_text2: 'Cette combinaison rare permet d\'évaluer les projets au-delà des apparences — en se concentrant sur la structure, la qualité, la durabilité et le véritable retour sur investissement.',
+      j1_country: 'Tunisie', j1_desc: 'Approche relationnelle et valeurs humaines',
+      j2_country: 'France', j2_desc: 'Marchés réglementés et protection des actifs',
+      j3_country: 'Dubaï', j3_desc: 'Rapidité, innovation et ambition sans limites',
+      ceo_title_role: 'Fondateur & PDG — Falcon Edge Properties',
+      team_tag: 'Notre équipe', team_title: 'Rencontrez l\'<em>équipe</em>',
+      team_desc: 'Des professionnels expérimentés unis par un engagement commun envers l\'excellence, l\'intégrité et le service centré sur le client.',
+      role_consultant: 'Consultant immobilier', role_director: 'Directeur des ventes',
+      team1_bio: 'Expert pour guider les clients à travers les propriétés résidentielles et d\'investissement les plus exclusives de Dubaï.',
+      team2_bio: 'Spécialiste des projets off-plan et des relations investisseurs dans les principaux quartiers de Dubaï.',
+      team3_bio: 'Dirige l\'équipe commerciale avec une vision stratégique et une expertise approfondie du marché immobilier premium de Dubaï.',
+      team4_bio: 'Dévoué à mettre en relation les clients avec des opportunités résidentielles et commerciales premium à Dubaï.',
+      email_link: '✉ Email', call_link: '📞 Appeler',
+      testi_tag: 'Témoignages clients', testi_title: 'Ce que disent nos <em>clients</em>',
+      rating_count: 'Basé sur 127 avis vérifiés', also_rated: 'Aussi noté sur',
+      t1_text: 'Mohamed et son équipe ont été exceptionnels. Ils nous ont trouvé un investissement off-plan parfait à Dubai Creek Harbour — tout géré, de la paperasse aux plans de paiement, avec une totale transparence.',
+      t2_text: 'En tant que premier acheteur à Dubaï, j\'étais nerveux. Falcon Edge a rendu tout le processus fluide. Leur connaissance du marché m\'a évité de mauvaises affaires et m\'a trouvé quelque chose de vraiment premium.',
+      t3_text: "J'ai travaillé avec de nombreuses agences à Dubaï. Falcon Edge se distingue — la formation d'ingénieur de Mohamed lui confère un regard unique sur la qualité structurelle que la plupart des courtiers n'ont simplement pas.",
+      t4_text: 'Excellent service du début à la fin. L\'équipe était toujours disponible et la propriété recommandée a déjà pris 18% de valeur en un an. Hautement recommandé à tout investisseur sérieux.',
+      t5_text: 'Nous nous sommes relocalisés depuis Londres et avions besoin de tout — districts scolaires, esprit communautaire, potentiel ROI. Falcon Edge a répondu sur tous les fronts. Notre villa à DAMAC Hills dépasse nos attentes.',
+      investor: 'Investisseur', homebuyer: 'Acquéreur', family_buyer: 'Famille acquéreuse',
+      dev_tag: 'Nos partenaires', dev_title: 'Partenariats <em>promoteurs</em><br>de confiance',
+      dev_desc: 'Nous collaborons exclusivement avec les promoteurs immobiliers les plus réputés et établis de Dubaï.',
+      faq_tag: 'Guide investisseur', faq_title: 'Questions<br><em>fréquemment</em> posées',
+      faq1_q: 'Les étrangers peuvent-ils acheter à Dubaï ?', faq1_a: 'Oui. Dubaï autorise 100% de propriété étrangère dans les zones franches désignées. En tant que non-résident, vous pouvez posséder un bien en pleine propriété — sans sponsor local requis.',
+      faq2_q: "Qu'est-ce qu'une propriété off-plan ?", faq2_a: "L'off-plan signifie acheter un bien avant sa construction, directement auprès du promoteur. Ces biens offrent généralement des prix d'entrée inférieurs, des plans de paiement flexibles (souvent 10–20% d'apport) et un fort potentiel d'appréciation à l'achèvement.",
+      faq3_q: 'Quel ROI puis-je attendre à Dubaï ?', faq3_a: 'Dubaï offre certains des rendements locatifs les plus élevés au monde — généralement 6–10% par an selon l\'emplacement et le type de bien. De plus, il n\'y a pas de taxe foncière ni d\'impôt sur les plus-values aux EAU.',
+      faq4_q: 'Dois-je être à Dubaï pour acheter ?', faq4_a: 'Non. Nous assistons les clients à distance — des visites virtuelles aux signatures numériques et procurations. Beaucoup de nos clients investissent depuis l\'étranger.',
+      faq5_q: "Quels sont les frais d'achat ?", faq5_a: 'En général : 4% de frais de transfert au Département foncier de Dubaï, 2% de commission d\'agence (souvent couverts par le promoteur pour l\'off-plan), plus les frais d\'enregistrement. Nous fournissons un bilan complet dès le départ — aucune surprise.',
+      faq6_q: 'Comment Falcon Edge gagne-t-il sa commission ?', faq6_a: "Pour les propriétés off-plan, notre commission est payée par le promoteur — nos services sont donc gratuits pour l'acheteur. Pour les reventes sur le marché secondaire, nous travaillons sur des honoraires convenus de manière transparente.",
+      faq7_q: "L'immobilier à Dubaï est-il un investissement sûr ?", faq7_a: "Dubaï dispose d'un marché immobilier très réglementé par la RERA (Real Estate Regulatory Agency). Les comptes séquestres, les protections des titres de propriété et les cadres juridiques solides en font l'un des marchés les plus sécurisés au monde.",
+      faq_cta_tag: 'Prêt à investir ?', faq_cta_title: 'Commencez votre<br><em>parcours</em> à Dubaï',
+      faq_cta_desc: 'Réservez une consultation gratuite de 30 minutes. Nous vous guiderons à travers les meilleures opportunités correspondant à votre budget, vos objectifs et votre calendrier — sans aucune pression.',
+      trust1: 'Sans engagement — totalement gratuit', trust2: 'Disponible en arabe, anglais et français',
+      trust3: 'Sessions à distance ou en bureau disponibles', trust4: 'Enregistré RERA & entièrement conforme',
+      contact_tag: 'Contactez-nous', contact_title: 'Commencez votre<br><em>parcours</em> aujourd\'hui',
+      contact_desc: 'Nos experts sont prêts à vous guider à travers les meilleures opportunités immobilières de Dubaï. Planifiez votre consultation gratuite dès aujourd\'hui.',
+      office_label: 'Bureau', office_addr: 'Bureau n°509, Tour Apricot<br>Silicon Oasis, Dubaï, EAU',
+      phone_label: 'Téléphone', email_label: 'Email', hours_label: 'Horaires',
+      hours_val: 'Lundi – Samedi : 9h00 – 19h00<br>Dimanche : Sur rendez-vous',
+      form_fname: 'Prénom', form_lname: 'Nom', form_email: 'Adresse e-mail',
+      form_phone: 'Numéro de téléphone', form_budget: 'Budget (AED)', form_interest: 'Je suis intéressé par',
+      form_msg: 'Message', form_msg_placeholder: 'Décrivez vos besoins...',
+      form_submit: 'Envoyer le message →',
+      budget_select: 'Sélectionnez une fourchette', budget1: 'Moins de 500 000 AED', budget2: '500K – 1M AED',
+      budget3: '1M – 2M AED', budget4: '2M – 5M AED', budget5: '5M+ AED',
+      interest_select: 'Sélectionnez une option', interest1: 'Investissement off-plan',
+      interest2: 'Propriété résidentielle', interest3: 'Propriété commerciale', interest4: 'Consultation de portefeuille',
+      footer_desc: 'Un cabinet immobilier premium à Dubaï fondé sur la précision, la transparence et les conseils stratégiques. Votre partenaire de confiance en investissement immobilier.',
+      footer_nav: 'Navigation', footer_services: 'Services',
+      serv1: 'Projets off-plan', serv2: 'Conseil en investissement', serv3: 'Gestion immobilière',
+      serv4: 'Revue de portefeuille', serv5: 'Aide à la relocalisation', serv6: 'Conseil hypothécaire',
+      footer_copy: '© 2025 Falcon Edge Properties. Tous droits réservés.',
+      footer_rera: 'Enregistré RERA · Dubaï, EAU · Opérant en conformité avec la loi immobilière de Dubaï',
+      wa_tooltip: 'Chattez avec nous sur WhatsApp',
+      popup_title: 'Réservez une<br>consultation gratuite',
+      popup_sub: 'Sans pression. Disponible en anglais, arabe et français.',
+      popup_name: 'Votre nom complet', popup_email: 'Adresse e-mail', popup_phone: 'Téléphone / WhatsApp',
+      popup_time_label: 'Créneau préféré :', popup_submit: 'Confirmer la réservation →',
+      time_morning: 'Matin', time_afternoon: 'Après-midi', time_evening: 'Soir',
+      day_mon: 'Lun', day_tue: 'Mar', day_wed: 'Mer',
+      exit_title: 'Guide gratuit d\'investissement à Dubaï',
+      exit_sub: 'Avant de partir — recevez notre guide exclusif 2025 sur l\'immobilier à Dubaï. Analyse du marché, rendements par zone, stratégies de paiement et plus. Entièrement gratuit.',
+      exit_email_placeholder: 'Entrez votre adresse e-mail', exit_submit: 'Envoyez-moi le guide →',
+      exit_close: 'Non merci, je me débrouillerai',
+      cookie_text: 'Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En continuant, vous acceptez notre <a href="#">Politique de confidentialité</a>. Ce site est conforme au RGPD pour nos clients européens.',
+      cookie_accept: 'Tout accepter', cookie_decline: 'Refuser'
+    },
+
+    ar: {
+      lang_label: 'اللغة:',
+      ticker_label: 'النشاط المباشر',
+      tick1: 'تم البيع', tick2: 'حجز جديد', tick3: 'تم حجز استشارة', tick3b: 'مستثمر من', tick4: 'استفسار جديد', tick5: 'مراجعة المحفظة',
+      nav_about: 'عن الشركة', nav_props: 'العقارات', nav_calc: 'حاسبة العائد', nav_areas: 'دليل المناطق', nav_rev: 'آراء العملاء', nav_contact: 'تواصل معنا', nav_book: 'احجز استشارة',
+      book_cta: 'استشارة مجانية', book_float_btn: 'احجز',
+      hero_tag: 'عقارات متميزة · دبي',
+      hero_h1: 'حيث تلتقي الرؤية<br>بـ <span class="line2">الهيكل</span>',
+      hero_sub: 'نرشد المستثمرين المميزين وراغبي التملك عبر أبرز الفرص العقارية في دبي — بدقة وشفافية ونزاهة.',
+      hero_btn1: 'استكشف العقارات', hero_btn2: 'استشارة مجانية',
+      stat1: 'سنة خبرة', stat2: 'عميل تمت خدمته', stat3: 'دول خبرة', stat4: 'معاملات مُدارة',
+      market_tag: 'بيانات السوق المباشرة', market_title_em: 'لمحة عن السوق', market_desc: 'يُحدَّث ربع سنوياً — مؤشرات رئيسية لقرارات استثمارية مستنيرة.',
+      snap1_label: 'متوسط العائد الإيجاري', snap1_trend: '▲ +0.6% مقارنة بالعام الماضي',
+      snap2_label: 'نمو الأسعار (2024)', snap2_trend: '▲ يتجاوز المتوسط العالمي',
+      snap3_label: 'وحدات جديدة تم تسليمها', snap3_trend: '▲ عام قياسي',
+      snap4_label: 'ضريبة أرباح رأس المال', snap4_trend: '◆ ميزة الإمارات',
+      about_tag: 'قصتنا', about_title: 'بناء الثقة.<br>تحقيق <em>القيمة.</em>',
+      about_desc: 'شركة عقارية مقرها دبي متخصصة في العقارات المتميزة والاستثمارات الذكية وخدمات الاستشارة المتمحورة حول العميل. نجمع بين المعرفة العميقة بالسوق والنهج الشخصي.',
+      about_badge: 'سنة<br>في السوق',
+      val1_title: 'الدقة قبل الضغط', val1_desc: 'كل قرار مدروس واستراتيجي ومتوافق مع أهدافك الاستثمارية بعيدة المدى.',
+      val2_title: 'عملية شفافة', val2_desc: 'نؤمن بالوضوح في كل خطوة — لا رسوم خفية ولا مفاجآت، فقط إرشادات صادقة.',
+      val3_title: 'فرص متميزة', val3_desc: 'وصول إلى مشاريع حصرية على الخريطة وعقارات متميزة عبر المناطق الرئيسية في دبي.',
+      props_tag: 'مشاريع مختارة', props_title: 'عقارات <em>على الخريطة</em> متميزة<br>في دبي', props_cta: 'طلب جميع القوائم',
+      badge_offplan: 'على الخريطة', badge_premium: 'متميز',
+      prop1_price: 'حياة على الواجهة المائية بطابع الجزر', prop2_price: 'حياة على الواجهة المائية الأيقونية',
+      prop3_price: 'معيشة حديثة. أناقة خالدة.', prop4_price: 'حيث يلتقي الفخامة بأسلوب الحياة',
+      prop5_dev: 'إعلان مميز', prop5_price: 'معيشة حضرية معاصرة',
+      compare_btn: '+ مقارنة', more_props: 'مشاريع حصرية إضافية<br>متاحة عند الطلب.',
+      compare_label: 'مقارنة العقارات:', slot_empty: 'اختر عقاراً', compare_now: 'قارن الآن', clear: 'مسح',
+      calc_tag: 'استثمار ذكي', calc_title_em: 'الحاسبة',
+      calc_desc: 'احسب عائدك الإيجاري وعوائدك الشهرية ونمو قيمة العقار خلال 5 سنوات.',
+      calc_form_title: 'استثمارك', calc_price: 'سعر العقار (درهم)',
+      calc_dp: 'نسبة الدفعة الأولى %', calc_yield: 'العائد الإيجاري المتوقع %',
+      calc_app: 'نسبة التقدير السنوي %', calc_rate: 'معدل الرهن العقاري %',
+      res1_label: 'الدخل الإيجاري السنوي', res1_sub: 'بناءً على تقدير العائد',
+      res2_label: 'قسط الرهن العقاري الشهري', res2_sub: 'على مدى 25 عاماً',
+      res3_label: 'صافي التدفق النقدي الشهري', res3_sub: 'بعد الرهن — قبل المصروفات',
+      res4_label: 'قيمة العقار بعد 5 سنوات', res4_sub: 'تقدير مع نمو مركب',
+      calc_disclaimer: '* تقديرات فقط. تعتمد العوائد الفعلية على ظروف السوق ونوع العقار والإدارة. استشر مستشارينا لتحليل مخصص.',
+      calc_cta: 'احصل على تحليل استثماري مخصص →',
+      areas_tag: 'استكشف دبي', areas_title_em: 'دليل المناطق', areas_desc: 'اعثر على الحي الذي يناسب أسلوب حياتك وأهدافك الاستثمارية.',
+      area1_desc: 'موطن برج خليفة ودبي مول. أيقونة عالمية تقدم حياة فاخرة بامتياز مع أفضل محلات التجزئة والمطاعم عند بابك.',
+      area2_desc: 'مجتمع ساحلي نابض بالحياة مع نوادي للقوارب الشراعية وإمكانية الوصول إلى الشاطئ وأسلوب حياة عالمي.',
+      area3_desc: 'أعلى حي من حيث العوائد في دبي. بأسعار معقولة، مناسب للعائلات وفي نمو متسارع مع إمكانات ROI ممتازة.',
+      area4_desc: 'المشروع الرائد لإعمار. مدينة جديدة داخل المدينة تضم أطول برج في العالم وإطلالات على الخور وتقدراً قوياً.',
+      area5_desc: 'مجتمع فلل فاخر يحيط بنادي ترامب للغولف الدولي. مثالي للعائلات الباحثة عن الخصوصية والخضرة وأسلوب الحياة الفندقي.',
+      area6_desc: 'مركز التكنولوجيا في دبي. بأسعار معقولة ومكتفٍ ذاتياً وفي نمو سريع. خيار أول للمستثمرين الباحثين عن عوائد إيجارية مرتفعة.',
+      avg_yield: 'متوسط العائد', per_sqft: 'لكل قدم²', demand: 'الطلب',
+      very_high: 'مرتفع جداً', high: 'مرتفع', growing: 'في تنامٍ',
+      ceo_tag: 'القيادة',
+      ceo_quote: '"العقارات ليست مجرد بيع وشراء — بل هي بناء الإرث وخلق القيمة وكسب الثقة."',
+      ceo_text1: 'مهندس مدني بالتعليم مع أكثر من 10 سنوات من الخبرة الدولية في العقارات عبر تونس وفرنسا ودبي. علّمته الهندسة الدقة والمسؤولية، وكشف له العقار الجانب الإنساني للاستثمار والرؤية.',
+      ceo_text2: 'يتيح هذا المزيج النادر تقييم المشاريع ما وراء المظاهر — مع التركيز على الهيكل والجودة والاستدامة والعائد الحقيقي على الاستثمار.',
+      j1_country: 'تونس', j1_desc: 'النهج القائم على العلاقات والقيم الإنسانية',
+      j2_country: 'فرنسا', j2_desc: 'الأسواق المنظمة وحماية الأصول',
+      j3_country: 'دبي', j3_desc: 'السرعة والابتكار والطموح اللامحدود',
+      ceo_title_role: 'المؤسس والرئيس التنفيذي — فالكون إيدج للعقارات',
+      team_tag: 'فريقنا', team_title: 'تعرّف على <em>فريقنا</em>',
+      team_desc: 'محترفون ذوو خبرة يجمعهم التزام مشترك بالتميز والنزاهة والخدمة المتمحورة حول العميل.',
+      role_consultant: 'مستشار عقاري', role_director: 'مدير المبيعات',
+      team1_bio: 'خبير في إرشاد العملاء عبر أكثر العقارات السكنية والاستثمارية حصرية في دبي.',
+      team2_bio: 'متخصص في مشاريع على الخريطة وعلاقات المستثمرين عبر المناطق الرئيسية في دبي.',
+      team3_bio: 'يقود فريق المبيعات برؤية استراتيجية وخبرة عميقة في سوق العقارات المتميزة بدبي.',
+      team4_bio: 'مكرس لتوصيل العملاء بالفرص السكنية والتجارية المتميزة في دبي.',
+      email_link: '✉ بريد إلكتروني', call_link: '📞 اتصل',
+      testi_tag: 'قصص العملاء', testi_title: 'ماذا يقول <em>عملاؤنا</em>',
+      rating_count: 'بناءً على 127 تقييم موثّق', also_rated: 'مُقيَّم أيضاً على',
+      t1_text: 'كان محمد وفريقه استثنائيين. لقد وجدوا لنا استثماراً مثالياً على الخريطة في خور دبي — تعاملوا مع كل شيء من الأوراق إلى خطط الدفع بشفافية تامة.',
+      t2_text: 'كمشترٍ لأول مرة في دبي، كنت متوتراً. جعل فالكون إيدج العملية بأكملها سلسة. معرفتهم بالسوق أنقذتني من صفقات سيئة ووجدوا لي شيئاً متميزاً حقاً.',
+      t3_text: 'عملت مع وكالات كثيرة في دبي. فالكون إيدج يتميز — خلفية محمد الهندسية تمنحه عيناً فريدة للجودة الإنشائية لا يمتلكها معظم الوسطاء.',
+      t4_text: 'خدمة ممتازة من البداية إلى النهاية. الفريق كان متاحاً دائماً والعقار الموصى به ارتفعت قيمته 18% في سنة واحدة. أنصح به بشدة لأي مستثمر جاد.',
+      t5_text: 'انتقلنا من لندن واحتجنا كل شيء — مناطق مدرسية، روح مجتمعية، إمكانات ROI. قدّم فالكون إيدج على جميع الأصعدة. فيلانا في داماك هيلز تفوق التوقعات.',
+      investor: 'مستثمر', homebuyer: 'مشترٍ', family_buyer: 'عائلة مشترية',
+      dev_tag: 'شركاؤنا', dev_title: 'شراكات <em>مطورين</em><br>موثوقة',
+      dev_desc: 'نتعاون حصرياً مع أكثر المطورين العقاريين سمعةً وترسخاً في دبي.',
+      faq_tag: 'دليل المستثمر', faq_title: 'الأسئلة<br><em>الشائعة</em>',
+      faq1_q: 'هل يمكن للأجانب شراء عقارات في دبي؟', faq1_a: 'نعم. تسمح دبي بالتملك الأجنبي 100% في مناطق التملك الحر المحددة. كغير مقيم، يمكنك امتلاك العقار بالكامل بصك ملكية — دون الحاجة لكفيل محلي.',
+      faq2_q: 'ما هو العقار على الخريطة؟', faq2_a: 'يعني شراء عقار قبل بنائه مباشرة من المطور. توفر هذه العقارات عادةً أسعار دخول أقل وخطط دفع مرنة (غالباً 10–20% مقدماً) وإمكانات تقدير قوية عند الاكتمال.',
+      faq3_q: 'ما العائد الذي يمكن توقعه في دبي؟', faq3_a: 'تقدم دبي بعضاً من أعلى العوائد الإيجارية عالمياً — عادةً 6–10% سنوياً حسب الموقع ونوع العقار. علاوة على ذلك، لا توجد ضريبة عقارية ولا ضريبة على أرباح رأس المال في الإمارات.',
+      faq4_q: 'هل أحتاج للتواجد في دبي للشراء؟', faq4_a: 'لا. نساعد العملاء عن بُعد — من جولات العقارات الافتراضية إلى التوقيع الرقمي وترتيبات التوكيل الرسمي. كثير من عملائنا يستثمرون من الخارج.',
+      faq5_q: 'ما هي الرسوم المترتبة على شراء العقار؟', faq5_a: 'عادةً: 4% رسوم تحويل لدائرة الأراضي والأملاك، 2% عمولة وكالة (غالباً يتحملها المطور في حالة الخريطة)، بالإضافة إلى رسوم التسجيل. نقدم تفصيلاً كاملاً مسبقاً — لا مفاجآت.',
+      faq6_q: 'كيف يكسب فالكون إيدج عمولته؟', faq6_a: 'بالنسبة لعقارات الخريطة، تُدفع عمولتنا من المطور — مما يعني أن خدماتنا مجانية للمشتري. بالنسبة لإعادة بيع السوق الثانوية، نعمل بعمولة متفق عليها بشفافية.',
+      faq7_q: 'هل الاستثمار العقاري في دبي آمن؟', faq7_a: 'تتمتع دبي بسوق عقاري منظم للغاية تحكمه RERA (هيئة تنظيم العقارات). حسابات الضمان وحماية صكوك الملكية والأطر القانونية القوية تجعلها من أكثر الأسواق أماناً في العالم.',
+      faq_cta_tag: 'مستعد للاستثمار؟', faq_cta_title: 'ابدأ رحلتك<br>في <em>دبي</em> اليوم',
+      faq_cta_desc: 'احجز استشارة مجانية مدتها 30 دقيقة مع فريقنا. سنرشدك إلى أفضل الفرص المناسبة لميزانيتك وأهدافك وجدولك — بدون أي ضغط.',
+      trust1: 'بدون التزام — مجاني تماماً', trust2: 'متاح بالعربية والإنجليزية والفرنسية',
+      trust3: 'جلسات عن بُعد أو في المكتب متاحة', trust4: 'مسجل لدى RERA & ملتزم بالكامل',
+      contact_tag: 'تواصل معنا', contact_title: 'ابدأ رحلتك<br><em>اليوم</em>',
+      contact_desc: 'خبراؤنا جاهزون لإرشادك عبر أفضل الفرص العقارية في دبي. احجز استشارتك المجانية اليوم.',
+      office_label: 'المكتب', office_addr: 'مكتب رقم 509، برج أبريكوت<br>سيليكون أوازيس، دبي، الإمارات',
+      phone_label: 'الهاتف', email_label: 'البريد الإلكتروني', hours_label: 'ساعات العمل',
+      hours_val: 'الاثنين – السبت: 9:00 ص – 7:00 م<br>الأحد: بموعد مسبق',
+      form_fname: 'الاسم الأول', form_lname: 'اسم العائلة', form_email: 'البريد الإلكتروني',
+      form_phone: 'رقم الهاتف', form_budget: 'الميزانية (درهم)', form_interest: 'أنا مهتم بـ',
+      form_msg: 'الرسالة', form_msg_placeholder: 'أخبرنا عن متطلباتك...',
+      form_submit: 'إرسال الرسالة →',
+      budget_select: 'اختر نطاق الميزانية', budget1: 'أقل من 500,000 درهم', budget2: '500K – 1M درهم',
+      budget3: '1M – 2M درهم', budget4: '2M – 5M درهم', budget5: '5M+ درهم',
+      interest_select: 'اختر خياراً', interest1: 'استثمار على الخريطة',
+      interest2: 'عقار سكني', interest3: 'عقار تجاري', interest4: 'استشارة محفظة',
+      footer_desc: 'مكتب عقاري متميز في دبي مبني على الدقة والشفافية والإرشاد الاستراتيجي. شريكك الموثوق في الاستثمار العقاري.',
+      footer_nav: 'التنقل', footer_services: 'الخدمات',
+      serv1: 'مشاريع على الخريطة', serv2: 'الاستشارة الاستثمارية', serv3: 'إدارة العقارات',
+      serv4: 'مراجعة المحفظة', serv5: 'دعم الانتقال', serv6: 'إرشاد التمويل العقاري',
+      footer_copy: '© 2025 فالكون إيدج للعقارات. جميع الحقوق محفوظة.',
+      footer_rera: 'مسجل لدى RERA · دبي، الإمارات · يعمل وفق قانون العقارات في دبي',
+      wa_tooltip: 'تحدث معنا على واتساب',
+      popup_title: 'احجز استشارة<br>مجانية',
+      popup_sub: 'بدون ضغط. متاح بالإنجليزية والعربية والفرنسية.',
+      popup_name: 'اسمك الكامل', popup_email: 'البريد الإلكتروني', popup_phone: 'الهاتف / واتساب',
+      popup_time_label: 'الفترة المفضلة:', popup_submit: 'تأكيد الحجز →',
+      time_morning: 'الصباح', time_afternoon: 'بعد الظهر', time_evening: 'المساء',
+      day_mon: 'الإثنين', day_tue: 'الثلاثاء', day_wed: 'الأربعاء',
+      exit_title: 'دليل الاستثمار المجاني في دبي',
+      exit_sub: 'قبل المغادرة — احصل على دليل دبي العقاري الحصري لعام 2025. رؤى السوق، عوائد المناطق، استراتيجيات الدفع والمزيد. مجاناً تماماً.',
+      exit_email_placeholder: 'أدخل بريدك الإلكتروني', exit_submit: 'أرسل لي الدليل →',
+      exit_close: 'لا شكراً، سأكتشف بنفسي',
+      cookie_text: 'نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة المرور. بالاستمرار، توافق على <a href="#">سياسة الخصوصية</a>. يتوافق هذا الموقع مع اللائحة الأوروبية لحماية البيانات.',
+      cookie_accept: 'قبول الكل', cookie_decline: 'رفض'
+    }
+  };
+
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+
+    // Boutons actifs
+    document.querySelectorAll('.lang-btn').forEach(b =>
+            b.classList.toggle('active', b.textContent.toLowerCase() === lang)
+    );
+
+    // Direction RTL/LTR
+    document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+
+    // Appliquer data-i18n (textContent)
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    // Appliquer data-i18n-html (innerHTML)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+
+    // Appliquer data-i18n-placeholder
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (t[key] !== undefined) el.placeholder = t[key];
+    });
+
+    // Cookies innerHTML (contient un lien)
+    const cookieText = document.querySelector('.cookie-text');
+    if (cookieText && t['cookie_text']) cookieText.innerHTML = t['cookie_text'];
+  }
+
   // ── MOBILE MENU ──
   function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
@@ -1493,22 +1812,6 @@
     if (!open) item.classList.add('open');
   }
 
-  // ── LANGUAGE ──
-  const langs = {
-    en: { hero_tag: 'Premium Real Estate · Dubai', hero_h1: 'Where Vision<br>Meets', hero_sub: "Guiding discerning investors and homebuyers through Dubai's most prestigious real estate opportunities — with precision, transparency, and integrity.", btn1: 'Explore Properties', btn2: 'Free Consultation' },
-    fr: { hero_tag: 'Immobilier Premium · Dubai', hero_h1: 'Où la Vision<br>Rencontre', hero_sub: "Nous guidons les investisseurs exigeants à travers les opportunités immobilières les plus prestigieuses de Dubaï — avec précision, transparence et intégrité.", btn1: 'Explorer les Biens', btn2: 'Consultation Gratuite' },
-    ar: { hero_tag: 'عقارات متميزة · دبي', hero_h1: 'حيث تلتقي الرؤية<br>بـ', hero_sub: "نرشد المستثمرين المميزين عبر أبرز الفرص العقارية في دبي — بدقة وشفافية ونزاهة.", btn1: 'استكشف العقارات', btn2: 'استشارة مجانية' }
-  };
-  let currentLang = 'en';
-  function setLang(lang) {
-    currentLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
-    document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
-    const d = langs[lang];
-    const heroTag = document.querySelector('.hero-tag');
-    if (heroTag) heroTag.innerHTML = '◆ ' + d.hero_tag;
-  }
-
   // ── ROI CALCULATOR ──
   function fmtAED(n) { return 'AED ' + Math.round(n).toLocaleString(); }
   function updateCalc() {
@@ -1536,7 +1839,6 @@
     document.getElementById('cashFlow').textContent = (cashFlow >= 0 ? '' : '-') + 'AED ' + Math.abs(Math.round(cashFlow)).toLocaleString();
     document.getElementById('cashFlow').style.color = cashFlow >= 0 ? 'var(--gold)' : '#f87171';
 
-    // 5-year chart
     const bars = document.getElementById('calcBars');
     bars.innerHTML = '';
     let vals = [];
@@ -1564,12 +1866,12 @@
     if (btn.classList.contains('selected')) {
       compareList = compareList.filter(n => n !== name);
       btn.classList.remove('selected');
-      btn.textContent = '+ Add to Compare';
+      btn.textContent = translations[currentLang].compare_btn || '+ Add to Compare';
     } else {
-      if (compareList.length >= 3) { alert('You can compare up to 3 properties at a time.'); return; }
+      if (compareList.length >= 3) { alert('Max 3 properties.'); return; }
       compareList.push(name);
       btn.classList.add('selected');
-      btn.textContent = '✓ Added';
+      btn.textContent = '✓';
     }
     updateCompareBar();
   }
@@ -1578,21 +1880,25 @@
     bar.classList.toggle('show', compareList.length > 0);
     for (let i = 0; i < 3; i++) {
       const slot = document.getElementById('slot' + i);
+      const emptyText = translations[currentLang].slot_empty || 'Select a property';
       if (compareList[i]) slot.innerHTML = `<span class="compare-slot-name">${compareList[i]}</span><button class="compare-slot-remove" onclick="removeCompare(${i})">✕</button>`;
-      else slot.innerHTML = '<span class="compare-slot-empty">Select a property</span>';
+      else slot.innerHTML = `<span class="compare-slot-empty">${emptyText}</span>`;
     }
   }
   function removeCompare(idx) {
-    const name = compareList[idx];
     compareList.splice(idx, 1);
     document.querySelectorAll('.prop-compare-btn.selected').forEach(b => {
-      if (b.parentElement.querySelector('.prop-name').textContent.includes(name.split(' ')[0])) { b.classList.remove('selected'); b.textContent = '+ Add to Compare'; }
+      b.classList.remove('selected');
+      b.textContent = translations[currentLang].compare_btn || '+ Add to Compare';
     });
     updateCompareBar();
   }
   function clearCompare() {
     compareList = [];
-    document.querySelectorAll('.prop-compare-btn.selected').forEach(b => { b.classList.remove('selected'); b.textContent = '+ Add to Compare'; });
+    document.querySelectorAll('.prop-compare-btn.selected').forEach(b => {
+      b.classList.remove('selected');
+      b.textContent = translations[currentLang].compare_btn || '+ Add to Compare';
+    });
     updateCompareBar();
   }
 
@@ -1608,14 +1914,12 @@
   function closePopupOutside(e) {
     if (e.target === document.getElementById('popupOverlay')) closePopup();
   }
-  function selectTime(el) {
-    el.classList.toggle('selected');
-  }
+  function selectTime(el) { el.classList.toggle('selected'); }
   function submitPopup() {
     const name = document.getElementById('p_name').value;
     if (!name) { alert('Please enter your name.'); return; }
     closePopup();
-    showToast('✓ Booking confirmed! We\'ll contact you within 24 hours.');
+    showToast('✓ ' + (currentLang === 'fr' ? 'Réservation confirmée !' : currentLang === 'ar' ? 'تم تأكيد الحجز!' : 'Booking confirmed! We\'ll contact you within 24 hours.'));
   }
 
   // ── EXIT INTENT ──
@@ -1631,14 +1935,12 @@
     const email = document.getElementById('exitEmail').value;
     if (!email) { alert('Please enter your email.'); return; }
     closeExit();
-    showToast('📩 Guide sent! Check your inbox shortly.');
+    showToast('📩 ' + (currentLang === 'fr' ? 'Guide envoyé !' : currentLang === 'ar' ? 'تم إرسال الدليل!' : 'Guide sent! Check your inbox shortly.'));
   }
 
   // ── COOKIE ──
   setTimeout(() => { document.getElementById('cookieBanner').classList.add('show'); }, 1500);
-  function acceptCookies() {
-    document.getElementById('cookieBanner').classList.remove('show');
-  }
+  function acceptCookies() { document.getElementById('cookieBanner').classList.remove('show'); }
 
   // ── TOAST ──
   function showToast(msg) {
@@ -1652,8 +1954,8 @@
   function submitForm() {
     const email = document.getElementById('cf_email').value;
     const name = document.getElementById('cf_first').value;
-    if (!name || !email) { showToast('⚠ Please fill in your name and email.'); return; }
-    showToast('✓ Message sent! We\'ll be in touch within 24 hours.');
+    if (!name || !email) { showToast('⚠ ' + (currentLang === 'fr' ? 'Veuillez remplir votre nom et email.' : currentLang === 'ar' ? 'يرجى إدخال اسمك وبريدك الإلكتروني.' : 'Please fill in your name and email.')); return; }
+    showToast('✓ ' + (currentLang === 'fr' ? 'Message envoyé !' : currentLang === 'ar' ? 'تم إرسال الرسالة!' : "Message sent! We'll be in touch within 24 hours."));
   }
 </script>
 </body>
