@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falcon Edge Properties — Premium Real Estate Dubai</title>
+  <meta name="description" content="Dubai's premier real estate consultancy. Off-plan investments, premium properties, and expert advisory services with full transparency.">
+  <meta name="keywords" content="Dubai real estate, off-plan properties, Dubai investment, property consultant Dubai, Falcon Edge">
+  <meta property="og:title" content="Falcon Edge Properties — Premium Real Estate Dubai">
+  <meta property="og:description" content="Guiding discerning investors through Dubai's most prestigious real estate opportunities.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Falcon Edge Properties",
+      "description": "Premium real estate consultancy in Dubai specializing in off-plan investments and advisory services",
+      "url": "https://falconedgeproperties.com",
+      "telephone": "+97152299405",
+      "email": "falconedge1@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Office No. 509, Apricot Tower, Silicon Oasis",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 25.1175, "longitude": 55.3797 },
+      "openingHours": "Mo-Sa 09:00-18:00",
+      "priceRange": "AED 500,000 - AED 50,000,000",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "127" }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B6914;
+      --gold-glow: rgba(201,168,76,0.15);
+      --black: #0A0A0A;
+      --off-black: #111111;
+      --dark: #1A1A1A;
+      --mid: #2E2E2E;
+      --gray: #888;
+      --light-gray: #D4D4D4;
+      --white: #FAFAF8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+    /* CURSOR */
+    .cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s; }
+    .cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.18s ease; }
+
+    /* SCROLL PROGRESS */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-light)); z-index: 201; width: 0%; transition: width 0.1s; }
+
+    /* LANGUAGE SWITCHER */
+    .lang-bar { background: rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 0.4rem 4rem; display: flex; justify-content: flex-end; align-items: center; gap: 1rem; position: relative; z-index: 199; }
+    .lang-btn { background: none; border: none; color: var(--gray); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding: 0.2rem 0.5rem; transition: color 0.2s; font-family: 'DM Sans', sans-serif; }
+    .lang-btn.active, .lang-btn:hover { color: var(--gold); }
+    .lang-sep { color: rgba(201,168,76,0.3); font-size: 0.6rem; }
+    .lang-label { font-size: 0.65rem; color: var(--gray); letter-spacing: 0.15em; text-transform: uppercase; margin-right: 0.5rem; }
+
+    /* TRANSACTION TICKER */
+    .ticker-wrap { background: var(--gold); overflow: hidden; height: 34px; display: flex; align-items: center; position: relative; z-index: 198; }
+    .ticker-label { background: var(--black); color: var(--gold); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 1.2rem; height: 100%; display: flex; align-items: center; white-space: nowrap; flex-shrink: 0; font-weight: 500; }
+    .ticker-track { display: flex; gap: 3rem; animation: ticker 40s linear infinite; white-space: nowrap; }
+    .ticker-item { font-size: 0.7rem; color: var(--black); font-weight: 500; letter-spacing: 0.06em; white-space: nowrap; }
+    .ticker-item span { opacity: 0.7; margin: 0 0.5rem; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* NAV */
+    nav { position: fixed; top: 68px; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: linear-gradient(to bottom, rgba(10,10,10,0.97), transparent); transition: background 0.4s, padding 0.4s, top 0.4s; }
+    nav.scrolled { background: rgba(8,8,8,0.98); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 4rem; backdrop-filter: blur(10px); top: 0; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 42px; filter: brightness(1.1); }
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--gold); font-weight: 400; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--light-gray); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 100%; height: 1px; background: var(--gold); transition: right 0.3s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; text-decoration: none; position: relative; overflow: hidden; }
+    .nav-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-100%); transition: transform 0.3s ease; }
+    .nav-cta:hover { color: var(--black); }
+    .nav-cta:hover::before { transform: translateX(0); }
+    .nav-cta span { position: relative; z-index: 1; }
+
+    /* HERO */
+    .hero { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; margin-top: 68px; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0A0A0A 0%, #1a1510 40%, #0f0d08 100%); }
+    .hero-img-side { position: absolute; right: 0; top: 0; bottom: 0; width: 52%; overflow: hidden; }
+    .hero-img-side::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, var(--black) 0%, transparent 40%); }
+    .hero-img-side img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.55; }
+    .hero-pattern { position: absolute; inset: 0; z-index: 1; opacity: 0.035; background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%); background-size: 28px 28px; }
+    .hero-particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+    .particle { position: absolute; width: 2px; height: 2px; background: var(--gold); border-radius: 50%; opacity: 0; animation: float-up linear infinite; }
+    @keyframes float-up { 0% { opacity: 0; transform: translateY(0) scale(0); } 10% { opacity: 0.6; } 90% { opacity: 0.2; } 100% { opacity: 0; transform: translateY(-100vh) scale(1.5); } }
+    .hero-content { position: relative; z-index: 2; padding: 0 4rem; max-width: 680px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.75rem; border: 1px solid rgba(201,168,76,0.4); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 0.4rem 1.2rem; margin-bottom: 2.5rem; animation: fade-in-up 0.8s ease both; }
+    .hero-tag::before { content: '◆'; font-size: 0.5rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 5.5vw, 5.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 1.8rem; color: var(--white); animation: fade-in-up 0.8s 0.2s ease both; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero h1 .line2 { display: block; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold)); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shine 3s linear infinite; }
+    @keyframes shine { 0%{background-position:0%} 100%{background-position:200%} }
+    .hero-sub { color: rgba(212,212,212,0.8); font-size: 0.95rem; line-height: 1.9; margin-bottom: 2.8rem; max-width: 460px; animation: fade-in-up 0.8s 0.4s ease both; }
+    .hero-btns { display: flex; gap: 1rem; animation: fade-in-up 0.8s 0.6s ease both; }
+    .btn-primary { background: var(--gold); color: var(--black); padding: 1rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.3s; border: none; cursor: pointer; display: inline-block; position: relative; overflow: hidden; }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); transform: translateX(-100%) skewX(-15deg); transition: transform 0.4s ease; }
+    .btn-primary:hover::after { transform: translateX(150%) skewX(-15deg); }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.3); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.25); color: var(--white); padding: 1rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; display: inline-block; background: none; cursor: pointer; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .hero-stats { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; display: flex; background: rgba(10,10,10,0.88); backdrop-filter: blur(10px); border-top: 1px solid rgba(201,168,76,0.2); animation: fade-in-up 0.8s 0.8s ease both; }
+    .stat-item { flex: 1; padding: 1.8rem 2rem; display: flex; flex-direction: column; gap: 0.3rem; border-right: 1px solid rgba(201,168,76,0.1); transition: background 0.3s; }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(201,168,76,0.05); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--gold); font-weight: 300; line-height: 1; }
+    .stat-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); }
+    @keyframes fade-in-up { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    section { padding: 7rem 4rem; }
+    .section-tag { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.5vw, 3.5rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.5rem; }
+    .section-title em { color: var(--gold); font-style: italic; }
+    .section-desc { color: var(--gray); font-size: 0.93rem; line-height: 2; max-width: 540px; }
+    .gold-line { width: 60px; height: 1px; background: linear-gradient(to right, var(--gold), transparent); margin: 1.5rem 0; }
+    .gold-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.2; }
+
+    /* MARKET SNAPSHOT */
+    .snapshot-section { background: linear-gradient(135deg, #0f0d08, #1a1510, #0f0d08); position: relative; overflow: hidden; }
+    .snapshot-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.03) 0, rgba(201,168,76,0.03) 1px, transparent 0, transparent 50%); background-size: 28px 28px; }
+    .snapshot-header { text-align: center; margin-bottom: 3.5rem; position: relative; }
+    .snapshot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,168,76,0.1); position: relative; }
+    .snap-card { background: rgba(10,10,10,0.8); padding: 2.5rem 2rem; text-align: center; transition: background 0.3s; position: relative; overflow: hidden; }
+    .snap-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.4s; }
+    .snap-card:hover { background: rgba(201,168,76,0.04); }
+    .snap-card:hover::after { transform: scaleX(1); }
+    .snap-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .snap-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); font-weight: 300; line-height: 1; margin-bottom: 0.4rem; }
+    .snap-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
+    .snap-trend { font-size: 0.72rem; color: #4ade80; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .snap-trend.down { color: #f87171; }
+    .snap-area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+    .area-pill { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
+    .area-pill:hover { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.35); }
+    .area-name { font-size: 0.82rem; font-weight: 500; }
+    .area-yield { font-size: 0.75rem; color: var(--gold); font-weight: 500; }
+    .area-price { font-size: 0.7rem; color: var(--gray); }
+
+    /* ABOUT */
+    .about-section { background: var(--off-black); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 70%; height: 70%; border: 1px solid rgba(201,168,76,0.25); z-index: 0; }
+    .about-img-wrap img { width: 100%; height: 540px; object-fit: cover; object-position: top; position: relative; z-index: 1; }
+    .about-img-badge { position: absolute; bottom: 1.5rem; left: -2rem; z-index: 2; background: var(--gold); color: var(--black); padding: 1.5rem 2rem; text-align: center; box-shadow: 0 20px 50px rgba(201,168,76,0.3); }
+    .about-img-badge .num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; display: block; line-height: 1; }
+    .about-img-badge .lbl { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .about-values { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+    .value-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.2rem; border: 1px solid transparent; transition: all 0.3s; }
+    .value-item:hover { border-color: rgba(201,168,76,0.2); background: rgba(201,168,76,0.03); }
+    .value-icon { color: var(--gold); font-size: 0.9rem; margin-top: 0.15rem; flex-shrink: 0; }
+    .value-text h4 { font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.35rem; font-weight: 500; }
+    .value-text p { font-size: 0.82rem; color: var(--gray); line-height: 1.75; }
+
+    /* PROPERTIES */
+    .properties-section { background: var(--black); overflow: hidden; }
+    .props-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+    .slider-wrap { position: relative; overflow: hidden; }
+    .slider-track { display: flex; gap: 1.5px; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .prop-card { min-width: calc(33.333% - 1px); background: var(--off-black); overflow: hidden; cursor: pointer; position: relative; flex-shrink: 0; transition: transform 0.3s; }
+    .prop-card:hover { transform: translateY(-6px); }
+    .prop-card:hover .prop-img img { transform: scale(1.08); }
+    .prop-card:hover .prop-overlay { opacity: 1; }
+    .prop-img { height: 280px; overflow: hidden; position: relative; }
+    .prop-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+    .prop-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, var(--dark), var(--mid)); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 2rem; font-family: 'Cormorant Garamond', serif; }
+    .prop-badge { position: absolute; top: 1rem; left: 1rem; background: var(--gold); color: var(--black); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; font-weight: 500; }
+    .prop-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(201,168,76,0.25), transparent); opacity: 0; transition: opacity 0.4s; }
+    .prop-wishlist { position: absolute; top: 1rem; right: 1rem; background: rgba(10,10,10,0.7); border: 1px solid rgba(201,168,76,0.3); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; color: var(--gold); font-size: 0.9rem; z-index: 2; }
+    .prop-wishlist:hover, .prop-wishlist.active { background: var(--gold); color: var(--black); }
+    .prop-info { padding: 1.5rem 1.8rem; border-top: 1px solid rgba(201,168,76,0.1); }
+    .prop-developer { font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .prop-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; margin-bottom: 0.4rem; }
+    .prop-location { font-size: 0.76rem; color: var(--gray); margin-bottom: 0.8rem; }
+    .prop-price { font-size: 0.78rem; color: var(--gold-light); letter-spacing: 0.05em; }
+    .prop-compare-btn { margin-top: 1rem; width: 100%; background: none; border: 1px solid rgba(201,168,76,0.2); color: var(--gray); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
+    .prop-compare-btn:hover, .prop-compare-btn.selected { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }
+    .slider-controls { display: flex; gap: 0.75rem; margin-top: 2.5rem; justify-content: center; align-items: center; }
+    .slider-btn { width: 46px; height: 46px; border: 1px solid rgba(201,168,76,0.4); background: transparent; color: var(--gold); cursor: pointer; font-size: 1rem; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+    .slider-btn:hover { background: var(--gold); color: var(--black); }
+    .slider-dots { display: flex; gap: 0.5rem; align-items: center; margin: 0 1rem; }
+    .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,0.3); cursor: pointer; transition: all 0.3s; }
+    .slider-dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
+
+    /* COMPARE PANEL */
+    .compare-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.97); border-top: 1px solid rgba(201,168,76,0.3); z-index: 400; transform: translateY(100%); transition: transform 0.4s ease; backdrop-filter: blur(10px); }
+    .compare-bar.show { transform: translateY(0); }
+    .compare-bar-inner { display: flex; align-items: center; gap: 2rem; padding: 1.2rem 4rem; }
+    .compare-slots { display: flex; gap: 1rem; flex: 1; }
+    .compare-slot { flex: 1; max-width: 220px; border: 1px solid rgba(201,168,76,0.2); padding: 0.8rem 1rem; min-height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .compare-slot-name { font-size: 0.8rem; color: var(--light-gray); }
+    .compare-slot-empty { font-size: 0.72rem; color: var(--gray); font-style: italic; }
+    .compare-slot-remove { color: var(--gold); cursor: pointer; font-size: 0.9rem; background: none; border: none; }
+    .compare-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+    .compare-actions { display: flex; gap: 0.75rem; }
+
+    /* AREA GUIDE */
+    .areas-section { background: var(--dark); }
+    .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.08); margin-top: 3rem; }
+    .area-card { background: var(--dark); overflow: hidden; position: relative; cursor: pointer; }
+    .area-card-img { height: 220px; background: linear-gradient(135deg, var(--off-black), var(--mid)); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; transition: transform 0.5s; }
+    .area-card:hover .area-card-img { transform: scale(1.03); }
+    .area-card-emoji { font-size: 3.5rem; }
+    .area-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.85), transparent 50%); }
+    .area-card-body { padding: 1.5rem; }
+    .area-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .area-card-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.7; margin-bottom: 1rem; }
+    .area-card-stats { display: flex; gap: 1.5rem; }
+    .area-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .area-stat-val { font-size: 0.85rem; color: var(--gold); font-weight: 500; }
+    .area-stat-key { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+
+    /* ROI CALCULATOR */
+    .calculator-section { background: var(--off-black); }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .calc-form { background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.15); padding: 3rem; }
+    .calc-form h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); }
+    .calc-group { margin-bottom: 1.8rem; }
+    .calc-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.6rem; display: flex; justify-content: space-between; }
+    .calc-label span { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0; }
+    .calc-slider { width: 100%; -webkit-appearance: none; height: 2px; background: rgba(201,168,76,0.2); outline: none; }
+    .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--gold); cursor: pointer; border-radius: 0; }
+    .calc-results { display: flex; flex-direction: column; gap: 1.5rem; padding-top: 0.5rem; }
+    .calc-result-card { background: rgba(10,10,10,0.6); border: 1px solid rgba(201,168,76,0.12); padding: 2rem; transition: border-color 0.3s; }
+    .calc-result-card:hover { border-color: rgba(201,168,76,0.3); }
+    .calc-result-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.6rem; }
+    .calc-result-val { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); font-weight: 300; line-height: 1; }
+    .calc-result-sub { font-size: 0.72rem; color: var(--gray); margin-top: 0.4rem; }
+    .calc-chart { height: 160px; margin-top: 1rem; position: relative; }
+    .calc-bar-wrap { display: flex; align-items: flex-end; gap: 4px; height: 100%; padding: 0 0.5rem; }
+    .calc-bar { flex: 1; background: linear-gradient(to top, var(--gold-dark), var(--gold)); min-height: 4px; transition: height 0.6s ease; position: relative; }
+    .calc-bar-year { position: absolute; bottom: -1.4rem; left: 50%; transform: translateX(-50%); font-size: 0.6rem; color: var(--gray); white-space: nowrap; }
+
+    /* CEO */
+    .ceo-section { background: var(--dark); }
+    .ceo-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 7rem; align-items: center; }
+    .ceo-img-wrap { position: relative; }
+    .ceo-img-wrap::before { content: ''; position: absolute; top: -1.5rem; left: -1.5rem; right: 1.5rem; bottom: 1.5rem; border: 1px solid rgba(201,168,76,0.3); z-index: 0; }
+    .ceo-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(201,168,76,0.08), transparent 60%); z-index: 2; pointer-events: none; }
+    .ceo-img-wrap img { width: 100%; height: 600px; object-fit: cover; object-position: top; position: relative; z-index: 1; }
+    .ceo-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; line-height: 1.65; color: var(--gold-light); margin-bottom: 2rem; border-left: 2px solid var(--gold); padding-left: 1.5rem; }
+    .ceo-text { color: var(--gray); font-size: 0.9rem; line-height: 1.95; margin-bottom: 1rem; }
+    .ceo-journey { display: flex; gap: 0; margin-top: 2rem; border: 1px solid rgba(201,168,76,0.15); }
+    .journey-step { flex: 1; text-align: center; padding: 1.5rem 1rem; border-right: 1px solid rgba(201,168,76,0.15); transition: background 0.3s; }
+    .journey-step:last-child { border-right: none; }
+    .journey-step:hover { background: rgba(201,168,76,0.05); }
+    .journey-flag { font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .journey-country { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .journey-desc { font-size: 0.72rem; color: var(--gray); line-height: 1.5; }
+    .ceo-signature { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(201,168,76,0.2); }
+    .ceo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); }
+    .ceo-title { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-top: 0.3rem; }
+
+    /* TEAM */
+    .team-section { background: var(--off-black); }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: rgba(201,168,76,0.08); margin-top: 3rem; }
+    .team-card { background: var(--dark); overflow: hidden; position: relative; }
+    .team-card:hover .team-photo img { transform: scale(1.06); }
+    .team-card:hover .team-card-overlay { opacity: 1; }
+    .team-photo { height: 370px; overflow: hidden; position: relative; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.7s ease; }
+    .team-card-overlay { position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s; background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%); }
+    .team-info { padding: 1.5rem 1.8rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .team-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .team-role { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .team-bio { font-size: 0.78rem; color: var(--gray); line-height: 1.7; }
+    .team-contacts { display: flex; gap: 0.75rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .team-contact-link { font-size: 0.7rem; color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
+    .team-contact-link:hover { opacity: 0.7; }
+
+    /* TESTIMONIALS */
+    .testimonials-section { background: var(--black); overflow: hidden; }
+    .testi-header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
+    .testi-track-wrap { overflow: hidden; }
+    .testi-track { display: flex; gap: 1.5rem; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .testi-card { min-width: calc(33.333% - 1rem); background: var(--off-black); padding: 2.5rem; border: 1px solid rgba(201,168,76,0.1); position: relative; flex-shrink: 0; transition: border-color 0.3s, transform 0.3s; }
+    .testi-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+    .testi-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 5rem; line-height: 0.8; color: var(--gold); opacity: 0.2; margin-bottom: 1rem; display: block; }
+    .testi-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.75; color: var(--light-gray); margin-bottom: 1.8rem; }
+    .testi-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .testi-author { display: flex; align-items: center; gap: 1rem; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--black); font-weight: 600; flex-shrink: 0; }
+    .testi-name { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .testi-origin { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.08em; }
+    .rating-summary { display: flex; align-items: center; gap: 3rem; justify-content: center; margin-bottom: 3rem; padding: 2rem; border: 1px solid rgba(201,168,76,0.12); background: rgba(201,168,76,0.03); }
+    .rating-big { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--gold); font-weight: 300; line-height: 1; }
+    .rating-stars-big { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.15em; margin-bottom: 0.3rem; }
+    .rating-count { font-size: 0.72rem; color: var(--gray); }
+    .rating-bars { flex: 1; max-width: 220px; }
+    .rating-bar-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+    .rating-bar-label { font-size: 0.65rem; color: var(--gray); width: 10px; }
+    .rating-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.08); }
+    .rating-bar-fill { height: 100%; background: var(--gold); }
+
+    /* DEVELOPERS */
+    .developers-section { background: var(--off-black); }
+    .dev-logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,168,76,0.1); margin-top: 3rem; }
+    .dev-logo-item { background: var(--off-black); padding: 2.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; cursor: pointer; }
+    .dev-logo-item:hover { background: var(--dark); }
+    .dev-logo-item img { max-height: 50px; max-width: 130px; object-fit: contain; filter: brightness(0.6) grayscale(1); transition: filter 0.3s; }
+    .dev-logo-item:hover img { filter: brightness(1.2) grayscale(0); }
+    .dev-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gray); letter-spacing: 0.05em; transition: color 0.3s; }
+    .dev-logo-item:hover .dev-logo-text { color: var(--gold); }
+
+    /* FAQ */
+    .faq-section { background: var(--dark); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 1rem; }
+    .faq-item { border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; cursor: pointer; transition: color 0.3s; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.02em; gap: 1rem; }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; font-size: 0.85rem; color: var(--gray); line-height: 1.85; }
+    .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 1.4rem; }
+    .faq-cta-box { background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03)); border: 1px solid rgba(201,168,76,0.2); padding: 3rem; }
+    .faq-cta-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1.3; margin-bottom: 1rem; }
+    .faq-cta-box h3 em { color: var(--gold); font-style: italic; }
+    .faq-cta-box p { color: var(--gray); font-size: 0.85rem; line-height: 1.8; margin-bottom: 2rem; }
+    .faq-trust { margin-top: 1.5rem; padding: 2rem; border: 1px solid rgba(201,168,76,0.12); background: rgba(201,168,76,0.03); }
+    .faq-trust-item { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+    .faq-trust-item:last-child { margin-bottom: 0; }
+    .faq-trust-item span:first-child { color: var(--gold); font-size: 1.1rem; }
+    .faq-trust-item span:last-child { font-size: 0.85rem; color: var(--light-gray); }
+
+    /* CONTACT */
+    .contact-section { background: var(--off-black); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+    .contact-item { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem; border: 1px solid rgba(201,168,76,0.08); transition: all 0.3s; }
+    .contact-item:hover { border-color: rgba(201,168,76,0.25); background: rgba(201,168,76,0.03); }
+    .contact-icon { color: var(--gold); font-size: 1rem; margin-top: 0.15rem; width: 22px; flex-shrink: 0; }
+    .contact-detail h4 { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .contact-detail p { font-size: 0.88rem; color: var(--light-gray); line-height: 1.75; }
+    .contact-detail a { color: var(--light-gray); text-decoration: none; transition: color 0.2s; }
+    .contact-detail a:hover { color: var(--gold); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); }
+    .form-group input, .form-group textarea, .form-group select { background: var(--dark); border: 1px solid rgba(255,255,255,0.07); color: var(--white); padding: 0.9rem 1.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 300; outline: none; transition: border-color 0.3s, box-shadow 0.3s; width: 100%; -webkit-appearance: none; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.08); }
+    .form-group select option { background: var(--dark); }
+    .form-group textarea { resize: none; height: 120px; }
+    .form-submit { background: var(--gold); color: var(--black); border: none; padding: 1.1rem 2.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; align-self: flex-start; }
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.25); }
+
+    /* FOOTER */
+    footer { background: #080808; padding: 4rem 4rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+    .footer-brand img { height: 48px; margin-bottom: 1.2rem; }
+    .footer-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.9; max-width: 280px; }
+    .footer-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .social-link { width: 38px; height: 38px; border: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; justify-content: center; color: var(--gold); text-decoration: none; font-size: 0.72rem; transition: all 0.3s; }
+    .social-link:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .footer-col h4 { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col ul a { font-size: 0.82rem; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.74rem; color: rgba(255,255,255,0.25); }
+    .footer-rera { font-size: 0.74rem; color: rgba(201,168,76,0.45); }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 300; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+    .whatsapp-btn { width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s; animation: pulse-green 2.5s ease infinite; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.55); }
+    @keyframes pulse-green { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); } }
+    .whatsapp-tooltip { background: var(--off-black); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 0.5rem 1rem; font-size: 0.75rem; white-space: nowrap; opacity: 0; transform: translateX(10px); transition: all 0.3s; pointer-events: none; }
+    .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* STICKY BOOK BUTTON */
+    .book-float { position: fixed; bottom: 7rem; right: 2rem; z-index: 300; }
+    .book-float-btn { background: var(--gold); color: var(--black); border: none; padding: 0.85rem 1.5rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-weight: 500; font-family: 'DM Sans', sans-serif; box-shadow: 0 8px 30px rgba(201,168,76,0.35); transition: all 0.3s; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem; }
+    .book-float-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .book-pulse { width: 8px; height: 8px; background: var(--black); border-radius: 50%; animation: blink 1.5s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* BOOKING POPUP */
+    .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(4px); }
+    .popup-overlay.show { opacity: 1; pointer-events: all; }
+    .popup-box { background: var(--off-black); border: 1px solid rgba(201,168,76,0.25); padding: 3rem; max-width: 500px; width: 90%; position: relative; transform: translateY(20px); transition: transform 0.3s; }
+    .popup-overlay.show .popup-box { transform: translateY(0); }
+    .popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--gray); cursor: pointer; font-size: 1.3rem; transition: color 0.2s; line-height: 1; }
+    .popup-close:hover { color: var(--gold); }
+    .popup-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .popup-sub { font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin-bottom: 2rem; }
+    .popup-form { display: flex; flex-direction: column; gap: 1rem; }
+    .popup-input { background: var(--dark); border: 1px solid rgba(255,255,255,0.07); color: var(--white); padding: 0.85rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; outline: none; width: 100%; transition: border-color 0.3s; }
+    .popup-input:focus { border-color: var(--gold); }
+    .popup-times { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .popup-time { background: var(--dark); border: 1px solid rgba(255,255,255,0.07); color: var(--gray); padding: 0.6rem; font-size: 0.7rem; cursor: pointer; text-align: center; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+    .popup-time:hover, .popup-time.selected { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }
+    .popup-time-label { font-size: 0.65rem; color: var(--gray); margin-bottom: 0.4rem; }
+    .popup-submit { background: var(--gold); color: var(--black); border: none; padding: 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-weight: 500; width: 100%; transition: all 0.3s; }
+    .popup-submit:hover { background: var(--gold-light); }
+
+    /* EXIT POPUP */
+    .exit-popup { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 600; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+    .exit-popup.show { opacity: 1; pointer-events: all; }
+    .exit-box { background: var(--dark); border: 1px solid rgba(201,168,76,0.3); max-width: 520px; width: 90%; overflow: hidden; position: relative; transform: scale(0.95); transition: transform 0.4s; }
+    .exit-popup.show .exit-box { transform: scale(1); }
+    .exit-top { background: linear-gradient(135deg, #1a1510, #2a2010); padding: 3rem; text-align: center; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .exit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .exit-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .exit-sub { font-size: 0.85rem; color: var(--gray); line-height: 1.7; }
+    .exit-bottom { padding: 2rem 3rem; }
+    .exit-email { background: var(--off-black); border: 1px solid rgba(255,255,255,0.08); color: var(--white); padding: 0.85rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; outline: none; width: 100%; margin-bottom: 0.75rem; transition: border-color 0.3s; }
+    .exit-email:focus { border-color: var(--gold); }
+    .exit-close { display: block; text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--gray); cursor: pointer; transition: color 0.2s; background: none; border: none; font-family: 'DM Sans', sans-serif; width: 100%; }
+    .exit-close:hover { color: var(--gold); }
+
+    /* COOKIE BANNER */
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.97); border-top: 1px solid rgba(201,168,76,0.2); z-index: 800; padding: 1.5rem 4rem; display: flex; align-items: center; gap: 2rem; transform: translateY(100%); transition: transform 0.5s ease 1s; backdrop-filter: blur(10px); }
+    .cookie-banner.show { transform: translateY(0); }
+    .cookie-text { flex: 1; font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+    .cookie-text a { color: var(--gold); text-decoration: none; }
+    .cookie-btns { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-accept { background: var(--gold); color: var(--black); border: none; padding: 0.65rem 1.5rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-weight: 500; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+    .cookie-decline { background: none; border: 1px solid rgba(255,255,255,0.15); color: var(--gray); padding: 0.65rem 1.2rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+    .cookie-decline:hover { border-color: var(--gray); }
+
+    @media (max-width: 900px) {
+      .lang-bar { padding: 0.4rem 1.5rem; }
+      nav { padding: 1.2rem 1.5rem; top: 34px; }
+      nav.scrolled { top: 0; }
+      .nav-links { display: none; }
+      section { padding: 4.5rem 1.5rem; }
+      .hero { margin-top: 34px; }
+      .hero-content { padding: 0 1.5rem; }
+      .hero-stats { flex-wrap: wrap; }
+      .stat-item { min-width: 45%; }
+      .hero-img-side { width: 100%; opacity: 0.2; }
+      .about-grid,.ceo-grid,.contact-grid,.faq-grid,.calc-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .prop-card { min-width: calc(85% - 1px); }
+      .testi-card { min-width: calc(90% - 1rem); }
+      .dev-logos { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .props-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2,1fr); }
+      .cursor,.cursor-ring { display: none; }
+      .snapshot-grid { grid-template-columns: repeat(2,1fr); }
+      .areas-grid { grid-template-columns: 1fr; }
+      .snap-area-grid { grid-template-columns: 1fr; }
+      .cookie-banner { flex-direction: column; padding: 1.5rem; }
+      .compare-bar-inner { padding: 1rem 1.5rem; flex-wrap: wrap; }
+      .rating-summary { flex-direction: column; gap: 1.5rem; }
+      .book-float { bottom: 8rem; }
+    }
+    @media (max-width: 500px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.8rem; }
+      .popup-times { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span class="lang-label">Language:</span>
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <span class="lang-sep">|</span>
+  <button class="lang-btn" onclick="setLang('ar')">AR</button>
+  <span class="lang-sep">|</span>
+  <button class="lang-btn" onclick="setLang('fr')">FR</button>
+</div>
+
+<!-- TRANSACTION TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">◆ Live Activity</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="ticker-item">✓ Just Sold <span>·</span> DAMAC Hills Villa <span>·</span> AED 3.2M</span>
+      <span class="ticker-item">✓ New Booking <span>·</span> Emaar Creek Harbour Studio <span>·</span> AED 890K</span>
+      <span class="ticker-item">✓ Consultation Booked <span>·</span> Investor from 🇫🇷 France</span>
+      <span class="ticker-item">✓ Just Sold <span>·</span> Azizi Venice Apartment <span>·</span> AED 1.4M</span>
+      <span class="ticker-item">✓ New Inquiry <span>·</span> Ellington Marvia Shores <span>·</span> Penthouse</span>
+      <span class="ticker-item">✓ Portfolio Review <span>·</span> Client from 🇸🇦 Saudi Arabia</span>
+      <span class="ticker-item">✓ Just Sold <span>·</span> Silicon Oasis 2BR <span>·</span> AED 1.1M</span>
+      <!-- duplicate for loop -->
+      <span class="ticker-item">✓ Just Sold <span>·</span> DAMAC Hills Villa <span>·</span> AED 3.2M</span>
+      <span class="ticker-item">✓ New Booking <span>·</span> Emaar Creek Harbour Studio <span>·</span> AED 890K</span>
+      <span class="ticker-item">✓ Consultation Booked <span>·</span> Investor from 🇫🇷 France</span>
+      <span class="ticker-item">✓ Just Sold <span>·</span> Azizi Venice Apartment <span>·</span> AED 1.4M</span>
+      <span class="ticker-item">✓ New Inquiry <span>·</span> Ellington Marvia Shores <span>·</span> Penthouse</span>
+      <span class="ticker-item">✓ Portfolio Review <span>·</span> Client from 🇸🇦 Saudi Arabia</span>
+      <span class="ticker-item">✓ Just Sold <span>·</span> Silicon Oasis 2BR <span>·</span> AED 1.1M</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="wp-content/uploads/2025/12/cropped-WhatsApp_Image_2025-12-11_at_23.49.18_da0ae57a-removebg-preview.png" alt="Falcon Edge Properties" onerror="this.style.display='none'">
+    <span class="nav-brand">Falcon Edge</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#calculator">ROI Calculator</a></li>
+    <li><a href="#areas">Area Guide</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cta" onclick="openPopup()"><span>Book Consultation</span></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img-side">
+    <img src="wp-content/uploads/2025/12/mohamed.jpg" alt="Mohamed Frigui CEO" onerror="this.src='wp-content/uploads/2025/12/86A5613-Web-1-e1765897363679.jpg'">
+  </div>
+  <div class="hero-pattern"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Premium Real Estate · Dubai</div>
+    <h1>Where Vision<br>Meets <span class="line2">Structure</span></h1>
+    <p class="hero-sub">Guiding discerning investors and homebuyers through Dubai's most prestigious real estate opportunities — with precision, transparency, and integrity.</p>
+    <div class="hero-btns">
+      <a href="#properties" class="btn-primary">Explore Properties</a>
+      <button class="btn-outline" onclick="openPopup()">Free Consultation</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num" data-target="10" data-suffix="+">0</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="500" data-suffix="+">0</span><span class="stat-label">Clients Served</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="3">0</span><span class="stat-label">Countries Expertise</span></div>
+    <div class="stat-item"><span class="stat-num">AED 1B+</span><span class="stat-label">Transactions Managed</span></div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- MARKET SNAPSHOT -->
+<section class="snapshot-section" id="market">
+  <div class="snapshot-header reveal">
+    <span class="section-tag" style="justify-content:center;">Live Market Data</span>
+    <h2 class="section-title">Dubai Real Estate <em>Market Snapshot</em></h2>
+    <p class="section-desc" style="margin:0 auto;text-align:center;">Updated quarterly — key indicators for informed investment decisions.</p>
+  </div>
+  <div class="snapshot-grid reveal">
+    <div class="snap-card">
+      <div class="snap-icon">🏙️</div>
+      <div class="snap-num">8.4%</div>
+      <div class="snap-label">Avg Rental Yield</div>
+      <div class="snap-trend">▲ +0.6% vs last year</div>
+    </div>
+    <div class="snap-card">
+      <div class="snap-icon">📈</div>
+      <div class="snap-num">+17%</div>
+      <div class="snap-label">Price Growth (2024)</div>
+      <div class="snap-trend">▲ Outpacing global avg</div>
+    </div>
+    <div class="snap-card">
+      <div class="snap-icon">🏗️</div>
+      <div class="snap-num">92K+</div>
+      <div class="snap-label">New Units Delivered</div>
+      <div class="snap-trend">▲ Record year</div>
+    </div>
+    <div class="snap-card">
+      <div class="snap-icon">🌍</div>
+      <div class="snap-num">0%</div>
+      <div class="snap-label">Capital Gains Tax</div>
+      <div class="snap-trend" style="color:var(--gold);">◆ UAE Advantage</div>
+    </div>
+  </div>
+  <div class="snap-area-grid reveal" style="margin-top:2rem;">
+    <div class="area-pill"><span class="area-name">Downtown Dubai</span><div style="text-align:right"><div class="area-yield">7.2% Yield</div><div class="area-price">AED 2,800/sqft</div></div></div>
+    <div class="area-pill"><span class="area-name">Dubai Marina</span><div style="text-align:right"><div class="area-yield">8.1% Yield</div><div class="area-price">AED 2,100/sqft</div></div></div>
+    <div class="area-pill"><span class="area-name">JVC</span><div style="text-align:right"><div class="area-yield">9.4% Yield</div><div class="area-price">AED 1,050/sqft</div></div></div>
+    <div class="area-pill"><span class="area-name">DAMAC Hills</span><div style="text-align:right"><div class="area-yield">7.8% Yield</div><div class="area-price">AED 1,350/sqft</div></div></div>
+    <div class="area-pill"><span class="area-name">Creek Harbour</span><div style="text-align:right"><div class="area-yield">8.6% Yield</div><div class="area-price">AED 1,900/sqft</div></div></div>
+    <div class="area-pill"><span class="area-name">Silicon Oasis</span><div style="text-align:right"><div class="area-yield">9.1% Yield</div><div class="area-price">AED 820/sqft</div></div></div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal-left">
+      <img src="wp-content/uploads/2022/06/Agency-Story.webp" alt="Falcon Edge Properties Office" onerror="this.style.display='none'">
+      <div class="about-img-badge"><span class="num">10+</span><span class="lbl">Years<br>in Market</span></div>
+    </div>
+    <div class="reveal-right">
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">Building Trust.<br>Delivering <em>Value.</em></h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">A Dubai-based real estate company specializing in premium properties, smart investments, and client-focused advisory services. We combine deep market knowledge with a personalized, client-first approach.</p>
+      <div class="about-values">
+        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4>Precision Over Pressure</h4><p>Every decision is informed, strategic, and aligned with your long-term investment goals.</p></div></div>
+        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4>Transparent Process</h4><p>We believe in clarity at every step — no hidden fees, no surprises, just honest guidance.</p></div></div>
+        <div class="value-item"><span class="value-icon">◆</span><div class="value-text"><h4>Premium Opportunities</h4><p>Access to exclusive off-plan projects and premium properties across Dubai's key districts.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- PROPERTIES SLIDER -->
+<section class="properties-section" id="properties">
+  <div class="props-header reveal">
+    <div>
+      <span class="section-tag">Featured Projects</span>
+      <h2 class="section-title">Premium <em>Off-Plan</em><br>Properties in Dubai</h2>
+    </div>
+    <button class="btn-outline" onclick="openPopup()">Request All Listings</button>
+  </div>
+  <div class="slider-wrap reveal">
+    <div class="slider-track" id="propsTrack">
+      <div class="prop-card">
+        <div class="prop-img">
+          <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-193114-1024x471.png" alt="DAMAC Islands 2" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>DAMAC</div>'">
+          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-developer">DAMAC Properties</div>
+          <div class="prop-name">DAMAC Islands 2</div>
+          <div class="prop-location">📍 Dubai, UAE</div>
+          <div class="prop-price">Island-Inspired Waterfront Living</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'DAMAC Islands 2')">+ Add to Compare</button>
+        </div>
+      </div>
+      <div class="prop-card">
+        <div class="prop-img">
+          <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-191931-1024x607.png" alt="Emaar Dubai Creek" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>EMAAR</div>'">
+          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-developer">Emaar Properties</div>
+          <div class="prop-name">Emaar Dubai Creek</div>
+          <div class="prop-location">📍 Dubai Creek Harbour</div>
+          <div class="prop-price">Iconic Waterfront Living</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Emaar Dubai Creek')">+ Add to Compare</button>
+        </div>
+      </div>
+      <div class="prop-card">
+        <div class="prop-img">
+          <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-185951.png" alt="Venice Next Legacy" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>AZIZI</div>'">
+          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-developer">Azizi Developments</div>
+          <div class="prop-name">Venice Next Legacy</div>
+          <div class="prop-location">📍 Dubai, UAE</div>
+          <div class="prop-price">Modern Living. Timeless Elegance.</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Venice Next Legacy')">+ Add to Compare</button>
+        </div>
+      </div>
+      <div class="prop-card">
+        <div class="prop-img">
+          <img src="wp-content/uploads/2026/02/Screenshot-2026-02-17-192504.png" alt="Marvia Shores" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>ELLINGTON</div>'">
+          <div class="prop-badge">Off Plan</div><div class="prop-overlay"></div>
+          <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-developer">Ellington Properties</div>
+          <div class="prop-name">Marvia Shores Collection</div>
+          <div class="prop-location">📍 Dubai, UAE</div>
+          <div class="prop-price">Where Luxury Meets Lifestyle</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Marvia Shores')">+ Add to Compare</button>
+        </div>
+      </div>
+      <div class="prop-card">
+        <div class="prop-img">
+          <img src="wp-content/uploads/2021/11/sec-bg.webp" alt="Silicon Oasis" onerror="this.parentElement.innerHTML='<div class=\'prop-img-placeholder\'>VILLA</div>'">
+          <div class="prop-badge">Premium</div><div class="prop-overlay"></div>
+          <div class="prop-wishlist" onclick="toggleWish(this)">♡</div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-developer">Featured Listing</div>
+          <div class="prop-name">Silicon Oasis Residence</div>
+          <div class="prop-location">📍 Silicon Oasis, Dubai</div>
+          <div class="prop-price">Contemporary Urban Living</div>
+          <button class="prop-compare-btn" onclick="addCompare(this,'Silicon Oasis Residence')">+ Add to Compare</button>
+        </div>
+      </div>
+      <div class="prop-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:3rem;text-align:center;background:linear-gradient(135deg,#1a1510,#2a2010);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--gold);opacity:0.35;">+</div>
+        <p style="color:var(--gray);font-size:0.85rem;line-height:1.8;">More exclusive projects<br>available on request.</p>
+        <button class="btn-primary" style="font-size:0.72rem;padding:0.75rem 1.5rem;" onclick="openPopup()">Request Listings</button>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="propsPrev">&#8592;</button>
+      <div class="slider-dots" id="propsDots"></div>
+      <button class="slider-btn" id="propsNext">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE BAR -->
+<div class="compare-bar" id="compareBar">
+  <div class="compare-bar-inner">
+    <span class="compare-label">Compare Properties:</span>
+    <div class="compare-slots" id="compareSlots">
+      <div class="compare-slot" id="slot0"><span class="compare-slot-empty">Select a property</span></div>
+      <div class="compare-slot" id="slot1"><span class="compare-slot-empty">Select a property</span></div>
+      <div class="compare-slot" id="slot2"><span class="compare-slot-empty">Select a property</span></div>
+    </div>
+    <div class="compare-actions">
+      <button class="btn-primary" style="padding:0.7rem 1.5rem;font-size:0.7rem;" onclick="openPopup()">Compare Now</button>
+      <button class="btn-outline" style="padding:0.7rem 1.2rem;font-size:0.7rem;" onclick="clearCompare()">Clear</button>
+    </div>
+  </div>
+</div>
+
+<div class="gold-divider"></div>
+
+<!-- ROI CALCULATOR -->
+<section class="calculator-section" id="calculator">
+  <div style="text-align:center;max-width:560px;margin:0 auto 4rem;" class="reveal">
+    <span class="section-tag" style="justify-content:center;">Smart Investing</span>
+    <h2 class="section-title">ROI & Mortgage <em>Calculator</em></h2>
+    <p class="section-desc" style="margin:0 auto;">Estimate your rental yield, monthly returns, and 5-year property value growth.</p>
+  </div>
+  <div class="calc-grid reveal">
+    <div class="calc-form">
+      <h3>Your Investment</h3>
+      <div class="calc-group">
+        <div class="calc-label">Property Price (AED) <span id="priceLabel">1,500,000</span></div>
+        <input type="range" class="calc-slider" id="priceSlider" min="500000" max="10000000" step="50000" value="1500000" oninput="updateCalc()">
+      </div>
+      <div class="calc-group">
+        <div class="calc-label">Down Payment % <span id="dpLabel">20%</span></div>
+        <input type="range" class="calc-slider" id="dpSlider" min="10" max="50" step="1" value="20" oninput="updateCalc()">
+      </div>
+      <div class="calc-group">
+        <div class="calc-label">Expected Rental Yield % <span id="yieldLabel">8%</span></div>
+        <input type="range" class="calc-slider" id="yieldSlider" min="4" max="14" step="0.5" value="8" oninput="updateCalc()">
+      </div>
+      <div class="calc-group">
+        <div class="calc-label">Annual Appreciation % <span id="appLabel">10%</span></div>
+        <input type="range" class="calc-slider" id="appSlider" min="3" max="20" step="0.5" value="10" oninput="updateCalc()">
+      </div>
+      <div class="calc-group">
+        <div class="calc-label">Mortgage Rate % <span id="rateLabel">4.5%</span></div>
+        <input type="range" class="calc-slider" id="rateSlider" min="2" max="8" step="0.1" value="4.5" oninput="updateCalc()">
+      </div>
+    </div>
+    <div class="calc-results">
+      <div class="calc-result-card"><div class="calc-result-label">Annual Rental Income</div><div class="calc-result-val" id="annualRent">AED 120,000</div><div class="calc-result-sub">Based on your yield estimate</div></div>
+      <div class="calc-result-card"><div class="calc-result-label">Monthly Mortgage Payment</div><div class="calc-result-val" id="monthlyMort">AED 6,600</div><div class="calc-result-sub">Over 25 years</div></div>
+      <div class="calc-result-card"><div class="calc-result-label">Net Monthly Cash Flow</div><div class="calc-result-val" id="cashFlow">AED 3,400</div><div class="calc-result-sub">After mortgage — before expenses</div></div>
+      <div class="calc-result-card">
+        <div class="calc-result-label">5-Year Property Value</div>
+        <div class="calc-result-val" id="fiveYear">AED 2,415,765</div>
+        <div class="calc-result-sub">Estimated with compounding growth</div>
+        <div class="calc-chart">
+          <div class="calc-bar-wrap" id="calcBars"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem;" class="reveal">
+    <p style="font-size:0.75rem;color:var(--gray);margin-bottom:1.5rem;">* Estimates only. Actual returns depend on market conditions, property type, and management. Consult our advisors for a personalised analysis.</p>
+    <button class="btn-primary" onclick="openPopup()">Get a Personalised Investment Analysis →</button>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- AREA GUIDE -->
+<section class="areas-section" id="areas">
+  <div style="text-align:center;max-width:560px;margin:0 auto 1rem;" class="reveal">
+    <span class="section-tag" style="justify-content:center;">Explore Dubai</span>
+    <h2 class="section-title">Dubai <em>Area Guide</em></h2>
+    <p class="section-desc" style="margin:0 auto;">Find the neighbourhood that matches your lifestyle and investment goals.</p>
+  </div>
+  <div class="areas-grid reveal">
+    <div class="area-card">
+      <div class="area-card-img"><div class="area-card-emoji">🏙️</div><div class="area-card-overlay"></div></div>
+      <div class="area-card-body">
+        <div class="area-card-name">Downtown Dubai</div>
+        <div class="area-card-desc">Home to the Burj Khalifa and Dubai Mall. A global icon offering ultra-luxury living with world-class retail and dining at your doorstep.</div>
+        <div class="area-card-stats">
+          <div class="area-stat"><div class="area-stat-val">7.2%</div><div class="area-stat-key">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 2,800</div><div class="area-stat-key">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val">Very High</div><div class="area-stat-key">Demand</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-img"><div class="area-card-emoji">⚓</div><div class="area-card-overlay"></div></div>
+      <div class="area-card-body">
+        <div class="area-card-name">Dubai Marina</div>
+        <div class="area-card-desc">A vibrant waterfront community with yacht clubs, beach access, and a cosmopolitan lifestyle favoured by expats and investors.</div>
+        <div class="area-card-stats">
+          <div class="area-stat"><div class="area-stat-val">8.1%</div><div class="area-stat-key">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 2,100</div><div class="area-stat-key">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val">High</div><div class="area-stat-key">Demand</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-img"><div class="area-card-emoji">🌿</div><div class="area-card-overlay"></div></div>
+      <div class="area-card-body">
+        <div class="area-card-name">JVC (Jumeirah Village)</div>
+        <div class="area-card-desc">Dubai's highest-yielding district. Affordable, family-friendly, and rapidly developing with excellent ROI potential for investors.</div>
+        <div class="area-card-stats">
+          <div class="area-stat"><div class="area-stat-val">9.4%</div><div class="area-stat-key">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 1,050</div><div class="area-stat-key">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val">Very High</div><div class="area-stat-key">Demand</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-img"><div class="area-card-emoji">🌊</div><div class="area-card-overlay"></div></div>
+      <div class="area-card-body">
+        <div class="area-card-name">Dubai Creek Harbour</div>
+        <div class="area-card-desc">Emaar's flagship mega-development. A new city within a city featuring the world's tallest tower, creek views, and strong appreciation.</div>
+        <div class="area-card-stats">
+          <div class="area-stat"><div class="area-stat-val">8.6%</div><div class="area-stat-key">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 1,900</div><div class="area-stat-key">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val">High</div><div class="area-stat-key">Demand</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-img"><div class="area-card-emoji">🏡</div><div class="area-card-overlay"></div></div>
+      <div class="area-card-body">
+        <div class="area-card-name">DAMAC Hills</div>
+        <div class="area-card-desc">A luxury villa community surrounding the Trump International Golf Club. Ideal for families seeking privacy, greenery, and a resort-like lifestyle.</div>
+        <div class="area-card-stats">
+          <div class="area-stat"><div class="area-stat-val">7.8%</div><div class="area-stat-key">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 1,350</div><div class="area-stat-key">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val">High</div><div class="area-stat-key">Demand</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-img"><div class="area-card-emoji">💻</div><div class="area-card-overlay"></div></div>
+      <div class="area-card-body">
+        <div class="area-card-name">Silicon Oasis</div>
+        <div class="area-card-desc">Dubai's tech hub. Affordable, self-contained, and growing fast. A top pick for budget-conscious investors seeking high rental yields.</div>
+        <div class="area-card-stats">
+          <div class="area-stat"><div class="area-stat-val">9.1%</div><div class="area-stat-key">Avg Yield</div></div>
+          <div class="area-stat"><div class="area-stat-val">AED 820</div><div class="area-stat-key">per sqft</div></div>
+          <div class="area-stat"><div class="area-stat-val">Growing</div><div class="area-stat-key">Demand</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CEO -->
+<section class="ceo-section" id="ceo">
+  <div class="ceo-grid">
+    <div class="ceo-img-wrap reveal-left">
+      <img src="wp-content/uploads/2025/12/mohamed.jpg" alt="Mohamed Frigui - CEO">
+    </div>
+    <div class="reveal-right">
+      <span class="section-tag">Leadership</span>
+      <h2 class="section-title">Mohamed<br><em>Frigui</em></h2>
+      <div class="gold-line"></div>
+      <blockquote class="ceo-quote">"Real estate is not simply about buying and selling properties — it is about building legacies, creating value, and earning trust."</blockquote>
+      <p class="ceo-text">A civil engineer by education with over 10 years of international experience in real estate across Tunisia, France, and Dubai. Engineering taught precision and responsibility. Real estate revealed the human side of investment and vision.</p>
+      <p class="ceo-text">This rare combination allows evaluation of projects beyond appearance — focusing on structure, quality, sustainability, and real return on investment.</p>
+      <div class="ceo-journey">
+        <div class="journey-step"><div class="journey-flag">🇹🇳</div><div class="journey-country">Tunisia</div><div class="journey-desc">Relationship-driven approach and human values</div></div>
+        <div class="journey-step"><div class="journey-flag">🇫🇷</div><div class="journey-country">France</div><div class="journey-desc">Regulated markets and asset protection</div></div>
+        <div class="journey-step"><div class="journey-flag">🇦🇪</div><div class="journey-country">Dubai</div><div class="journey-desc">Speed, innovation, and limitless ambition</div></div>
+      </div>
+      <div class="ceo-signature">
+        <div class="ceo-name">Mohamed Frigui</div>
+        <div class="ceo-title">Founder & CEO — Falcon Edge Properties</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto;">
+    <span class="section-tag" style="justify-content:center;">Our People</span>
+    <h2 class="section-title">Meet the <em>Team</em></h2>
+    <div class="gold-line" style="margin:1.5rem auto;"></div>
+    <p class="section-desc" style="margin:0 auto;">Experienced professionals united by a shared commitment to excellence, integrity, and client-first service.</p>
+  </div>
+  <div class="team-grid reveal">
+    <div class="team-card">
+      <div class="team-photo"><img src="wp-content/uploads/2025/12/abdulrazak.png" alt="Abdulrazak"><div class="team-card-overlay"></div></div>
+      <div class="team-info">
+        <div class="team-role">Property Consultant</div>
+        <div class="team-name">Abdulrazak</div>
+        <div class="team-bio">Expert in guiding clients through Dubai's most exclusive residential and investment properties.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a></div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="wp-content/uploads/2025/12/safa.jpg" alt="Safa"><div class="team-card-overlay"></div></div>
+      <div class="team-info">
+        <div class="team-role">Property Consultant</div>
+        <div class="team-name">Safa</div>
+        <div class="team-bio">Specialist in off-plan projects and investor relations across Dubai's key districts.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152349106" class="team-contact-link">📞 Call</a></div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="wp-content/uploads/2025/12/yaman.jpg" alt="Yaman"><div class="team-card-overlay"></div></div>
+      <div class="team-info">
+        <div class="team-role">Sales Director</div>
+        <div class="team-name">Yaman</div>
+        <div class="team-bio">Leading the sales team with strategic vision and deep expertise in Dubai's premium property market.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:0456633270" class="team-contact-link">📞 Call</a></div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="wp-content/uploads/2025/12/Bashar.jpg" alt="Bashar"><div class="team-card-overlay"></div></div>
+      <div class="team-info">
+        <div class="team-role">Property Consultant</div>
+        <div class="team-name">Bashar</div>
+        <div class="team-bio">Dedicated to matching clients with premium residential and commercial opportunities in Dubai.</div>
+        <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="testi-header reveal">
+    <span class="section-tag" style="justify-content:center;">Client Stories</span>
+    <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+    <div class="gold-line" style="margin:1.5rem auto;"></div>
+  </div>
+  <div class="rating-summary reveal">
+    <div style="text-align:center">
+      <div class="rating-big">5.0</div>
+      <div class="rating-stars-big">★★★★★</div>
+      <div class="rating-count">Based on 127 verified reviews</div>
+    </div>
+    <div class="rating-bars">
+      <div class="rating-bar-row"><span class="rating-bar-label">5</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:94%"></div></div><span style="font-size:0.65rem;color:var(--gray)">119</span></div>
+      <div class="rating-bar-row"><span class="rating-bar-label">4</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:5%;opacity:0.5"></div></div><span style="font-size:0.65rem;color:var(--gray)">6</span></div>
+      <div class="rating-bar-row"><span class="rating-bar-label">3</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%;opacity:0.3"></div></div><span style="font-size:0.65rem;color:var(--gray)">2</span></div>
+      <div class="rating-bar-row"><span class="rating-bar-label">2</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span style="font-size:0.65rem;color:var(--gray)">0</span></div>
+      <div class="rating-bar-row"><span class="rating-bar-label">1</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span style="font-size:0.65rem;color:var(--gray)">0</span></div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:0.65rem;color:var(--gray);margin-bottom:0.5rem;letter-spacing:0.1em;text-transform:uppercase">Also Rated On</div>
+      <div style="display:flex;gap:1rem;align-items:center;justify-content:center">
+        <div style="font-size:0.8rem;color:var(--light-gray);border:1px solid rgba(255,255,255,0.1);padding:0.4rem 0.8rem;">Google ★★★★★</div>
+        <div style="font-size:0.8rem;color:var(--light-gray);border:1px solid rgba(255,255,255,0.1);padding:0.4rem 0.8rem;">Trustpilot ★★★★★</div>
+      </div>
+    </div>
+  </div>
+  <div class="testi-track-wrap reveal">
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">Mohamed and his team were exceptional. They found us a perfect off-plan investment in Dubai Creek Harbour — handled everything from paperwork to payment plans with complete transparency.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">KA</div><div><div class="testi-name">Khalid Al-Rashidi</div><div class="testi-origin">🇸🇦 Saudi Arabia · Investor</div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">As a first-time buyer in Dubai, I was nervous. Falcon Edge made the entire process seamless. Their knowledge of the market saved me from bad deals and found me something truly premium.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">SM</div><div><div class="testi-name">Sophie Martin</div><div class="testi-origin">🇫🇷 France · Homebuyer</div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">I have worked with many agencies in Dubai. Falcon Edge stands apart — Mohamed's engineering background gives him a unique eye for structural quality that most brokers simply don't have.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">RA</div><div><div class="testi-name">Rami Aoun</div><div class="testi-origin">🇱🇧 Lebanon · Portfolio Investor</div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">Excellent service from start to finish. The team was always available and the property they recommended has already appreciated 18% in one year. Highly recommend to any serious investor.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">YB</div><div><div class="testi-name">Yasmine Ben Ali</div><div class="testi-origin">🇹🇳 Tunisia · Investor</div></div></div></div>
+      <div class="testi-card"><span class="testi-quote-mark">"</span><p class="testi-text">We relocated from London and needed everything — school districts, community feel, ROI potential. Falcon Edge delivered on all fronts. Our villa in DAMAC Hills is beyond expectations.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><div class="testi-avatar">JW</div><div><div class="testi-name">James & Emma Wilson</div><div class="testi-origin">🇬🇧 United Kingdom · Family Buyer</div></div></div></div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="testiPrev">&#8592;</button>
+      <div class="slider-dots" id="testiDots"></div>
+      <button class="slider-btn" id="testiNext">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- DEVELOPERS -->
+<section class="developers-section" id="developers">
+  <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto;">
+    <span class="section-tag" style="justify-content:center;">Our Partners</span>
+    <h2 class="section-title">Trusted <em>Developer</em><br>Partnerships</h2>
+    <p class="section-desc" style="margin:0 auto;">We collaborate exclusively with Dubai's most reputable and established property developers.</p>
+  </div>
+  <div class="dev-logos reveal">
+    <div class="dev-logo-item"><img src="wp-content/uploads/2026/02/emaar-logo-png-emaar-properties-dubai-united-arab-emirates-279x236-1.png" alt="Emaar" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'dev-logo-text\'>EMAAR</span>'"></div>
+    <div class="dev-logo-item"><img src="wp-content/uploads/2026/02/DAMAC-logo-e1771338613767.avif" alt="DAMAC" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'dev-logo-text\'>DAMAC</span>'"></div>
+    <div class="dev-logo-item"><img src="wp-content/uploads/2025/12/ellington_properties_thumbnail_810_1725463007.webp" alt="Ellington" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'dev-logo-text\'>ELLINGTON</span>'"></div>
+    <div class="dev-logo-item"><img src="wp-content/uploads/2025/12/azizi_logo_1713884851.webp" alt="Azizi" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'dev-logo-text\'>AZIZI</span>'"></div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-grid">
+    <div class="reveal-left">
+      <span class="section-tag">Investor Guide</span>
+      <h2 class="section-title">Frequently<br><em>Asked</em> Questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can foreigners buy property in Dubai? <span class="faq-icon">+</span></div><div class="faq-answer">Yes. Dubai allows 100% foreign ownership in designated freehold areas. As a non-resident, you can own property outright with full title deed rights — no local sponsor required.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is an off-plan property? <span class="faq-icon">+</span></div><div class="faq-answer">Off-plan means purchasing a property before it is built, directly from the developer. These typically offer lower entry prices, flexible payment plans (often 10–20% down), and strong appreciation potential upon completion.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What ROI can I expect in Dubai? <span class="faq-icon">+</span></div><div class="faq-answer">Dubai offers some of the highest rental yields globally — typically 6–10% annually depending on location and property type. Plus, there is no property tax or capital gains tax in the UAE.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I need to be in Dubai to buy? <span class="faq-icon">+</span></div><div class="faq-answer">No. We assist clients remotely — from virtual property tours to digital document signing and power of attorney arrangements. Many of our clients invest from abroad.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What fees are involved in buying property? <span class="faq-icon">+</span></div><div class="faq-answer">Typically: 4% Dubai Land Department transfer fee, 2% agency commission (often covered by developer on off-plan), plus registration fees. We provide a full cost breakdown upfront — no surprises.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How does Falcon Edge earn its commission? <span class="faq-icon">+</span></div><div class="faq-answer">For off-plan properties, our commission is paid by the developer — meaning our services are free for the buyer. For secondary market resales, we work on a transparent agreed fee.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is Dubai real estate a safe investment? <span class="faq-icon">+</span></div><div class="faq-answer">Dubai has a highly regulated real estate market governed by RERA (Real Estate Regulatory Agency). Developer escrow accounts, title deed protections, and strong legal frameworks make it one of the most secure markets globally.</div></div>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="faq-cta-box">
+        <span class="section-tag">Ready to Invest?</span>
+        <h3>Start Your Dubai<br><em>Journey</em> Today</h3>
+        <p>Book a free 30-minute consultation with our team. We will walk you through the best opportunities matching your budget, goals, and timeline — with zero pressure.</p>
+        <button class="btn-primary" onclick="openPopup()">Book Free Consultation</button>
+      </div>
+      <div class="faq-trust">
+        <div class="faq-trust-item"><span>✓</span><span>No obligation — completely free</span></div>
+        <div class="faq-trust-item"><span>✓</span><span>Available in Arabic, English & French</span></div>
+        <div class="faq-trust-item"><span>✓</span><span>Remote or in-office sessions available</span></div>
+        <div class="faq-trust-item"><span>✓</span><span>RERA registered & fully compliant</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="reveal-left">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Start Your<br><em>Journey</em> Today</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Our experts are ready to guide you through Dubai's premier real estate opportunities. Schedule your free consultation today.</p>
+      <div class="contact-info">
+        <div class="contact-item"><span class="contact-icon">📍</span><div class="contact-detail"><h4>Office</h4><p>Office No. 509, Apricot Tower<br>Silicon Oasis, Dubai, UAE</p></div></div>
+        <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-detail"><h4>Phone</h4><p><a href="tel:+97152299405">+971 52 299 4057</a><br><a href="tel:+97152349106">+971 52 349 1060</a></p></div></div>
+        <div class="contact-item"><span class="contact-icon">✉</span><div class="contact-detail"><h4>Email</h4><p><a href="mailto:falconedge1@gmail.com">falconedge1@gmail.com</a><br><a href="mailto:friguison@gmail.com">friguison@gmail.com</a></p></div></div>
+        <div class="contact-item"><span class="contact-icon">🕐</span><div class="contact-detail"><h4>Hours</h4><p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</p></div></div>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="contact-form" id="mainContactForm">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="cf_first"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="cf_last"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com" id="cf_email"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+971 XX XXX XXXX" id="cf_phone"></div>
+        <div class="form-group"><label>Budget (AED)</label>
+          <select id="cf_budget">
+            <option value="">Select budget range</option>
+            <option>Under AED 500,000</option>
+            <option>AED 500K – 1M</option>
+            <option>AED 1M – 2M</option>
+            <option>AED 2M – 5M</option>
+            <option>AED 5M+</option>
+          </select>
+        </div>
+        <div class="form-group"><label>I'm Interested In</label>
+          <select id="cf_interest">
+            <option value="">Select an option</option>
+            <option>Off-Plan Investment</option>
+            <option>Residential Property</option>
+            <option>Commercial Property</option>
+            <option>Portfolio Consultation</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your requirements..." id="cf_msg"></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand"><img src="wp-content/uploads/2025/12/cropped-WhatsApp_Image_2025-12-11_at_23.49.18_da0ae57a-removebg-preview.png" alt="Falcon Edge Properties" onerror="this.style.display='none'"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin-bottom:0.5rem;">Falcon Edge Properties</p>
+      <p class="footer-desc">A premium Dubai real estate consultancy built on precision, transparency, and strategic guidance. Your trusted partner in property investment.</p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
+        <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">ig</a>
+        <a href="https://wa.me/97152299405" target="_blank" class="social-link" title="WhatsApp">wa</a>
+        <a href="mailto:falconedge1@gmail.com" class="social-link" title="Email">✉</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#calculator">ROI Calculator</a></li>
+        <li><a href="#areas">Area Guide</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Off-Plan Projects</a></li>
+        <li><a href="#">Investment Advisory</a></li>
+        <li><a href="#">Property Management</a></li>
+        <li><a href="#">Portfolio Review</a></li>
+        <li><a href="#">Relocation Support</a></li>
+        <li><a href="#">Mortgage Guidance</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Falcon Edge Properties. All Rights Reserved.</span>
+    <span class="footer-rera">RERA Registered · Dubai, UAE · Operated in compliance with Dubai Real Estate Law</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="whatsapp-float">
+  <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+  <a href="https://wa.me/97152299405" target="_blank" class="whatsapp-btn" title="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- STICKY BOOK BUTTON -->
+<div class="book-float">
+  <button class="book-float-btn" onclick="openPopup()">
+    <div class="book-pulse"></div>
+    Book Consultation
+  </button>
+</div>
+
+<!-- BOOKING POPUP -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-title">Book a Free<br>Consultation</div>
+    <p class="popup-sub">30 minutes with our experts. Zero pressure. Available in English, Arabic & French.</p>
+    <div class="popup-form">
+      <input class="popup-input" type="text" placeholder="Your Full Name" id="p_name">
+      <input class="popup-input" type="email" placeholder="Email Address" id="p_email">
+      <input class="popup-input" type="tel" placeholder="Phone / WhatsApp" id="p_phone">
+      <div>
+        <div class="popup-time-label">Preferred Time Slot:</div>
+        <div class="popup-times" id="popupTimes">
+          <div class="popup-time" onclick="selectTime(this)">Morning<br><span style="font-size:0.6rem;opacity:0.7">9–12 AM</span></div>
+          <div class="popup-time" onclick="selectTime(this)">Afternoon<br><span style="font-size:0.6rem;opacity:0.7">12–4 PM</span></div>
+          <div class="popup-time" onclick="selectTime(this)">Evening<br><span style="font-size:0.6rem;opacity:0.7">4–7 PM</span></div>
+          <div class="popup-time" onclick="selectTime(this)">Mon</div>
+          <div class="popup-time" onclick="selectTime(this)">Tue</div>
+          <div class="popup-time" onclick="selectTime(this)">Wed</div>
+        </div>
+      </div>
+      <button class="popup-submit" onclick="submitPopup()">Confirm Booking →</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXIT INTENT POPUP -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-box">
+    <div class="exit-top">
+      <div class="exit-icon">📋</div>
+      <div class="exit-title">Free Dubai Investment Guide</div>
+      <p class="exit-sub">Before you go — get our exclusive 2025 Dubai Real Estate Investment Guide. Market insights, area yields, payment plan strategies, and more. Completely free.</p>
+    </div>
+    <div class="exit-bottom">
+      <input class="exit-email" type="email" placeholder="Enter your email address" id="exitEmail">
+      <button class="btn-primary" style="width:100%;padding:1rem;justify-content:center;" onclick="submitExit()">Send Me the Guide →</button>
+      <button class="exit-close" onclick="closeExit()">No thanks, I'll figure it out myself</button>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="#">Privacy Policy</a>. This site complies with GDPR for our European clients.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="acceptCookies()">Accept All</button>
+    <button class="cookie-decline" onclick="acceptCookies()">Decline</button>
+  </div>
+</div>
+
+<script>
+  // ── CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+    setTimeout(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; }, 60);
+  });
+  document.querySelectorAll('a,button,.faq-question,.prop-card,.team-card,.testi-card,.value-item,.area-card,.snap-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'rgba(201,168,76,0.9)'; });
+    el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(201,168,76,0.5)'; });
+  });
+
+  // ── SCROLL ──
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // ── REVEAL ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
+
+  // ── PARTICLES ──
+  const pc = document.getElementById('particles');
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div'); p.className = 'particle';
+    p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${8+Math.random()*14}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;`;
+    pc.appendChild(p);
+  }
+
+  // ── COUNTER ──
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    const io = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        const target = +el.dataset.target, suffix = el.dataset.suffix || '';
+        let cur = 0; const step = target / 60;
+        const t = setInterval(() => { cur = Math.min(cur + step, target); el.textContent = Math.floor(cur) + suffix; if (cur >= target) clearInterval(t); }, 22);
+        io.unobserve(el);
+      }
+    }, { threshold: 0.5 });
+    io.observe(el);
+  });
+
+  // ── SLIDER ──
+  function makeSlider(trackId, prevId, nextId, dotsId) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cards = Array.from(track.children);
+    const visible = window.innerWidth < 900 ? 1 : 3;
+    const max = Math.max(0, cards.length - visible);
+    let cur = 0;
+    const dotsWrap = document.getElementById(dotsId);
+    for (let i = 0; i <= max; i++) {
+      const d = document.createElement('div'); d.className = 'slider-dot' + (i===0?' active':'');
+      d.onclick = () => go(i); dotsWrap.appendChild(d);
+    }
+    function go(idx) {
+      cur = Math.max(0, Math.min(idx, max));
+      const w = cards[0].offsetWidth + 1.5;
+      track.style.transform = `translateX(-${cur * w}px)`;
+      dotsWrap.querySelectorAll('.slider-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+    }
+    document.getElementById(prevId).onclick = () => go(cur - 1);
+    document.getElementById(nextId).onclick = () => go(cur + 1);
+    let auto = setInterval(() => go(cur < max ? cur+1 : 0), 5500);
+    track.addEventListener('mouseenter', () => clearInterval(auto));
+    track.addEventListener('mouseleave', () => { auto = setInterval(() => go(cur < max ? cur+1 : 0), 5500); });
+    window.addEventListener('resize', () => go(cur));
+  }
+  makeSlider('propsTrack','propsPrev','propsNext','propsDots');
+  makeSlider('testiTrack','testiPrev','testiNext','testiDots');
+
+  // ── FAQ ──
+  function toggleFaq(el) {
+    const item = el.parentElement, open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+
+  // ── LANGUAGE ──
+  const langs = {
+    en: { hero_tag: 'Premium Real Estate · Dubai', hero_h1: 'Where Vision<br>Meets', hero_sub: "Guiding discerning investors and homebuyers through Dubai's most prestigious real estate opportunities — with precision, transparency, and integrity.", btn1: 'Explore Properties', btn2: 'Free Consultation' },
+    fr: { hero_tag: 'Immobilier Premium · Dubai', hero_h1: 'Où la Vision<br>Rencontre', hero_sub: "Nous guidons les investisseurs exigeants à travers les opportunités immobilières les plus prestigieuses de Dubaï — avec précision, transparence et intégrité.", btn1: 'Explorer les Biens', btn2: 'Consultation Gratuite' },
+    ar: { hero_tag: 'عقارات متميزة · دبي', hero_h1: 'حيث تلتقي الرؤية<br>بـ', hero_sub: "نرشد المستثمرين المميزين عبر أبرز الفرص العقارية في دبي — بدقة وشفافية ونزاهة.", btn1: 'استكشف العقارات', btn2: 'استشارة مجانية' }
+  };
+  let currentLang = 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
+    document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+    const d = langs[lang];
+    const heroTag = document.querySelector('.hero-tag');
+    if (heroTag) heroTag.innerHTML = '◆ ' + d.hero_tag;
+  }
+
+  // ── ROI CALCULATOR ──
+  function fmtAED(n) { return 'AED ' + Math.round(n).toLocaleString(); }
+  function updateCalc() {
+    const price = +document.getElementById('priceSlider').value;
+    const dp = +document.getElementById('dpSlider').value / 100;
+    const yld = +document.getElementById('yieldSlider').value / 100;
+    const app = +document.getElementById('appSlider').value / 100;
+    const rate = +document.getElementById('rateSlider').value / 100;
+
+    document.getElementById('priceLabel').textContent = 'AED ' + price.toLocaleString();
+    document.getElementById('dpLabel').textContent = (dp*100) + '%';
+    document.getElementById('yieldLabel').textContent = (yld*100) + '%';
+    document.getElementById('appLabel').textContent = (app*100) + '%';
+    document.getElementById('rateLabel').textContent = (rate*100).toFixed(1) + '%';
+
+    const annualRent = price * yld;
+    const loanAmt = price * (1 - dp);
+    const monthlyRate = rate / 12;
+    const n = 25 * 12;
+    const monthlyMort = loanAmt * (monthlyRate * Math.pow(1+monthlyRate,n)) / (Math.pow(1+monthlyRate,n)-1);
+    const cashFlow = (annualRent/12) - monthlyMort;
+
+    document.getElementById('annualRent').textContent = fmtAED(annualRent);
+    document.getElementById('monthlyMort').textContent = fmtAED(monthlyMort);
+    document.getElementById('cashFlow').textContent = (cashFlow >= 0 ? '' : '-') + 'AED ' + Math.abs(Math.round(cashFlow)).toLocaleString();
+    document.getElementById('cashFlow').style.color = cashFlow >= 0 ? 'var(--gold)' : '#f87171';
+
+    // 5-year chart
+    const bars = document.getElementById('calcBars');
+    bars.innerHTML = '';
+    let vals = [];
+    for (let y = 1; y <= 5; y++) vals.push(price * Math.pow(1+app,y));
+    const maxV = Math.max(...vals);
+    document.getElementById('fiveYear').textContent = fmtAED(vals[4]);
+    vals.forEach((v,i) => {
+      const b = document.createElement('div'); b.className = 'calc-bar';
+      b.style.height = (v/maxV*100) + '%';
+      b.innerHTML = `<span class="calc-bar-year">Y${i+1}</span>`;
+      bars.appendChild(b);
+    });
+  }
+  updateCalc();
+
+  // ── WISHLIST ──
+  function toggleWish(el) {
+    el.classList.toggle('active');
+    el.textContent = el.classList.contains('active') ? '♥' : '♡';
+  }
+
+  // ── COMPARE ──
+  let compareList = [];
+  function addCompare(btn, name) {
+    if (btn.classList.contains('selected')) {
+      compareList = compareList.filter(n => n !== name);
+      btn.classList.remove('selected');
+      btn.textContent = '+ Add to Compare';
+    } else {
+      if (compareList.length >= 3) { alert('You can compare up to 3 properties at a time.'); return; }
+      compareList.push(name);
+      btn.classList.add('selected');
+      btn.textContent = '✓ Added';
+    }
+    updateCompareBar();
+  }
+  function updateCompareBar() {
+    const bar = document.getElementById('compareBar');
+    bar.classList.toggle('show', compareList.length > 0);
+    for (let i = 0; i < 3; i++) {
+      const slot = document.getElementById('slot' + i);
+      if (compareList[i]) slot.innerHTML = `<span class="compare-slot-name">${compareList[i]}</span><button class="compare-slot-remove" onclick="removeCompare(${i})">✕</button>`;
+      else slot.innerHTML = '<span class="compare-slot-empty">Select a property</span>';
+    }
+  }
+  function removeCompare(idx) {
+    const name = compareList[idx];
+    compareList.splice(idx, 1);
+    document.querySelectorAll('.prop-compare-btn.selected').forEach(b => {
+      if (b.parentElement.querySelector('.prop-name').textContent.includes(name.split(' ')[0])) { b.classList.remove('selected'); b.textContent = '+ Add to Compare'; }
+    });
+    updateCompareBar();
+  }
+  function clearCompare() {
+    compareList = [];
+    document.querySelectorAll('.prop-compare-btn.selected').forEach(b => { b.classList.remove('selected'); b.textContent = '+ Add to Compare'; });
+    updateCompareBar();
+  }
+
+  // ── BOOKING POPUP ──
+  function openPopup() {
+    document.getElementById('popupOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  function closePopupOutside(e) {
+    if (e.target === document.getElementById('popupOverlay')) closePopup();
+  }
+  function selectTime(el) {
+    el.classList.toggle('selected');
+  }
+  function submitPopup() {
+    const name = document.getElementById('p_name').value;
+    if (!name) { alert('Please enter your name.'); return; }
+    closePopup();
+    showToast('✓ Booking confirmed! We\'ll contact you within 24 hours.');
+  }
+
+  // ── EXIT INTENT ──
+  let exitShown = false;
+  document.addEventListener('mouseleave', e => {
+    if (e.clientY < 5 && !exitShown) {
+      exitShown = true;
+      setTimeout(() => document.getElementById('exitPopup').classList.add('show'), 500);
+    }
+  });
+  function closeExit() { document.getElementById('exitPopup').classList.remove('show'); }
+  function submitExit() {
+    const email = document.getElementById('exitEmail').value;
+    if (!email) { alert('Please enter your email.'); return; }
+    closeExit();
+    showToast('📩 Guide sent! Check your inbox shortly.');
+  }
+
+  // ── COOKIE ──
+  setTimeout(() => { document.getElementById('cookieBanner').classList.add('show'); }, 1500);
+  function acceptCookies() {
+    document.getElementById('cookieBanner').classList.remove('show');
+  }
+
+  // ── TOAST ──
+  function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);padding:1rem 2rem;font-size:0.8rem;font-weight:500;z-index:1000;letter-spacing:0.05em;box-shadow:0 10px 40px rgba(201,168,76,0.4);transition:opacity 0.5s;';
+    t.textContent = msg; document.body.appendChild(t);
+    setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 500); }, 3500);
+  }
+
+  // ── CONTACT FORM ──
+  function submitForm() {
+    const email = document.getElementById('cf_email').value;
+    const name = document.getElementById('cf_first').value;
+    if (!name || !email) { showToast('⚠ Please fill in your name and email.'); return; }
+    showToast('✓ Message sent! We\'ll be in touch within 24 hours.');
+  }
+</script>
+</body>
+</html>
