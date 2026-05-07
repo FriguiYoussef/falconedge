@@ -492,7 +492,9 @@
             section { padding: 4rem 1.5rem; }
             .hero { margin-top: 34px; min-height: 100vh; }
             .hero-content { padding: 0 1.5rem 160px; max-width: 100%; }
-            .hero-img-side { width: 100%; opacity: 0.15; }
+            .hero-img-side { width: 55%; opacity: 0.85; height: 100%; top: 0; transform: none; bottom: auto; right: 0; }
+            .hero-img-side::before { background: linear-gradient(to right, var(--black) 0%, transparent 50%) !important; }
+            .hero-img-side img { object-position: center top !important; }
             .hero-tag { font-size: 0.6rem; }
             .hero h1 { font-size: clamp(2.4rem, 8vw, 3.5rem); }
             .hero-sub { font-size: 0.88rem; max-width: 100%; }
@@ -1226,8 +1228,19 @@
                 font-size: 0.72rem !important;
             }
             .hero-img-side {
-                width: 100% !important;
-                opacity: 0.15 !important;
+                width: 55% !important;
+                height: 100% !important;
+                top: 0 !important;
+                transform: none !important;
+                bottom: auto !important;
+                right: 0 !important;
+                opacity: 0.85 !important;
+            }
+            .hero-img-side img {
+                object-position: center top !important;
+            }
+            .hero-img-side::before {
+                background: linear-gradient(to right, var(--black) 0%, transparent 50%) !important;
             }
             .hero-stats {
                 grid-template-columns: repeat(2,1fr) !important;
@@ -1631,7 +1644,7 @@
             .hero-content { padding: 1.5rem 1.2rem 180px !important; }
             .hero-title { font-size: clamp(1.9rem, 10vw, 2.8rem) !important; line-height: 1.05 !important; }
             .hero-sub { font-size: 0.84rem !important; }
-            .hero-img-side { display: none !important; }
+            
 
             /* RERA trust bar */
             #trustBar { font-size: 0.5rem !important; gap: 0.5rem !important; padding: 0.6rem 0.8rem !important; }
