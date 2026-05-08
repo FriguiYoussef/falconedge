@@ -27,7 +27,7 @@
             "name": "Falcon Edge Properties",
             "description": "Premium real estate consultancy in Dubai specializing in off-plan investments and advisory services",
             "url": "https://falconedgeproperties.com",
-            "telephone": "+97152299405",
+            "telephone": "+21620302350",
             "email": "falconedge1@gmail.com",
             "address": {
                 "@type": "PostalAddress",
@@ -1644,7 +1644,7 @@
             .hero-content { padding: 1.5rem 1.2rem 180px !important; }
             .hero-title { font-size: clamp(1.9rem, 10vw, 2.8rem) !important; line-height: 1.05 !important; }
             .hero-sub { font-size: 0.84rem !important; }
-            
+
 
             /* RERA trust bar */
             #trustBar { font-size: 0.5rem !important; gap: 0.5rem !important; padding: 0.6rem 0.8rem !important; }
@@ -1815,8 +1815,12 @@
         /* ── HIGH-DPI / RETINA SCREENS ── */
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             .navbar, #top-bar { -webkit-font-smoothing: antialiased; }
-            img { image-rendering: -webkit-optimize-contrast; }
+
         }
+
+        .portal-popup .leaflet-popup-content-wrapper { background: #0d0d0d !important; border: none !important; padding: 0 !important; border-radius: 0 !important; }
+        .portal-popup .leaflet-popup-tip { background: #0d0d0d !important; }
+        .portal-popup .leaflet-popup-content { margin: 0 !important; }
     </style>
 </head>
 <body class="intro-active">
@@ -1867,6 +1871,595 @@
         // Also allow click-to-skip
         intro.addEventListener('click', dismissIntro);
     })();
+
+    // ══ AGENT PORTAL ══
+    const PORTAL_PASS = 'FE2026';
+    const WA_AGENT = '21620302350';
+
+    const portalProps = [
+        // DAMAC
+        { id:1,  name:'DAMAC Islands 2',        dev:'DAMAC',      type:'Villa',     beds:'1-5 BR',     price:1600000,  priceStr:'AED 1.6M+',  handover:'Q2 2027', plan:'80/20', planD:'20% now, 60% during construction, 20% on handover', yld:'7.8%', area:'Dubai Islands',    lat:25.095, lng:55.166, tag:'Waterfront',    downMin:320000  },
+        { id:2,  name:'DAMAC Lagoons',           dev:'DAMAC',      type:'Villa',     beds:'3-6 BR',     price:2200000,  priceStr:'AED 2.2M+',  handover:'Q4 2026', plan:'75/25', planD:'25% now, 50% during construction, 25% on handover', yld:'7.5%', area:'DAMAC Hills 2',   lat:24.990, lng:55.190, tag:'Mediterranean', downMin:550000  },
+        { id:3,  name:'DAMAC Hills Villas',      dev:'DAMAC',      type:'Villa',     beds:'4-5 BR',     price:3500000,  priceStr:'AED 3.5M+',  handover:'Q1 2027', plan:'60/40', planD:'20% now, 40% during construction, 40% on handover', yld:'7.2%', area:'DAMAC Hills',     lat:25.029, lng:55.236, tag:'Golf Views',    downMin:700000  },
+        // EMAAR
+        { id:4,  name:'Creek Harbour Residences',dev:'Emaar',      type:'Apartment', beds:'Studio-3BR', price:890000,   priceStr:'AED 890K+',  handover:'Q4 2027', plan:'70/30', planD:'10% now, 60% during construction, 30% on handover', yld:'8.6%', area:'Creek Harbour',   lat:25.200, lng:55.350, tag:'Creek Views',   downMin:89000   },
+        { id:5,  name:'Emaar Beachfront',        dev:'Emaar',      type:'Apartment', beds:'1-3 BR',     price:1800000,  priceStr:'AED 1.8M+',  handover:'Q2 2027', plan:'80/20', planD:'10% now, 70% during construction, 20% on handover', yld:'7.9%', area:'Dubai Harbour',   lat:25.090, lng:55.130, tag:'Sea View',      downMin:180000  },
+        { id:6,  name:'The Oasis by Emaar',      dev:'Emaar',      type:'Villa',     beds:'4-6 BR',     price:5200000,  priceStr:'AED 5.2M+',  handover:'Q3 2028', plan:'80/20', planD:'20% now, 60% during construction, 20% on handover', yld:'6.8%', area:'MBR City',        lat:25.170, lng:55.280, tag:'Lagoon',        downMin:1040000 },
+        { id:7,  name:'Emaar South Golf',        dev:'Emaar',      type:'Apartment', beds:'1-2 BR',     price:750000,   priceStr:'AED 750K+',  handover:'Q1 2027', plan:'70/30', planD:'10% now, 60% during construction, 30% on handover', yld:'8.4%', area:'Dubai South',     lat:24.897, lng:55.161, tag:'Golf Course',   downMin:75000   },
+        // AZIZI
+        { id:8,  name:'Venice Next Legacy',      dev:'Azizi',      type:'Apartment', beds:'1-4 BR',     price:1400000,  priceStr:'AED 1.4M+',  handover:'Q1 2028', plan:'60/40', planD:'20% now, 40% during construction, 40% on handover', yld:'8.2%', area:'Dubai South',     lat:24.906, lng:55.168, tag:'Canal Views',   downMin:280000  },
+        { id:9,  name:'Azizi Riviera',           dev:'Azizi',      type:'Apartment', beds:'Studio-3BR', price:520000,   priceStr:'AED 520K+',  handover:'Q3 2026', plan:'50/50', planD:'20% now, 30% during construction, 50% on handover', yld:'9.1%', area:'Meydan',          lat:25.174, lng:55.306, tag:'Waterfront',    downMin:52000   },
+        { id:10, name:'Azizi Venice 2',          dev:'Azizi',      type:'Apartment', beds:'Studio-2BR', price:680000,   priceStr:'AED 680K+',  handover:'Q2 2027', plan:'60/40', planD:'10% now, 50% during construction, 40% on handover', yld:'8.8%', area:'Dubai South',     lat:24.912, lng:55.172, tag:'Lagoon View',   downMin:68000   },
+        // ELLINGTON
+        { id:11, name:'Marvia Shores',           dev:'Ellington',  type:'Villa',     beds:'4-6 BR',     price:3200000,  priceStr:'AED 3.2M+',  handover:'Q3 2027', plan:'50/50', planD:'20% now, 30% during construction, 50% on handover', yld:'7.2%', area:'Tilal Al Ghaf',   lat:25.038, lng:55.203, tag:'Private Beach', downMin:640000  },
+        { id:12, name:'Ellington Ocean House',   dev:'Ellington',  type:'Apartment', beds:'1-3 BR',     price:2100000,  priceStr:'AED 2.1M+',  handover:'Q4 2027', plan:'70/30', planD:'20% now, 50% during construction, 30% on handover', yld:'7.5%', area:'Palm Jumeirah',   lat:25.112, lng:55.139, tag:'Sea Views',     downMin:420000  },
+        { id:13, name:'Ellington Crestmark',     dev:'Ellington',  type:'Apartment', beds:'1-2 BR',     price:950000,   priceStr:'AED 950K+',  handover:'Q1 2026', plan:'40/60', planD:'10% now, 30% during construction, 60% on handover', yld:'8.1%', area:'Business Bay',    lat:25.186, lng:55.260, tag:'Canal Views',   downMin:95000   },
+        // SOBHA
+        { id:14, name:'Sobha Hartland 2',        dev:'Sobha',      type:'Apartment', beds:'1-4 BR',     price:2100000,  priceStr:'AED 2.1M+',  handover:'Q2 2027', plan:'60/40', planD:'20% now, 40% during construction, 40% on handover', yld:'8.0%', area:'MBR City',        lat:25.183, lng:55.327, tag:'Forest Views',  downMin:420000  },
+        { id:15, name:'Sobha Seahaven',          dev:'Sobha',      type:'Apartment', beds:'1-3 BR',     price:2800000,  priceStr:'AED 2.8M+',  handover:'Q4 2026', plan:'80/20', planD:'20% now, 60% during construction, 20% on handover', yld:'7.4%', area:'Dubai Harbour',   lat:25.088, lng:55.132, tag:'Marina View',   downMin:560000  },
+        { id:16, name:'Sobha One',               dev:'Sobha',      type:'Apartment', beds:'Studio-4BR', price:1200000,  priceStr:'AED 1.2M+',  handover:'Q3 2026', plan:'70/30', planD:'10% now, 60% during construction, 30% on handover', yld:'8.3%', area:'Ras Al Khor',     lat:25.198, lng:55.354, tag:'Golf + Creek',  downMin:120000  },
+        // NAKHEEL
+        { id:17, name:'Palm Jebel Ali Villa',    dev:'Nakheel',    type:'Villa',     beds:'5-7 BR',     price:5500000,  priceStr:'AED 5.5M+',  handover:'Q4 2027', plan:'80/20', planD:'20% now, 60% during construction, 20% on handover', yld:'6.8%', area:'Palm Jebel Ali',  lat:24.993, lng:55.028, tag:'Sea Views',     downMin:1100000 },
+        { id:18, name:'Nakheel Palm Beach Tow.', dev:'Nakheel',    type:'Apartment', beds:'1-3 BR',     price:1900000,  priceStr:'AED 1.9M+',  handover:'Q2 2026', plan:'60/40', planD:'20% now, 40% during construction, 40% on handover', yld:'7.1%', area:'Palm Jumeirah',   lat:25.115, lng:55.142, tag:'Beach Access',  downMin:380000  },
+        // MERAAS
+        { id:19, name:'Bluewaters Residences',   dev:'Meraas',     type:'Apartment', beds:'1-4 BR',     price:3100000,  priceStr:'AED 3.1M+',  handover:'Ready',   plan:'100/0', planD:'Ready to move in — 100% payment', yld:'6.5%', area:'Bluewaters Island', lat:25.078, lng:55.119, tag:'Ain Dubai View', downMin:620000 },
+        { id:20, name:'City Walk Residences',    dev:'Meraas',     type:'Apartment', beds:'1-3 BR',     price:2400000,  priceStr:'AED 2.4M+',  handover:'Ready',   plan:'100/0', planD:'Ready to move in — 100% payment', yld:'6.8%', area:'City Walk',         lat:25.202, lng:55.267, tag:'Urban Living',  downMin:480000  },
+        // ALDAR
+        { id:21, name:'Aldar Saadiyat Grove',    dev:'Aldar',      type:'Apartment', beds:'Studio-3BR', price:1100000,  priceStr:'AED 1.1M+',  handover:'Q2 2027', plan:'60/40', planD:'20% now, 40% during construction, 40% on handover', yld:'7.6%', area:'Saadiyat Island', lat:24.540, lng:54.435, tag:'Abu Dhabi',     downMin:220000  },
+        // OMNIYAT
+        { id:22, name:'One at Palm Jumeirah',    dev:'Omniyat',    type:'Penthouse', beds:'3-5 BR',     price:12000000, priceStr:'AED 12M+',   handover:'Ready',   plan:'100/0', planD:'Ready to move in — 100% payment', yld:'5.8%', area:'Palm Jumeirah',     lat:25.108, lng:55.137, tag:'Ultra Luxury',  downMin:2400000 },
+        // SELECT GROUP
+        { id:23, name:'15 Northside',            dev:'Select Group',type:'Apartment',beds:'Studio-2BR', price:780000,   priceStr:'AED 780K+',  handover:'Q1 2027', plan:'60/40', planD:'20% now, 40% during construction, 40% on handover', yld:'8.9%', area:'Business Bay',   lat:25.191, lng:55.256, tag:'Canal Views',   downMin:78000   },
+        { id:24, name:'Marina Gate 3',           dev:'Select Group',type:'Apartment',beds:'1-3 BR',     price:1300000,  priceStr:'AED 1.3M+',  handover:'Q3 2026', plan:'70/30', planD:'10% now, 60% during construction, 30% on handover', yld:'8.5%', area:'Dubai Marina',   lat:25.076, lng:55.136, tag:'Marina Views',  downMin:130000  },
+        { id:25, name:'Jumeirah Living MBR',     dev:'Select Group',type:'Apartment',beds:'2-4 BR',     price:4200000,  priceStr:'AED 4.2M+',  handover:'Q2 2027', plan:'80/20', planD:'20% now, 60% during construction, 20% on handover', yld:'6.9%', area:'MBR City',       lat:25.175, lng:55.270, tag:'5-Star Living',  downMin:840000  },
+    ];
+
+    let selectedPropIds = new Set();
+    let crmLeads = [];
+    try { crmLeads = JSON.parse(localStorage.getItem('fe_crm') || '[]'); } catch(e) {}
+
+    // Open portal: click logo 5 times OR ?portal=1
+    let logoClicks = 0;
+    window.addEventListener('DOMContentLoaded', function() {
+        // Check URL param after DOM is ready
+        if (new URLSearchParams(window.location.search).get('portal') === '1') {
+            openPortal();
+        }
+        // Logo click trigger
+        var navLogo = document.querySelector('.nav-logo');
+        if (navLogo) {
+            navLogo.addEventListener('click', function() {
+                logoClicks++;
+                if (logoClicks >= 5) { logoClicks = 0; openPortal(); }
+                setTimeout(function() { if(logoClicks > 0 && logoClicks < 5) logoClicks = 0; }, 2500);
+            });
+        }
+    });
+
+    function openPortal() {
+        // Hide intro if still showing
+        var intro = document.getElementById('falcon-intro');
+        if (intro) intro.style.display = 'none';
+        var portal = document.getElementById('agent-portal');
+        if (!portal) { alert('Portal not loaded. Try refreshing.'); return; }
+        portal.style.display = 'block';
+        var dateEl = document.getElementById('portal-date');
+        if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-AE', {weekday:'short',year:'numeric',month:'short',day:'numeric'});
+    }
+    function closePortal() {
+        document.getElementById('agent-portal').style.display = 'none';
+        document.getElementById('portal-login').style.display = 'flex';
+        document.getElementById('portal-main').style.display = 'none';
+    }
+    function portalLogin() {
+        if (document.getElementById('portal-pass').value === PORTAL_PASS) {
+            document.getElementById('portal-login').style.display = 'none';
+            var pm = document.getElementById('portal-main');
+            pm.style.display = 'flex';
+            renderPortalProps(portalProps);
+            renderCRM();
+        } else {
+            document.getElementById('portal-pass').style.borderColor = 'rgba(255,80,80,0.5)';
+            setTimeout(function() { document.getElementById('portal-pass').style.borderColor = 'rgba(201,168,76,0.25)'; }, 1500);
+        }
+    }
+    function showPortalTab(tab) {
+        ['search','catalog','crm'].forEach(function(t) {
+            document.getElementById('ptab-' + t).style.display = (t === tab) ? 'flex' : 'none';
+        });
+        document.querySelectorAll('.ptab').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.tab === tab);
+        });
+        if (tab === 'catalog') updateCatalogPreview();
+        if (tab === 'crm') renderCRM();
+    }
+    function renderPortalProps(props) {
+        var grid = document.getElementById('portal-props-grid');
+        document.getElementById('portal-count').textContent = props.length;
+        grid.innerHTML = props.map(function(p) {
+            var sel = selectedPropIds.has(p.id);
+            return '<div class="pcard' + (sel ? ' selected' : '') + '" onclick="togglePropSelect(' + p.id + ')" style="background:#0d0d0d;border:1px solid rgba(201,168,76,' + (sel ? '0.4' : '0.1') + ');padding:1.1rem;cursor:pointer;position:relative;">' +
+                '<div class="pcard-check" style="position:absolute;top:0.75rem;right:0.75rem;width:20px;height:20px;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;background:' + (sel ? '#C9A84C' : 'transparent') + ';color:' + (sel ? '#000' : 'transparent') + ';">✓</div>' +
+                '<div style="font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.65);margin-bottom:0.25rem;">' + p.dev + ' · ' + p.tag + '</div>' +
+                '<div style="font-family:Cormorant Garamond,serif;font-size:1.15rem;color:#fff;margin-bottom:0.4rem;">' + p.name + '</div>' +
+                '<div style="font-size:0.68rem;color:rgba(255,255,255,0.38);margin-bottom:0.7rem;">📍 ' + p.area + ' · ' + p.beds + ' · ' + p.type + '</div>' +
+                '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-top:1px solid rgba(201,168,76,0.07);padding-top:0.7rem;">' +
+                '<div><div style="font-family:Cormorant Garamond,serif;font-size:0.95rem;color:#C9A84C;">' + p.priceStr + '</div><div style="font-size:0.5rem;color:rgba(255,255,255,0.28);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px;">From</div></div>' +
+                '<div><div style="font-size:0.82rem;color:#C9A84C;font-weight:500;">' + p.yld + '</div><div style="font-size:0.5rem;color:rgba(255,255,255,0.28);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px;">Yield</div></div>' +
+                '<div><div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">' + p.handover + '</div><div style="font-size:0.5rem;color:rgba(255,255,255,0.28);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px;">Handover</div></div>' +
+                '</div>' +
+                '<div style="margin-top:0.5rem;font-size:0.62rem;color:rgba(201,168,76,0.55);">Plan: ' + p.plan + '</div>' +
+                '</div>';
+        }).join('');
+    }
+    function togglePropSelect(id) {
+        if (selectedPropIds.has(id)) selectedPropIds.delete(id);
+        else if (selectedPropIds.size < 6) selectedPropIds.add(id);
+        var count = selectedPropIds.size;
+        document.getElementById('portal-selected-count').textContent = count;
+        document.getElementById('view-catalog-btn').style.display = count > 0 ? 'inline-block' : 'none';
+        renderPortalProps(getCurrentFilteredProps());
+        updateCatList();
+    }
+    function updateCatList() {
+        var sel = portalProps.filter(function(p) { return selectedPropIds.has(p.id); });
+        document.getElementById('cat-count').textContent = sel.length;
+        document.getElementById('cat-selected-list').innerHTML = sel.length === 0
+            ? '<div style="color:rgba(255,255,255,0.25);font-size:0.73rem;">No properties selected</div>'
+            : sel.map(function(p) {
+                return '<div style="display:flex;justify-content:space-between;align-items:center;padding:0.35rem 0;border-bottom:1px solid rgba(255,255,255,0.04);">' +
+                    '<span style="font-size:0.73rem;color:rgba(255,255,255,0.65);">' + p.name + '</span>' +
+                    '<button onclick="event.stopPropagation();togglePropSelect(' + p.id + ')" style="background:none;border:none;color:rgba(255,100,100,0.45);cursor:pointer;font-size:0.85rem;line-height:1;padding:0 0.2rem;">✕</button>' +
+                    '</div>';
+            }).join('');
+    }
+    function getCurrentFilteredProps() {
+        var dev = document.getElementById('f-dev').value;
+        var type = document.getElementById('f-type').value;
+        var budget = document.getElementById('f-budget').value;
+        var handover = document.getElementById('f-handover').value;
+        return portalProps.filter(function(p) {
+            if (dev && p.dev !== dev) return false;
+            if (type && p.type !== type) return false;
+            if (budget === '500'  && p.price >= 500000) return false;
+            if (budget === '1000' && (p.price < 500000 || p.price >= 1000000)) return false;
+            if (budget === '2000' && (p.price < 1000000 || p.price >= 2000000)) return false;
+            if (budget === '5000' && (p.price < 2000000 || p.price >= 5000000)) return false;
+            if (budget === '9999' && p.price < 5000000) return false;
+            if (handover && p.handover.indexOf(handover) === -1) return false;
+            return true;
+        });
+    }
+    function filterPortalProps() {
+        var filtered = getCurrentFilteredProps();
+        document.getElementById('portal-count').textContent = filtered.length;
+        renderPortalProps(filtered);
+    }
+    function resetPortalFilters() {
+        ['f-dev','f-type','f-budget','f-handover'].forEach(function(id) {
+            document.getElementById(id).value = '';
+        });
+        filterPortalProps();
+    }
+    function updateCatalogPreview() {
+        var sel = portalProps.filter(function(p) { return selectedPropIds.has(p.id); });
+        var client = document.getElementById('cat-client').value || 'Valued Client';
+        var agent = document.getElementById('cat-agent').value || 'Falcon Edge Team';
+        var budget = document.getElementById('cat-budget').value || '';
+        var lang = document.getElementById('cat-lang').value || 'en';
+        updateCatList();
+        var preview = document.getElementById('catalog-preview');
+        if (sel.length === 0) {
+            preview.innerHTML = '<div style="text-align:center;padding:3rem;color:rgba(255,255,255,0.2);font-size:0.8rem;">Select properties from Search to preview</div>';
+            return;
+        }
+        var labels = {
+            en: { title:'Property Selection', prepFor:'Prepared for', by:'Your Consultant', from:'From', yld:'Annual Yield', hand:'Handover', plan:'Payment Plan', cta:'Contact us via WhatsApp' },
+            fr: { title:'Selection Immobiliere', prepFor:'Prepare pour', by:'Votre Consultant', from:'A partir de', yld:'Rendement Annuel', hand:'Livraison', plan:'Plan de Paiement', cta:'Contactez-nous via WhatsApp' },
+            ar: { title:'اختيار العقارات', prepFor:'معد لـ', by:'مستشارك', from:'ابتداء من', yld:'العائد السنوي', hand:'تسليم', plan:'خطة الدفع', cta:'تواصل معنا عبر واتساب' },
+        };
+        var L = labels[lang] || labels['en'];
+        preview.innerHTML = '<div style="font-family:DM Sans,sans-serif;">' +
+            '<div style="text-align:center;padding:1.5rem 0 2rem;border-bottom:1px solid rgba(201,168,76,0.2);margin-bottom:1.5rem;">' +
+            '<div style="font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.75rem;">FALCON EDGE PROPERTIES</div>' +
+            '<div style="font-family:Cormorant Garamond,serif;font-size:2rem;color:#C9A84C;margin-bottom:0.5rem;">' + L.title + '</div>' +
+            '<div style="font-size:0.8rem;color:rgba(255,255,255,0.5);">' + L.prepFor + ': <strong style="color:#fff;">' + client + '</strong>' + (budget ? ' · ' + budget : '') + '</div>' +
+            '<div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.25rem;">' + L.by + ': ' + agent + ' · ' + new Date().toLocaleDateString() + '</div>' +
+            '</div>' +
+            sel.map(function(p) {
+                return '<div style="margin-bottom:1.2rem;padding:1.2rem;border:1px solid rgba(201,168,76,0.12);background:#0d0d0d;">' +
+                    '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.9rem;">' +
+                    '<div><div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.65);margin-bottom:0.2rem;">' + p.dev + ' · ' + p.tag + '</div>' +
+                    '<div style="font-family:Cormorant Garamond,serif;font-size:1.35rem;color:#fff;">' + p.name + '</div>' +
+                    '<div style="font-size:0.7rem;color:rgba(255,255,255,0.38);">📍 ' + p.area + ' · ' + p.beds + '</div></div>' +
+                    '<div style="text-align:right;"><div style="font-family:Cormorant Garamond,serif;font-size:1.6rem;color:#C9A84C;">' + p.priceStr + '</div>' +
+                    '<div style="font-size:0.55rem;color:rgba(255,255,255,0.3);text-transform:uppercase;">' + L.from + '</div></div>' +
+                    '</div>' +
+                    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.07);">' +
+                    '<div style="background:#0d0d0d;padding:0.65rem;text-align:center;"><div style="font-size:0.95rem;font-weight:600;color:#C9A84C;">' + p.yld + '</div><div style="font-size:0.5rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);margin-top:2px;">' + L.yld + '</div></div>' +
+                    '<div style="background:#0d0d0d;padding:0.65rem;text-align:center;"><div style="font-size:0.82rem;color:rgba(255,255,255,0.75);">' + p.handover + '</div><div style="font-size:0.5rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);margin-top:2px;">' + L.hand + '</div></div>' +
+                    '<div style="background:#0d0d0d;padding:0.65rem;text-align:center;"><div style="font-size:0.82rem;color:rgba(255,255,255,0.75);">' + p.plan + '</div><div style="font-size:0.5rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);margin-top:2px;">' + L.plan + '</div></div>' +
+                    '</div></div>';
+            }).join('') +
+            '<div style="text-align:center;padding:1.2rem;border-top:1px solid rgba(201,168,76,0.1);margin-top:0.5rem;">' +
+            '<div style="font-size:0.72rem;color:rgba(255,255,255,0.35);">' + L.cta + '</div>' +
+            '<div style="font-size:0.9rem;color:#25D366;margin-top:0.3rem;font-weight:500;">+216 20 302 350</div>' +
+            '<div style="font-size:0.58rem;color:rgba(255,255,255,0.2);margin-top:0.2rem;">falconedgeproperties.com · RERA Registered</div>' +
+            '</div></div>';
+    }
+    function shareCatalogWA() {
+        var sel = portalProps.filter(function(p) { return selectedPropIds.has(p.id); });
+        var client = document.getElementById('cat-client').value || 'Valued Client';
+        var agent = document.getElementById('cat-agent').value || 'Falcon Edge';
+        if (sel.length === 0) { showToast('Select at least one property'); return; }
+        var today = new Date().toLocaleDateString('en-AE', {day:'numeric', month:'long', year:'numeric'});
+        var lines = [
+            '🏢 *FALCON EDGE PROPERTIES*',
+            '_Premium Real Estate · Dubai_',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━━',
+            '',
+            'Dear *' + client + '*,',
+            '',
+            'Please find below your *exclusive property selection*, carefully curated by *' + agent + '* on ' + today + ':',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━━',
+            ''
+        ];
+        sel.forEach(function(p, i) {
+            lines.push('◆ *' + p.name + '*');
+            lines.push('🏗 Developer: ' + p.dev);
+            lines.push('📍 Location: ' + p.area);
+            lines.push('🛏 Type: ' + p.type + ' · ' + p.beds);
+            lines.push('💰 Starting Price: *' + p.priceStr + '*');
+            lines.push('📈 Annual Yield: *' + p.yld + '*');
+            lines.push('📅 Handover: ' + p.handover);
+            lines.push('💳 Payment Plan: *' + p.plan + '* (Off-Plan)');
+            lines.push('🏆 Agency fee: Covered by developer');
+            lines.push('');
+        });
+        lines.push('━━━━━━━━━━━━━━━━━━━━━');
+        lines.push('');
+        lines.push('📲 *Ready to invest? Reply to this message for:*');
+        lines.push('  ✅ Full brochure & floor plans');
+        lines.push('  ✅ Unit availability & best prices');
+        lines.push('  ✅ Free consultation (EN · FR · AR)');
+        lines.push('');
+        lines.push('_Falcon Edge Properties · RERA Registered_');
+        lines.push('_falconedgeproperties.com_');
+        window.open('https://wa.me/?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+    }
+    function printCatalog() {
+        updateCatalogPreview();
+        var prev = document.getElementById('catalog-preview').innerHTML;
+        var w = window.open('', '_blank');
+        w.document.write('<html><head><title>Falcon Edge Catalog</title><style>body{background:#0a0a0a;color:#fff;font-family:DM Sans,sans-serif;padding:2rem;} @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans&display=swap");</style></head><body>' + prev + '</body></html>');
+        w.document.close();
+        setTimeout(function() { w.print(); }, 500);
+    }
+    function renderCRM() {
+        try { crmLeads = JSON.parse(localStorage.getItem('fe_crm') || '[]'); } catch(e) { crmLeads = []; }
+        var list = document.getElementById('crm-list');
+        var empty = document.getElementById('crm-empty');
+        if (!list) return;
+        if (crmLeads.length === 0) {
+            list.innerHTML = ''; empty.style.display = 'block';
+        } else {
+            empty.style.display = 'none';
+            list.innerHTML = crmLeads.map(function(l, i) {
+                return '<div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.1);padding:0.9rem 1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;">' +
+                    '<div><div style="font-size:0.85rem;font-weight:500;color:#fff;">' + (l.name || 'Unknown') + '</div>' +
+                    '<div style="font-size:0.7rem;color:rgba(255,255,255,0.38);margin-top:0.15rem;">' + (l.email || '') + (l.phone ? ' · ' + l.phone : '') + '</div>' +
+                    '<div style="font-size:0.62rem;color:rgba(201,168,76,0.6);margin-top:0.15rem;">' + (l.budget ? 'Budget: ' + l.budget : '') + (l.nationality ? ' · ' + l.nationality : '') + '</div>' +
+                    '<div style="font-size:0.58rem;color:rgba(255,255,255,0.2);margin-top:0.1rem;">' + (l.date || '') + '</div></div>' +
+                    '<div style="display:flex;gap:0.5rem;flex-shrink:0;">' +
+                    '<a href="https://wa.me/' + WA_AGENT + '?text=' + encodeURIComponent('Hi, following up with ' + (l.name||'client')) + '" target="_blank" style="background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);color:#25D366;padding:0.4rem 0.7rem;font-size:0.6rem;text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;">WA</a>' +
+                    '<button onclick="deleteLead(' + i + ')" style="background:none;border:1px solid rgba(255,80,80,0.15);color:rgba(255,80,80,0.4);padding:0.4rem 0.6rem;font-size:0.6rem;cursor:pointer;font-family:DM Sans,sans-serif;">✕</button>' +
+                    '</div></div>';
+            }).join('');
+        }
+    }
+    function deleteLead(i) {
+        crmLeads.splice(i, 1);
+        localStorage.setItem('fe_crm', JSON.stringify(crmLeads));
+        renderCRM();
+    }
+    function clearCRM() {
+        if (confirm('Delete all inquiries?')) {
+            localStorage.removeItem('fe_crm'); crmLeads = []; renderCRM();
+        }
+    }
+    // Auto-save contact form leads
+    var _origSubmitForm = window.submitForm;
+    window.submitForm = function() {
+        var first = (document.getElementById('cf_first') && document.getElementById('cf_first').value) || '';
+        var email = (document.getElementById('cf_email') && document.getElementById('cf_email').value) || '';
+        if (first || email) {
+            var lead = {
+                name: [first, document.getElementById('cf_last') ? document.getElementById('cf_last').value : ''].filter(Boolean).join(' '),
+                email: email,
+                phone: document.getElementById('cf_phone') ? document.getElementById('cf_phone').value : '',
+                budget: document.getElementById('cf_budget') ? document.getElementById('cf_budget').value : '',
+                nationality: document.getElementById('cf_nationality') ? document.getElementById('cf_nationality').value : '',
+                interest: document.getElementById('cf_interest') ? document.getElementById('cf_interest').value : '',
+                date: new Date().toLocaleString('en-AE'),
+            };
+            var leads = [];
+            try { leads = JSON.parse(localStorage.getItem('fe_crm') || '[]'); } catch(e) {}
+            leads.unshift(lead);
+            localStorage.setItem('fe_crm', JSON.stringify(leads.slice(0, 100)));
+        }
+        if (_origSubmitForm) _origSubmitForm();
+    };
+
+
+    // ══ PORTAL: MAP TAB ══
+    var portalMapInstance = null;
+    var portalMapMarkers = [];
+    var selectedMapPropId = null;
+
+    function initPortalMap() {
+        var mapEl = document.getElementById('portal-map');
+        if (!mapEl || typeof L === 'undefined' || mapEl._leaflet_id) return;
+        portalMapInstance = L.map('portal-map', {
+            center: [25.15, 55.25], zoom: 10,
+            zoomControl: true, scrollWheelZoom: true, attributionControl: false
+        });
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            subdomains:'abcd', maxZoom:19
+        }).addTo(portalMapInstance);
+
+        portalProps.forEach(function(p) {
+            if (!p.lat || !p.lng) return;
+            var icon = L.divIcon({
+                className:'',
+                html:'<div style="width:10px;height:10px;background:rgba(201,168,76,0.7);border-radius:50%;border:1.5px solid #C9A84C;cursor:pointer;box-shadow:0 0 6px rgba(201,168,76,0.4);"></div>',
+                iconSize:[10,10], iconAnchor:[5,5]
+            });
+            var m = L.marker([p.lat, p.lng], {icon:icon}).addTo(portalMapInstance);
+            m.bindTooltip('<b>' + p.name + '</b><br>' + p.priceStr + ' · ' + p.yld, {
+                className:'map-tooltip-gold', direction:'top', offset:[0,-6]
+            });
+            m.on('click', function() {
+                selectedMapPropId = p.id;
+                document.getElementById('portal-map-panel').style.display = 'block';
+                document.getElementById('pmap-tag').textContent = p.dev.toUpperCase() + ' · ' + p.tag;
+                document.getElementById('pmap-name').textContent = p.name;
+                document.getElementById('pmap-area').textContent = '📍 ' + p.area + ' · ' + p.beds + ' · ' + p.type;
+                document.getElementById('pmap-price').textContent = p.priceStr;
+                document.getElementById('pmap-yield').textContent = p.yld;
+                document.getElementById('pmap-handover').textContent = p.handover;
+                document.getElementById('pmap-plan').textContent = p.plan;
+            });
+            portalMapMarkers.push(m);
+        });
+
+        // ── FALCON EDGE OFFICES ──
+        var officeIcon = L.divIcon({
+            className:'',
+            html:'<div style="width:16px;height:16px;background:#C9A84C;border-radius:3px;border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(201,168,76,0.8);display:flex;align-items:center;justify-content:center;font-size:8px;">🏢</div>',
+            iconSize:[16,16], iconAnchor:[8,8]
+        });
+
+        var offices = [
+            { name:'Falcon Edge HQ', address:'Office 509, Apricot Tower, Silicon Oasis', lat:25.1175, lng:55.3797, phone:'+216 20 302 350' },
+        ];
+
+        offices.forEach(function(o) {
+            var m = L.marker([o.lat, o.lng], {icon:officeIcon}).addTo(portalMapInstance);
+            m.bindPopup(
+                '<div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.3);padding:0.75rem;min-width:180px;font-family:DM Sans,sans-serif;">' +
+                '<div style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.3rem;">FALCON EDGE OFFICE</div>' +
+                '<div style="font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.25rem;">' + o.name + '</div>' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">' + o.address + '</div>' +
+                '<a href="tel:' + o.phone + '" style="font-size:0.72rem;color:#C9A84C;text-decoration:none;">' + o.phone + '</a>' +
+                '</div>',
+                { className:'portal-popup', maxWidth:220 }
+            );
+        });
+
+        // ── KEY DUBAI LANDMARKS ──
+        var landmarkIcon = L.divIcon({
+            className:'',
+            html:'<div style="width:8px;height:8px;background:rgba(255,255,255,0.3);border-radius:50%;border:1px solid rgba(255,255,255,0.5);"></div>',
+            iconSize:[8,8], iconAnchor:[4,4]
+        });
+
+        var landmarks = [
+            { name:'Burj Khalifa', lat:25.1972, lng:55.2744 },
+            { name:'Dubai Mall',   lat:25.1982, lng:55.2791 },
+            { name:'Dubai Marina', lat:25.0797, lng:55.1404 },
+            { name:'Palm Jumeirah',lat:25.1124, lng:55.1390 },
+            { name:'Dubai Airport',lat:25.2532, lng:55.3657 },
+            { name:'Expo City',    lat:24.9750, lng:55.1080 },
+        ];
+
+        landmarks.forEach(function(l) {
+            var m = L.marker([l.lat, l.lng], {icon:landmarkIcon}).addTo(portalMapInstance);
+            m.bindTooltip(l.name, {className:'map-tooltip-gold', direction:'top', permanent:false});
+        });
+
+        // Add legend
+        var legend = L.control({position:'bottomleft'});
+        legend.onAdd = function() {
+            var div = L.DomUtil.create('div');
+            div.innerHTML = '<div style="background:rgba(10,10,10,0.9);border:1px solid rgba(201,168,76,0.2);padding:0.6rem 0.8rem;font-family:DM Sans,sans-serif;">' +
+                '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><div style="width:10px;height:10px;background:rgba(201,168,76,0.7);border-radius:50%;"></div><span style="font-size:0.62rem;color:rgba(255,255,255,0.6);">Properties (' + portalProps.length + ')</span></div>' +
+                '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><div style="width:14px;height:14px;background:#C9A84C;border-radius:2px;"></div><span style="font-size:0.62rem;color:rgba(255,255,255,0.6);">Falcon Edge Office</span></div>' +
+                '<div style="display:flex;align-items:center;gap:0.5rem;"><div style="width:8px;height:8px;background:rgba(255,255,255,0.3);border-radius:50%;"></div><span style="font-size:0.62rem;color:rgba(255,255,255,0.6);">Key Landmarks</span></div>' +
+                '</div>';
+            return div;
+        };
+        legend.addTo(portalMapInstance);
+    }
+
+    function addToSelectFromMap() {
+        if (!selectedMapPropId) return;
+        if (!selectedPropIds.has(selectedMapPropId)) {
+            selectedPropIds.add(selectedMapPropId);
+            document.getElementById('portal-selected-count').textContent = selectedPropIds.size;
+            showToast('Property added to catalog');
+        }
+        showPortalTab('catalog');
+    }
+
+    // ══ PORTAL: PAYMENT CALC ══
+    function populateCalcSelect() {
+        var sel = document.getElementById('calc-prop-select');
+        if (!sel) return;
+        portalProps.forEach(function(p) {
+            var opt = document.createElement('option');
+            opt.value = p.id;
+            opt.textContent = p.name + ' — ' + p.priceStr;
+            sel.appendChild(opt);
+        });
+    }
+
+    function updatePaymentCalc() {
+        var propId = parseInt(document.getElementById('calc-prop-select')?.value);
+        var prop = propId ? portalProps.find(function(p) { return p.id === propId; }) : null;
+        var price = prop ? prop.price : parseFloat(document.getElementById('calc-price')?.value) || 1600000;
+        if (prop) document.getElementById('calc-price').value = prop.price;
+        var downPct = parseFloat(document.getElementById('calc-down')?.value) || 20;
+        var duringPct = parseFloat(document.getElementById('calc-during')?.value) || 60;
+        var handoverPct = 100 - downPct - duringPct;
+        var months = parseInt(document.getElementById('calc-months')?.value) || 24;
+
+        var down = price * downPct / 100;
+        var during = price * duringPct / 100;
+        var handover = price * handoverPct / 100;
+        var monthlyDuring = during / months;
+
+        var fmt = function(n) { return 'AED ' + Math.round(n).toLocaleString(); };
+
+        var schedule = document.getElementById('calc-schedule');
+        if (schedule) schedule.innerHTML = [
+            { label: 'Down Payment (Now)', amount: down, pct: downPct, color: '#C9A84C' },
+            { label: 'During Construction (' + months + ' months)', amount: during, pct: duringPct, color: '#8B6914' },
+            { label: 'On Handover (' + prop?.handover + ')', amount: handover, pct: handoverPct, color: '#5a4010' },
+        ].map(function(row) {
+            return '<div style="display:flex;justify-content:space-between;align-items:center;padding:0.65rem;border-left:3px solid ' + row.color + ';background:rgba(255,255,255,0.02);">' +
+                '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.7);">' + row.label + '</div>' +
+                (row.label.includes('During') ? '<div style="font-size:0.62rem;color:rgba(255,255,255,0.3);">≈ ' + fmt(monthlyDuring) + '/month</div>' : '') +
+                '</div><div style="text-align:right;"><div style="font-family:Cormorant Garamond,serif;font-size:1rem;color:' + row.color + ';">' + fmt(row.amount) + '</div>' +
+                '<div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">' + row.pct.toFixed(0) + '%</div></div></div>';
+        }).join('');
+
+        var summary = document.getElementById('calc-summary');
+        if (summary) summary.innerHTML = [
+            { label:'Total Price', val: fmt(price) },
+            { label:'Down Payment', val: fmt(down) },
+            { label:'Monthly Payment', val: fmt(monthlyDuring) },
+            { label:'On Handover', val: fmt(handover) },
+        ].map(function(r) {
+            return '<div style="background:#111;padding:0.65rem;"><div style="font-family:Cormorant Garamond,serif;font-size:1rem;color:#C9A84C;">' + r.val + '</div><div style="font-size:0.52rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-top:2px;">' + r.label + '</div></div>';
+        }).join('');
+    }
+
+    function sharePaymentPlan() {
+        var propId = parseInt(document.getElementById('calc-prop-select')?.value);
+        var prop = propId ? portalProps.find(function(p) { return p.id === propId; }) : null;
+        var price = parseFloat(document.getElementById('calc-price')?.value) || 0;
+        var downPct = parseFloat(document.getElementById('calc-down')?.value) || 20;
+        var duringPct = parseFloat(document.getElementById('calc-during')?.value) || 60;
+        var handoverPct = 100 - downPct - duringPct;
+        var months = parseInt(document.getElementById('calc-months')?.value) || 24;
+        var fmt = function(n) { return 'AED ' + Math.round(n).toLocaleString(); };
+
+        var msg = [
+            '*PAYMENT PLAN*',
+            '*Falcon Edge Properties — Dubai*',
+            '---',
+            prop ? '*Project:* ' + prop.name : '*Price:* ' + fmt(price),
+            prop ? '*Developer:* ' + prop.dev : '',
+            prop ? '*Location:* ' + prop.area : '',
+            '',
+            '*Your Payment Schedule:*',
+            '  Down Payment (' + downPct + '%): *' + fmt(price * downPct/100) + '*',
+            '  During Construction (' + months + ' months): *' + fmt(price * duringPct/100) + '*',
+            '    = ' + fmt(price * duringPct/100 / months) + '/month',
+            '  On Handover (' + (prop ? prop.handover : '') + '): *' + fmt(price * handoverPct/100) + '*',
+            '',
+            '*Total: ' + fmt(price) + '*',
+            '---',
+            '_Falcon Edge Properties · RERA Registered_',
+            '_falconedgeproperties.com_'
+        ].filter(Boolean).join('\n');
+
+        window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // ══ PORTAL: DEVELOPERS TAB ══
+    var developerContacts = [
+        { name:'DAMAC Properties',  contact:'Sales Team', email:'sales@damacgroup.com',  phone:'+971 4 301 9999', web:'damacproperties.com',  projects:3 },
+        { name:'Emaar Properties',  contact:'Sales Team', email:'sales@emaar.ae',         phone:'+971 4 367 3333', web:'emaar.com',            projects:4 },
+        { name:'Azizi Developments',contact:'Sales Team', email:'info@azizidevelopments.com', phone:'+971 4 430 8444', web:'azizidevelopments.com', projects:3 },
+        { name:'Ellington Properties',contact:'Sales',   email:'sales@ellingtonproperties.com', phone:'+971 4 399 3232', web:'ellingtonproperties.com', projects:3 },
+        { name:'Sobha Realty',      contact:'Sales Team', email:'info@sobharealty.com',    phone:'+971 4 368 5000', web:'sobharealty.com',      projects:3 },
+        { name:'Nakheel',           contact:'Sales Team', email:'info@nakheel.com',        phone:'+971 4 390 3333', web:'nakheel.com',          projects:2 },
+        { name:'Meraas',            contact:'Sales Team', email:'info@meraas.ae',          phone:'+971 4 317 3999', web:'meraas.ae',            projects:2 },
+        { name:'Aldar Properties',  contact:'Sales Team', email:'info@aldar.com',          phone:'+971 2 810 5555', web:'aldar.com',            projects:1 },
+        { name:'Omniyat',           contact:'Sales Team', email:'info@omniyat.com',        phone:'+971 4 432 5577', web:'omniyat.com',          projects:1 },
+        { name:'Select Group',      contact:'Sales Team', email:'info@selectgroup.ae',     phone:'+971 4 457 8888', web:'selectgroup.ae',       projects:3 },
+    ];
+
+    function renderDevelopers() {
+        var grid = document.getElementById('devs-grid');
+        if (!grid) return;
+        grid.innerHTML = developerContacts.map(function(d) {
+            return '<div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.1);padding:1.2rem;">' +
+                '<div style="font-family:Cormorant Garamond,serif;font-size:1.15rem;color:#fff;margin-bottom:0.25rem;">' + d.name + '</div>' +
+                '<div style="font-size:0.65rem;color:rgba(201,168,76,0.6);margin-bottom:0.75rem;">' + d.projects + ' projects in portfolio</div>' +
+                '<div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.75rem;">' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">📞 ' + d.phone + '</div>' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">📧 ' + d.email + '</div>' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">🌐 ' + d.web + '</div>' +
+                '</div>' +
+                '<div style="display:flex;gap:0.5rem;">' +
+                '<a href="tel:' + d.phone.replace(/\s/g,'') + '" style="flex:1;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C;padding:0.45rem;text-align:center;font-size:0.62rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;">Call</a>' +
+                '<a href="mailto:' + d.email + '" style="flex:1;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C;padding:0.45rem;text-align:center;font-size:0.62rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;">Email</a>' +
+                '<a href="https://wa.me/' + d.phone.replace(/[^0-9]/g,'') + '" target="_blank" style="flex:1;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);color:#25D366;padding:0.45rem;text-align:center;font-size:0.62rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;">WA</a>' +
+                '</div>' +
+                '</div>';
+        }).join('');
+    }
+
+    // ══ EXTEND showPortalTab for new tabs ══
+    var _origShowPortalTab = showPortalTab;
+    showPortalTab = function(tab) {
+        ['search','catalog','crm','map','calc','devs'].forEach(function(t) {
+            var el = document.getElementById('ptab-' + t);
+            if (el) el.style.display = (t === tab) ? 'flex' : 'none';
+        });
+        document.querySelectorAll('.ptab').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.tab === tab);
+        });
+        if (tab === 'catalog') updateCatalogPreview();
+        if (tab === 'crm') renderCRM();
+        if (tab === 'map') {
+            setTimeout(function() {
+                if (typeof L !== 'undefined') initPortalMap();
+                else {
+                    var s = document.createElement('script');
+                    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+                    s.onload = function() { setTimeout(initPortalMap, 100); };
+                    document.head.appendChild(s);
+                }
+                portalMapInstance && portalMapInstance.invalidateSize();
+            }, 100);
+        }
+        if (tab === 'calc') {
+            populateCalcSelect();
+            updatePaymentCalc();
+        }
+        if (tab === 'devs') renderDevelopers();
+    };
+
+    // ══ Init catalog prop select ══
+    window.addEventListener('DOMContentLoaded', function() {
+        // Already handled by portal init
+    });
+
 </script>
 
 <div class="cursor" id="cursor"></div>
@@ -2074,7 +2667,7 @@
     <span style="color:rgba(201,168,76,0.3);font-size:0.7rem;">|</span>
     <span style="font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);">Authorized Partner: <span style="color:var(--gold-light);">DAMAC · Emaar · Azizi · Ellington</span></span>
     <span style="color:rgba(201,168,76,0.3);font-size:0.7rem;">|</span>
-    <a href="https://wa.me/97152299405" target="_blank" style="font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#25D366;text-decoration:none;">📲 WhatsApp Us Now</a>
+    <a href="https://wa.me/21620302350" target="_blank" style="font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#25D366;text-decoration:none;">📲 WhatsApp Us Now</a>
 </div>
 
 <div class="gold-divider"></div>
@@ -2190,6 +2783,7 @@
                     </div>
                     <div style="font-size:0.7rem;color:var(--gray);margin-bottom:0.75rem;">Payment plan: <span style="color:var(--gold-light);">80/20</span> · Agency fee covered by developer</div>
                     <button class="prop-compare-btn" onclick="addCompare(this,'DAMAC Islands 2')" data-i18n="compare_btn">+ Add to Compare</button>
+                    <a href="https://wa.me/21620302350?text={}" onclick="this.href='https://wa.me/21620302350?text='+encodeURIComponent('🏢 *PROPERTY INQUIRY — Falcon Edge*\n━━━━━━━━━━━━━━━━\n\n🏗 *Project:* DAMAC Islands 2\n💰 *Price:* AED 1.6M+\n📍 *Area:* Dubai Islands\n\nI am interested in this property. Please send me:\n✅ Full brochure & floor plans\n✅ Available units & prices\n✅ Payment plan details\n\n_Via falconedgeproperties.com_')" target="_blank" style="display:block;margin-top:0.5rem;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25D366;padding:0.5rem;text-align:center;font-size:0.65rem;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;transition:all 0.2s;" onmouseover="this.style.background='rgba(37,211,102,0.2)'" onmouseout="this.style.background='rgba(37,211,102,0.1)'">📲 WhatsApp Inquiry</a>
                 </div>
             </div>
             <div class="prop-card" data-type="apartment" data-budget="1m">
@@ -2216,6 +2810,7 @@
                     </div>
                     <div style="font-size:0.7rem;color:var(--gray);margin-bottom:0.75rem;">Payment plan: <span style="color:var(--gold-light);">70/30</span> · 8.6% projected yield</div>
                     <button class="prop-compare-btn" onclick="addCompare(this,'Creek Harbour Residences')" data-i18n="compare_btn">+ Add to Compare</button>
+                    <a href="https://wa.me/21620302350?text=" onclick="this.href='https://wa.me/21620302350?text='+encodeURIComponent('*PROPERTY INQUIRY*\n*Falcon Edge Properties — Dubai*\n---\n\n*Project:* Creek Harbour Residences\n*Developer:* Emaar\n*Location:* Creek Harbour\n*Price:* AED 890K+\n\nI am interested in this property.\nPlease send me:\n  - Full brochure & floor plans\n  - Available units & best prices\n  - Payment plan details\n\n_falconedgeproperties.com_')" target="_blank" style="display:block;margin-top:0.5rem;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25D366;padding:0.5rem;text-align:center;font-size:0.65rem;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;transition:all 0.2s;" onmouseover="this.style.background='rgba(37,211,102,0.2)'" onmouseout="this.style.background='rgba(37,211,102,0.1)'">📲 WhatsApp Inquiry</a>
                 </div>
             </div>
             <div class="prop-card" data-type="apartment" data-budget="1m">
@@ -2242,6 +2837,7 @@
                     </div>
                     <div style="font-size:0.7rem;color:var(--gray);margin-bottom:0.75rem;">Payment plan: <span style="color:var(--gold-light);">60/40</span> · Canal & lagoon views</div>
                     <button class="prop-compare-btn" onclick="addCompare(this,'Venice Next Legacy')" data-i18n="compare_btn">+ Add to Compare</button>
+                    <a href="https://wa.me/21620302350?text=" onclick="this.href='https://wa.me/21620302350?text='+encodeURIComponent('*PROPERTY INQUIRY*\n*Falcon Edge Properties — Dubai*\n---\n\n*Project:* Venice Next Legacy\n*Developer:* Azizi\n*Location:* Dubai South\n*Price:* AED 1.4M+\n\nI am interested in this property.\nPlease send me:\n  - Full brochure & floor plans\n  - Available units & best prices\n  - Payment plan details\n\n_falconedgeproperties.com_')" target="_blank" style="display:block;margin-top:0.5rem;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25D366;padding:0.5rem;text-align:center;font-size:0.65rem;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;transition:all 0.2s;" onmouseover="this.style.background='rgba(37,211,102,0.2)'" onmouseout="this.style.background='rgba(37,211,102,0.1)'">📲 WhatsApp Inquiry</a>
                 </div>
             </div>
             <div class="prop-card" data-type="villa" data-budget="3m">
@@ -2268,6 +2864,7 @@
                     </div>
                     <div style="font-size:0.7rem;color:var(--gray);margin-bottom:0.75rem;">Payment plan: <span style="color:var(--gold-light);">50/50</span> · Private beach access</div>
                     <button class="prop-compare-btn" onclick="addCompare(this,'Marvia Shores')" data-i18n="compare_btn">+ Add to Compare</button>
+                    <a href="https://wa.me/21620302350?text=" onclick="this.href='https://wa.me/21620302350?text='+encodeURIComponent('*PROPERTY INQUIRY*\n*Falcon Edge Properties — Dubai*\n---\n\n*Project:* Marvia Shores Collection\n*Developer:* Ellington\n*Location:* Tilal Al Ghaf\n*Price:* AED 3.2M+\n\nI am interested in this property.\nPlease send me:\n  - Full brochure & floor plans\n  - Available units & best prices\n  - Payment plan details\n\n_falconedgeproperties.com_')" target="_blank" style="display:block;margin-top:0.5rem;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25D366;padding:0.5rem;text-align:center;font-size:0.65rem;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;transition:all 0.2s;" onmouseover="this.style.background='rgba(37,211,102,0.2)'" onmouseout="this.style.background='rgba(37,211,102,0.1)'">📲 WhatsApp Inquiry</a>
                 </div>
             </div>
             <div class="prop-card">
@@ -2334,6 +2931,7 @@
                     </div>
                     <div style="font-size:0.7rem;color:var(--gray);margin-bottom:0.75rem;">Payment plan: <span style="color:var(--gold-light);">80/20</span> · Private beach · Sea views</div>
                     <button class="prop-compare-btn" onclick="addCompare(this,'Palm Jebel Ali Villa')">+ Add to Compare</button>
+                    <a href="#" onclick="this.href='https://wa.me/21620302350?text='+encodeURIComponent('*PROPERTY INQUIRY*\n*Falcon Edge Properties — Dubai*\n---\n\n*Project:* Palm Jebel Ali Villa\n*Developer:* Nakheel\n*Location:* Palm Jebel Ali, Dubai\n*Price:* AED 5.5M+\n\nI am interested in this property. Please send me:\n✅ Full brochure & floor plans\n✅ Available units & best prices\n✅ Payment plan details\n\n_falconedgeproperties.com_')" target="_blank" style="display:block;margin-top:0.5rem;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25D366;padding:0.5rem;text-align:center;font-size:0.65rem;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">📲 WhatsApp Inquiry</a>
                 </div>
             </div>
             <div class="prop-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:3rem;text-align:center;background:linear-gradient(135deg,#1a1510,#2a2010);">
@@ -2812,7 +3410,7 @@
                     <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.15);padding:0.6rem;text-align:center;font-size:0.7rem;color:#4ade80;" id="vis-b4">✓ 0% Income Tax</div>
                 </div>
 
-                <button class="btn-primary" onclick="openPopup()" style="width:100%;margin-top:1.5rem;padding:1rem;font-size:0.75rem;">Apply for Golden Visa with Us →</button>
+                <button class="btn-primary" onclick="(function(){const budget=document.getElementById('visa-slider')?.value||'2000000';const amt=document.getElementById('visa-amount')?.textContent||'AED 2M';window.open('https://wa.me/21620302350?text='+encodeURIComponent('*GOLDEN VISA INQUIRY*\n*Falcon Edge Properties — Dubai*\n---\n\n*Investment Budget:* '+amt+'\n*Purpose:* UAE Golden Visa Application\n\nPlease advise on:\n  - Golden Visa eligibility & process\n  - Best properties for my budget\n  - Timeline & documentation required\n\n_falconedgeproperties.com_'), '_blank')})()" style="width:100%;margin-top:1.5rem;padding:1rem;font-size:0.75rem;">Apply for Golden Visa with Us →</button>
                 <p style="text-align:center;font-size:0.62rem;color:var(--gray);margin-top:0.75rem;">We handle the full visa application process</p>
             </div>
         </div>
@@ -2944,7 +3542,7 @@
                 <div class="team-name">Abdulrazak</div>
                 <div class="team-bio">Expert in guiding clients through Dubai's most exclusive residential and investment properties. Specialist in off-plan acquisitions and portfolio strategy.</div>
                 <div class="team-langs"><span class="team-lang">🇬🇧 English</span><span class="team-lang">🇸🇦 Arabic</span></div>
-                <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a><a href="https://wa.me/97152299405" target="_blank" class="team-contact-link" style="color:#25D366;border-color:rgba(37,211,102,0.3);">WhatsApp</a></div>
+                <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+21620302350" class="team-contact-link">📞 Call</a><a href="https://wa.me/21620302350" target="_blank" class="team-contact-link" style="color:#25D366;border-color:rgba(37,211,102,0.3);">WhatsApp</a></div>
             </div>
         </div>
         <div class="team-card">
@@ -2964,7 +3562,7 @@
                 <div class="team-name">Yaman</div>
                 <div class="team-bio">Leading the sales team with strategic vision and deep expertise in Dubai's premium property market. Focused on investor acquisition and deal closure.</div>
                 <div class="team-langs"><span class="team-lang">🇬🇧 English</span><span class="team-lang">🇸🇦 Arabic</span></div>
-                <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a><a href="https://wa.me/97152299405" target="_blank" class="team-contact-link" style="color:#25D366;border-color:rgba(37,211,102,0.3);">WhatsApp</a></div>
+                <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+21620302350" class="team-contact-link">📞 Call</a><a href="https://wa.me/21620302350" target="_blank" class="team-contact-link" style="color:#25D366;border-color:rgba(37,211,102,0.3);">WhatsApp</a></div>
             </div>
         </div>
         <div class="team-card">
@@ -2974,7 +3572,7 @@
                 <div class="team-name">Bashar</div>
                 <div class="team-bio">Dedicated to matching clients with premium residential and commercial opportunities in Dubai. Expert in luxury villa communities and waterfront projects.</div>
                 <div class="team-langs"><span class="team-lang">🇬🇧 English</span><span class="team-lang">🇸🇦 Arabic</span></div>
-                <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+97152299405" class="team-contact-link">📞 Call</a><a href="https://wa.me/97152299405" target="_blank" class="team-contact-link" style="color:#25D366;border-color:rgba(37,211,102,0.3);">WhatsApp</a></div>
+                <div class="team-contacts"><a href="mailto:falconedge1@gmail.com" class="team-contact-link">✉ Email</a><a href="tel:+21620302350" class="team-contact-link">📞 Call</a><a href="https://wa.me/21620302350" target="_blank" class="team-contact-link" style="color:#25D366;border-color:rgba(37,211,102,0.3);">WhatsApp</a></div>
             </div>
         </div>
     </div>
@@ -3260,7 +3858,7 @@
             <p class="section-desc" data-i18n="contact_desc">Our experts are ready to guide you through Dubai's premier real estate opportunities. Schedule your free consultation today.</p>
             <div class="contact-info">
                 <div class="contact-item"><span class="contact-icon">📍</span><div class="contact-detail"><h4 data-i18n="office_label">Office</h4><p data-i18n="office_addr">Office No. 509, Apricot Tower<br>Silicon Oasis, Dubai, UAE</p></div></div>
-                <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-detail"><h4 data-i18n="phone_label">Phone</h4><p><a href="tel:+97152299405">+971 52 299 4057</a><br><a href="tel:+97152349106">+971 52 349 1060</a></p></div></div>
+                <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-detail"><h4 data-i18n="phone_label">Phone</h4><p><a href="tel:+21620302350">+216 20 302 3507</a><br><a href="tel:+97152349106">+971 52 349 1060</a></p></div></div>
                 <div class="contact-item"><span class="contact-icon">✉</span><div class="contact-detail"><h4 data-i18n="email_label">Email</h4><p><a href="mailto:falconedge1@gmail.com">falconedge1@gmail.com</a><br><a href="mailto:friguison@gmail.com">friguison@gmail.com</a></p></div></div>
                 <div class="contact-item"><span class="contact-icon">🕐</span><div class="contact-detail"><h4 data-i18n="hours_label">Hours</h4><p data-i18n="hours_val">Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</p></div></div>
             </div>
@@ -3338,7 +3936,7 @@
             <div class="footer-socials">
                 <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
                 <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">ig</a>
-                <a href="https://wa.me/97152299405" target="_blank" class="social-link" title="WhatsApp">wa</a>
+                <a href="https://wa.me/21620302350" target="_blank" class="social-link" title="WhatsApp">wa</a>
                 <a href="mailto:falconedge1@gmail.com" class="social-link" title="Email">✉</a>
             </div>
         </div>
@@ -3375,7 +3973,7 @@
 <!-- WHATSAPP FLOAT -->
 <div class="whatsapp-float">
     <div class="whatsapp-tooltip" data-i18n="wa_tooltip">Chat with us on WhatsApp</div>
-    <a href="https://wa.me/97152299405" target="_blank" class="whatsapp-btn" title="WhatsApp">
+    <a href="https://wa.me/21620302350" target="_blank" class="whatsapp-btn" title="WhatsApp">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 </div>
@@ -5026,12 +5624,63 @@
     function closePopupOutside(e) {
         if (e.target === document.getElementById('popupOverlay')) closePopup();
     }
-    function selectTime(el) { el.classList.toggle('selected'); }
+    function selectTime(el) {
+        // For time slots (Morning/Afternoon/Evening) - only one active
+        var isTime = ['Morning','Afternoon','Evening','Matin','Soir'].some(function(w) { return el.textContent.includes(w); });
+        if (isTime) {
+            document.querySelectorAll('.popup-time').forEach(function(b) {
+                if (['Morning','Afternoon','Evening','Matin','Soir'].some(function(w) { return b.textContent.includes(w); })) {
+                    b.classList.remove('selected');
+                    b.style.borderColor = 'rgba(201,168,76,0.15)';
+                    b.style.color = 'var(--light-gray)';
+                }
+            });
+        }
+        el.classList.toggle('selected');
+        var sel = el.classList.contains('selected');
+        el.style.borderColor = sel ? 'var(--gold)' : 'rgba(201,168,76,0.15)';
+        el.style.color = sel ? 'var(--gold)' : 'var(--light-gray)';
+        el.style.background = sel ? 'rgba(201,168,76,0.08)' : 'transparent';
+    }
     function submitPopup() {
-        const name = document.getElementById('p_name').value;
-        if (!name) { alert('Please enter your name.'); return; }
+        const name = (document.getElementById('p_name')?.value || '').trim();
+        const phone = (document.getElementById('p_phone')?.value || '').trim();
+        const email = (document.getElementById('p_email')?.value || '').trim();
+        if (!name) {
+            showToast('⚠ Please enter your name.');
+            return;
+        }
+        // Get selected time slot & day
+        // Get selected time slots and days (class: popup-time selected)
+        const selectedTimes = [...document.querySelectorAll('.popup-time.selected')].map(el => el.textContent.replace(/\s+/g,' ').trim()).join(', ') || '';
+        // Split into time-of-day vs day-of-week
+        const timeWords = ['Morning','Afternoon','Evening','Matin','Après-midi','Soirée','صباح','مساء'];
+        const allSelected = [...document.querySelectorAll('.popup-time.selected')].map(el => el.textContent.trim());
+        const activeSlot = allSelected.filter(t => timeWords.some(w => t.includes(w))).join(', ') || '';
+        const activeDay = allSelected.filter(t => !timeWords.some(w => t.includes(w))).join(', ') || '';
+        // Build WhatsApp message
+        var today2 = new Date().toLocaleDateString('en-AE', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+        const msg = [
+            '*NEW CONSULTATION REQUEST*',
+            '*Falcon Edge Properties — Dubai*',
+            '---',
+            '',
+            '*Client:* ' + name,
+            phone ? '*Phone:* ' + phone : '',
+            email ? '*Email:* ' + email : '',
+            '',
+            activeDay || activeSlot ? '*Preferred Schedule:*' : '',
+            activeDay ? '  Day: ' + activeDay : '',
+            activeSlot ? '  Time: ' + activeSlot : '',
+            '',
+            '---',
+            '_Received: ' + today2 + '_',
+            '_falconedgeproperties.com_'
+        ].filter(Boolean).join('\n');
+        const url = 'https://wa.me/21620302350?text=' + encodeURIComponent(msg);
         closePopup();
-        showToast('✓ ' + (currentLang === 'fr' ? 'Réservation confirmée !' : currentLang === 'ar' ? 'تم تأكيد الحجز!' : 'Booking confirmed! We\'ll contact you within 24 hours.'));
+        showToast('✓ Redirecting to WhatsApp...');
+        setTimeout(() => window.open(url, '_blank'), 600);
     }
 
     // ── TOAST ──
@@ -5044,11 +5693,466 @@
 
     // ── CONTACT FORM ──
     function submitForm() {
-        const email = document.getElementById('cf_email').value;
-        const name = document.getElementById('cf_first').value;
-        if (!name || !email) { showToast('⚠ ' + (currentLang === 'fr' ? 'Veuillez remplir votre nom et email.' : currentLang === 'ar' ? 'يرجى إدخال اسمك وبريدك الإلكتروني.' : 'Please fill in your name and email.')); return; }
-        showToast('✓ ' + (currentLang === 'fr' ? 'Message envoyé !' : currentLang === 'ar' ? 'تم إرسال الرسالة!' : "Message sent! We'll be in touch within 24 hours."));
+        const first = (document.getElementById('cf_first')?.value || '').trim();
+        const last = (document.getElementById('cf_last')?.value || '').trim();
+        const email = (document.getElementById('cf_email')?.value || '').trim();
+        const phone = (document.getElementById('cf_phone')?.value || '').trim();
+        const budget = document.getElementById('cf_budget')?.value || '';
+        const interest = document.getElementById('cf_interest')?.value || '';
+        const nationality = document.getElementById('cf_nationality')?.value || '';
+        const timeline = document.getElementById('cf_timeline')?.value || '';
+        const msg = (document.getElementById('cf_msg')?.value || '').trim();
+        if (!first || !email) {
+            showToast('⚠ Please fill in your name and email.');
+            return;
+        }
+        var today3 = new Date().toLocaleDateString('en-AE', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+        const waMsg = [
+            '*NEW CLIENT INQUIRY*',
+            '*Falcon Edge Properties — Dubai*',
+            '---',
+            '',
+            '*Name:* ' + [first, last].filter(Boolean).join(' '),
+            phone ? '*Phone:* ' + phone : '',
+            '*Email:* ' + email,
+            nationality ? '*Nationality:* ' + nationality : '',
+            '',
+            '*Investment Profile:*',
+            budget ? '  Budget: ' + budget : '',
+            interest ? '  Interest: ' + interest : '',
+            timeline ? '  Timeline: ' + timeline : '',
+            msg ? '' : '',
+            msg ? '*Message:*' : '',
+            msg ? '  ' + msg : '',
+            '',
+            '---',
+            '_Received: ' + today3 + '_',
+            '_falconedgeproperties.com_'
+        ].filter(Boolean).join('\n');
+        const url = 'https://wa.me/21620302350?text=' + encodeURIComponent(waMsg);
+        showToast('✓ Opening WhatsApp...');
+        setTimeout(() => window.open(url, '_blank'), 500);
     }
+
+
+
+    // ══ PORTAL: MAP TAB ══
+    var portalMapInstance = null;
+    var portalMapMarkers = [];
+    var selectedMapPropId = null;
+
+    function initPortalMap() {
+        var mapEl = document.getElementById('portal-map');
+        if (!mapEl || typeof L === 'undefined' || mapEl._leaflet_id) return;
+        portalMapInstance = L.map('portal-map', {
+            center: [25.15, 55.25], zoom: 10,
+            zoomControl: true, scrollWheelZoom: true, attributionControl: false
+        });
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            subdomains:'abcd', maxZoom:19
+        }).addTo(portalMapInstance);
+
+        portalProps.forEach(function(p) {
+            if (!p.lat || !p.lng) return;
+            var icon = L.divIcon({
+                className:'',
+                html:'<div style="width:10px;height:10px;background:rgba(201,168,76,0.7);border-radius:50%;border:1.5px solid #C9A84C;cursor:pointer;box-shadow:0 0 6px rgba(201,168,76,0.4);"></div>',
+                iconSize:[10,10], iconAnchor:[5,5]
+            });
+            var m = L.marker([p.lat, p.lng], {icon:icon}).addTo(portalMapInstance);
+            m.bindTooltip('<b>' + p.name + '</b><br>' + p.priceStr + ' · ' + p.yld, {
+                className:'map-tooltip-gold', direction:'top', offset:[0,-6]
+            });
+            m.on('click', function() {
+                selectedMapPropId = p.id;
+                document.getElementById('portal-map-panel').style.display = 'block';
+                document.getElementById('pmap-tag').textContent = p.dev.toUpperCase() + ' · ' + p.tag;
+                document.getElementById('pmap-name').textContent = p.name;
+                document.getElementById('pmap-area').textContent = '📍 ' + p.area + ' · ' + p.beds + ' · ' + p.type;
+                document.getElementById('pmap-price').textContent = p.priceStr;
+                document.getElementById('pmap-yield').textContent = p.yld;
+                document.getElementById('pmap-handover').textContent = p.handover;
+                document.getElementById('pmap-plan').textContent = p.plan;
+            });
+            portalMapMarkers.push(m);
+        });
+
+        // ── FALCON EDGE OFFICES ──
+        var officeIcon = L.divIcon({
+            className:'',
+            html:'<div style="width:16px;height:16px;background:#C9A84C;border-radius:3px;border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(201,168,76,0.8);display:flex;align-items:center;justify-content:center;font-size:8px;">🏢</div>',
+            iconSize:[16,16], iconAnchor:[8,8]
+        });
+
+        var offices = [
+            { name:'Falcon Edge HQ', address:'Office 509, Apricot Tower, Silicon Oasis', lat:25.1175, lng:55.3797, phone:'+216 20 302 350' },
+        ];
+
+        offices.forEach(function(o) {
+            var m = L.marker([o.lat, o.lng], {icon:officeIcon}).addTo(portalMapInstance);
+            m.bindPopup(
+                '<div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.3);padding:0.75rem;min-width:180px;font-family:DM Sans,sans-serif;">' +
+                '<div style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.3rem;">FALCON EDGE OFFICE</div>' +
+                '<div style="font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.25rem;">' + o.name + '</div>' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">' + o.address + '</div>' +
+                '<a href="tel:' + o.phone + '" style="font-size:0.72rem;color:#C9A84C;text-decoration:none;">' + o.phone + '</a>' +
+                '</div>',
+                { className:'portal-popup', maxWidth:220 }
+            );
+        });
+
+        // ── KEY DUBAI LANDMARKS ──
+        var landmarkIcon = L.divIcon({
+            className:'',
+            html:'<div style="width:8px;height:8px;background:rgba(255,255,255,0.3);border-radius:50%;border:1px solid rgba(255,255,255,0.5);"></div>',
+            iconSize:[8,8], iconAnchor:[4,4]
+        });
+
+        var landmarks = [
+            { name:'Burj Khalifa', lat:25.1972, lng:55.2744 },
+            { name:'Dubai Mall',   lat:25.1982, lng:55.2791 },
+            { name:'Dubai Marina', lat:25.0797, lng:55.1404 },
+            { name:'Palm Jumeirah',lat:25.1124, lng:55.1390 },
+            { name:'Dubai Airport',lat:25.2532, lng:55.3657 },
+            { name:'Expo City',    lat:24.9750, lng:55.1080 },
+        ];
+
+        landmarks.forEach(function(l) {
+            var m = L.marker([l.lat, l.lng], {icon:landmarkIcon}).addTo(portalMapInstance);
+            m.bindTooltip(l.name, {className:'map-tooltip-gold', direction:'top', permanent:false});
+        });
+
+        // Add legend
+        var legend = L.control({position:'bottomleft'});
+        legend.onAdd = function() {
+            var div = L.DomUtil.create('div');
+            div.innerHTML = '<div style="background:rgba(10,10,10,0.9);border:1px solid rgba(201,168,76,0.2);padding:0.6rem 0.8rem;font-family:DM Sans,sans-serif;">' +
+                '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><div style="width:10px;height:10px;background:rgba(201,168,76,0.7);border-radius:50%;"></div><span style="font-size:0.62rem;color:rgba(255,255,255,0.6);">Properties (' + portalProps.length + ')</span></div>' +
+                '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><div style="width:14px;height:14px;background:#C9A84C;border-radius:2px;"></div><span style="font-size:0.62rem;color:rgba(255,255,255,0.6);">Falcon Edge Office</span></div>' +
+                '<div style="display:flex;align-items:center;gap:0.5rem;"><div style="width:8px;height:8px;background:rgba(255,255,255,0.3);border-radius:50%;"></div><span style="font-size:0.62rem;color:rgba(255,255,255,0.6);">Key Landmarks</span></div>' +
+                '</div>';
+            return div;
+        };
+        legend.addTo(portalMapInstance);
+    }
+
+    function addToSelectFromMap() {
+        if (!selectedMapPropId) return;
+        if (!selectedPropIds.has(selectedMapPropId)) {
+            selectedPropIds.add(selectedMapPropId);
+            document.getElementById('portal-selected-count').textContent = selectedPropIds.size;
+            showToast('Property added to catalog');
+        }
+        showPortalTab('catalog');
+    }
+
+    // ══ PORTAL: PAYMENT CALC ══
+    function populateCalcSelect() {
+        var sel = document.getElementById('calc-prop-select');
+        if (!sel) return;
+        portalProps.forEach(function(p) {
+            var opt = document.createElement('option');
+            opt.value = p.id;
+            opt.textContent = p.name + ' — ' + p.priceStr;
+            sel.appendChild(opt);
+        });
+    }
+
+    function updatePaymentCalc() {
+        var propId = parseInt(document.getElementById('calc-prop-select')?.value);
+        var prop = propId ? portalProps.find(function(p) { return p.id === propId; }) : null;
+        var price = prop ? prop.price : parseFloat(document.getElementById('calc-price')?.value) || 1600000;
+        if (prop) document.getElementById('calc-price').value = prop.price;
+        var downPct = parseFloat(document.getElementById('calc-down')?.value) || 20;
+        var duringPct = parseFloat(document.getElementById('calc-during')?.value) || 60;
+        var handoverPct = 100 - downPct - duringPct;
+        var months = parseInt(document.getElementById('calc-months')?.value) || 24;
+
+        var down = price * downPct / 100;
+        var during = price * duringPct / 100;
+        var handover = price * handoverPct / 100;
+        var monthlyDuring = during / months;
+
+        var fmt = function(n) { return 'AED ' + Math.round(n).toLocaleString(); };
+
+        var schedule = document.getElementById('calc-schedule');
+        if (schedule) schedule.innerHTML = [
+            { label: 'Down Payment (Now)', amount: down, pct: downPct, color: '#C9A84C' },
+            { label: 'During Construction (' + months + ' months)', amount: during, pct: duringPct, color: '#8B6914' },
+            { label: 'On Handover (' + prop?.handover + ')', amount: handover, pct: handoverPct, color: '#5a4010' },
+        ].map(function(row) {
+            return '<div style="display:flex;justify-content:space-between;align-items:center;padding:0.65rem;border-left:3px solid ' + row.color + ';background:rgba(255,255,255,0.02);">' +
+                '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.7);">' + row.label + '</div>' +
+                (row.label.includes('During') ? '<div style="font-size:0.62rem;color:rgba(255,255,255,0.3);">≈ ' + fmt(monthlyDuring) + '/month</div>' : '') +
+                '</div><div style="text-align:right;"><div style="font-family:Cormorant Garamond,serif;font-size:1rem;color:' + row.color + ';">' + fmt(row.amount) + '</div>' +
+                '<div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">' + row.pct.toFixed(0) + '%</div></div></div>';
+        }).join('');
+
+        var summary = document.getElementById('calc-summary');
+        if (summary) summary.innerHTML = [
+            { label:'Total Price', val: fmt(price) },
+            { label:'Down Payment', val: fmt(down) },
+            { label:'Monthly Payment', val: fmt(monthlyDuring) },
+            { label:'On Handover', val: fmt(handover) },
+        ].map(function(r) {
+            return '<div style="background:#111;padding:0.65rem;"><div style="font-family:Cormorant Garamond,serif;font-size:1rem;color:#C9A84C;">' + r.val + '</div><div style="font-size:0.52rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-top:2px;">' + r.label + '</div></div>';
+        }).join('');
+    }
+
+    function sharePaymentPlan() {
+        var propId = parseInt(document.getElementById('calc-prop-select')?.value);
+        var prop = propId ? portalProps.find(function(p) { return p.id === propId; }) : null;
+        var price = parseFloat(document.getElementById('calc-price')?.value) || 0;
+        var downPct = parseFloat(document.getElementById('calc-down')?.value) || 20;
+        var duringPct = parseFloat(document.getElementById('calc-during')?.value) || 60;
+        var handoverPct = 100 - downPct - duringPct;
+        var months = parseInt(document.getElementById('calc-months')?.value) || 24;
+        var fmt = function(n) { return 'AED ' + Math.round(n).toLocaleString(); };
+
+        var msg = [
+            '*PAYMENT PLAN*',
+            '*Falcon Edge Properties — Dubai*',
+            '---',
+            prop ? '*Project:* ' + prop.name : '*Price:* ' + fmt(price),
+            prop ? '*Developer:* ' + prop.dev : '',
+            prop ? '*Location:* ' + prop.area : '',
+            '',
+            '*Your Payment Schedule:*',
+            '  Down Payment (' + downPct + '%): *' + fmt(price * downPct/100) + '*',
+            '  During Construction (' + months + ' months): *' + fmt(price * duringPct/100) + '*',
+            '    = ' + fmt(price * duringPct/100 / months) + '/month',
+            '  On Handover (' + (prop ? prop.handover : '') + '): *' + fmt(price * handoverPct/100) + '*',
+            '',
+            '*Total: ' + fmt(price) + '*',
+            '---',
+            '_Falcon Edge Properties · RERA Registered_',
+            '_falconedgeproperties.com_'
+        ].filter(Boolean).join('\n');
+
+        window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // ══ PORTAL: DEVELOPERS TAB ══
+    var developerContacts = [
+        { name:'DAMAC Properties',  contact:'Sales Team', email:'sales@damacgroup.com',  phone:'+971 4 301 9999', web:'damacproperties.com',  projects:3 },
+        { name:'Emaar Properties',  contact:'Sales Team', email:'sales@emaar.ae',         phone:'+971 4 367 3333', web:'emaar.com',            projects:4 },
+        { name:'Azizi Developments',contact:'Sales Team', email:'info@azizidevelopments.com', phone:'+971 4 430 8444', web:'azizidevelopments.com', projects:3 },
+        { name:'Ellington Properties',contact:'Sales',   email:'sales@ellingtonproperties.com', phone:'+971 4 399 3232', web:'ellingtonproperties.com', projects:3 },
+        { name:'Sobha Realty',      contact:'Sales Team', email:'info@sobharealty.com',    phone:'+971 4 368 5000', web:'sobharealty.com',      projects:3 },
+        { name:'Nakheel',           contact:'Sales Team', email:'info@nakheel.com',        phone:'+971 4 390 3333', web:'nakheel.com',          projects:2 },
+        { name:'Meraas',            contact:'Sales Team', email:'info@meraas.ae',          phone:'+971 4 317 3999', web:'meraas.ae',            projects:2 },
+        { name:'Aldar Properties',  contact:'Sales Team', email:'info@aldar.com',          phone:'+971 2 810 5555', web:'aldar.com',            projects:1 },
+        { name:'Omniyat',           contact:'Sales Team', email:'info@omniyat.com',        phone:'+971 4 432 5577', web:'omniyat.com',          projects:1 },
+        { name:'Select Group',      contact:'Sales Team', email:'info@selectgroup.ae',     phone:'+971 4 457 8888', web:'selectgroup.ae',       projects:3 },
+    ];
+
+    function renderDevelopers() {
+        var grid = document.getElementById('devs-grid');
+        if (!grid) return;
+        grid.innerHTML = developerContacts.map(function(d) {
+            return '<div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.1);padding:1.2rem;">' +
+                '<div style="font-family:Cormorant Garamond,serif;font-size:1.15rem;color:#fff;margin-bottom:0.25rem;">' + d.name + '</div>' +
+                '<div style="font-size:0.65rem;color:rgba(201,168,76,0.6);margin-bottom:0.75rem;">' + d.projects + ' projects in portfolio</div>' +
+                '<div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.75rem;">' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">📞 ' + d.phone + '</div>' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">📧 ' + d.email + '</div>' +
+                '<div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">🌐 ' + d.web + '</div>' +
+                '</div>' +
+                '<div style="display:flex;gap:0.5rem;">' +
+                '<a href="tel:' + d.phone.replace(/\s/g,'') + '" style="flex:1;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C;padding:0.45rem;text-align:center;font-size:0.62rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;">Call</a>' +
+                '<a href="mailto:' + d.email + '" style="flex:1;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C;padding:0.45rem;text-align:center;font-size:0.62rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;">Email</a>' +
+                '<a href="https://wa.me/' + d.phone.replace(/[^0-9]/g,'') + '" target="_blank" style="flex:1;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);color:#25D366;padding:0.45rem;text-align:center;font-size:0.62rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;">WA</a>' +
+                '</div>' +
+                '</div>';
+        }).join('');
+    }
+
+    // ══ EXTEND showPortalTab for new tabs ══
+    var _origShowPortalTab = showPortalTab;
+    showPortalTab = function(tab) {
+        ['search','catalog','crm','map','calc','devs'].forEach(function(t) {
+            var el = document.getElementById('ptab-' + t);
+            if (el) el.style.display = (t === tab) ? 'flex' : 'none';
+        });
+        document.querySelectorAll('.ptab').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.tab === tab);
+        });
+        if (tab === 'catalog') updateCatalogPreview();
+        if (tab === 'crm') renderCRM();
+        if (tab === 'map') {
+            setTimeout(function() {
+                if (typeof L !== 'undefined') initPortalMap();
+                else {
+                    var s = document.createElement('script');
+                    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+                    s.onload = function() { setTimeout(initPortalMap, 100); };
+                    document.head.appendChild(s);
+                }
+                portalMapInstance && portalMapInstance.invalidateSize();
+            }, 100);
+        }
+        if (tab === 'calc') {
+            populateCalcSelect();
+            updatePaymentCalc();
+        }
+        if (tab === 'devs') renderDevelopers();
+    };
+
+    // ══ Init catalog prop select ══
+    window.addEventListener('DOMContentLoaded', function() {
+        // Already handled by portal init
+    });
+
 </script>
+
+<div id="agent-portal" style="display:none;position:fixed;inset:0;z-index:100000;background:#080808;overflow:hidden;">
+    <div id="portal-login" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;padding:2rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:#C9A84C;letter-spacing:0.15em;">FALCON EDGE</div>
+        <div style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Agent Portal · Internal Use Only</div>
+        <div style="width:100%;max-width:340px;display:flex;flex-direction:column;gap:0.75rem;">
+            <input id="portal-pass" type="password" placeholder="Enter access code" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);color:#fff;padding:0.9rem 1.2rem;font-size:0.9rem;font-family:'DM Sans',sans-serif;outline:none;width:100%;" onkeydown="if(event.key==='Enter')portalLogin()">
+            <button onclick="portalLogin()" style="background:#C9A84C;color:#000;border:none;padding:0.9rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">Access Portal →</button>
+            <button onclick="closePortal()" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0.5rem;">← Back to Website</button>
+        </div>
+    </div>
+    <div id="portal-main" style="height:100%;display:none;flex-direction:column;">
+        <div style="background:#0d0d0d;border-bottom:1px solid rgba(201,168,76,0.15);padding:0.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+            <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#C9A84C;">Falcon Edge · Agent Portal</div>
+                <div style="font-size:0.6rem;color:rgba(255,255,255,0.3);" id="portal-date"></div>
+            </div>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+                <button onclick="showPortalTab('search')" class="ptab active" data-tab="search" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:#C9A84C;padding:0.4rem 1rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">Search</button>
+                <button onclick="showPortalTab('catalog')" class="ptab" data-tab="catalog" style="background:none;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:0.4rem 1rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">Catalog</button>
+                <button onclick="showPortalTab('crm')" class="ptab" data-tab="crm" style="background:none;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:0.4rem 1rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">Clients</button>
+                <button onclick="showPortalTab('map')" class="ptab" data-tab="map" style="background:none;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:0.4rem 1rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">Map</button>
+                <button onclick="showPortalTab('calc')" class="ptab" data-tab="calc" style="background:none;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:0.4rem 1rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">Payment</button>
+                <button onclick="showPortalTab('devs')" class="ptab" data-tab="devs" style="background:none;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:0.4rem 1rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">Developers</button>
+
+                <button onclick="closePortal()" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:1.5rem;cursor:pointer;padding:0 0.5rem;line-height:1;">×</button>
+            </div>
+        </div>
+        <div id="ptab-search" style="flex:1;overflow-y:auto;padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+            <div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.12);padding:1.2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem;">
+                <div><div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Developer</div><select id="f-dev" onchange="filterPortalProps()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;"><option value="">All</option><option>DAMAC</option><option>Emaar</option><option>Azizi</option><option>Ellington</option><option>Sobha</option><option>Nakheel</option><option>Meraas</option><option>Aldar</option><option>Omniyat</option><option>Select Group</option></select></div>
+                <div><div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Type</div><select id="f-type" onchange="filterPortalProps()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;"><option value="">All</option><option>Apartment</option><option>Villa</option><option>Penthouse</option><option>Townhouse</option></select></div>
+                <div><div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Budget (AED)</div><select id="f-budget" onchange="filterPortalProps()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;"><option value="">Any</option><option value="1000">Under 1M</option><option value="2000">1M–2M</option><option value="5000">2M–5M</option><option value="9999">5M+</option></select></div>
+                <div><div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Handover</div><select id="f-handover" onchange="filterPortalProps()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;"><option value="">Any</option><option>2026</option><option>2027</option><option>2028</option></select></div>
+                <div style="display:flex;align-items:flex-end;"><button onclick="resetPortalFilters()" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.4);padding:0.5rem 1rem;font-size:0.62rem;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%;letter-spacing:0.1em;text-transform:uppercase;">Reset</button></div>
+            </div>
+            <div style="font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:flex;align-items:center;gap:1rem;">
+                <span><span id="portal-count">6</span> properties · <span id="portal-selected-count">0</span> selected</span>
+                <button onclick="showPortalTab('catalog')" id="view-catalog-btn" style="display:none;background:none;border:1px solid rgba(201,168,76,0.3);color:#C9A84C;padding:0.25rem 0.75rem;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">View Catalog →</button>
+            </div>
+            <div id="portal-props-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0.75rem;"></div>
+        </div>
+        <div id="ptab-catalog" style="flex:1;overflow-y:auto;padding:1.5rem;display:none;flex-direction:column;gap:1rem;">
+            <div style="display:grid;grid-template-columns:300px 1fr;gap:1.5rem;min-height:500px;">
+                <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.12);padding:1.2rem;display:flex;flex-direction:column;gap:0.75rem;">
+                        <div style="font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.25rem;">Client Details</div>
+                        <input id="cat-client" type="text" placeholder="Client name" oninput="updateCatalogPreview()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.15);color:#fff;padding:0.55rem 0.75rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                        <input id="cat-agent" type="text" placeholder="Agent name" oninput="updateCatalogPreview()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.15);color:#fff;padding:0.55rem 0.75rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                        <input id="cat-budget" type="text" placeholder="Budget range (e.g. AED 1M–3M)" oninput="updateCatalogPreview()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.15);color:#fff;padding:0.55rem 0.75rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                        <select id="cat-lang" onchange="updateCatalogPreview()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.15);color:#fff;padding:0.55rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;"><option value="en">English</option><option value="fr">Français</option><option value="ar">العربية</option></select>
+                    </div>
+                    <div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.12);padding:1rem;">
+                        <div style="font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Selected (<span id="cat-count">0</span>)</div>
+                        <div id="cat-selected-list" style="font-size:0.75rem;color:rgba(255,255,255,0.3);">No properties selected</div>
+                    </div>
+                    <button onclick="shareCatalogWA()" style="background:#25D366;color:#fff;border:none;padding:0.85rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">📲 Share via WhatsApp</button>
+                    <button onclick="printCatalog()" style="background:#C9A84C;color:#000;border:none;padding:0.85rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">🖨 Print / Save PDF</button>
+                </div>
+                <div id="catalog-preview" style="background:#0a0a0a;border:1px solid rgba(201,168,76,0.1);padding:2rem;overflow-y:auto;">
+                    <div style="text-align:center;padding:3rem;color:rgba(255,255,255,0.2);font-size:0.8rem;">Select properties from Search to preview</div>
+                </div>
+            </div>
+        </div>
+        <div id="ptab-crm" style="flex:1;overflow-y:auto;padding:1.5rem;display:none;flex-direction:column;gap:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;">Client Inquiries</div>
+                <button onclick="clearCRM()" style="background:none;border:1px solid rgba(255,80,80,0.2);color:rgba(255,80,80,0.5);padding:0.3rem 0.8rem;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Clear All</button>
+            </div>
+            <div id="crm-list"></div>
+            <div id="crm-empty" style="text-align:center;padding:3rem;color:rgba(255,255,255,0.2);font-size:0.8rem;">No inquiries yet. They appear here when clients contact via the website.</div>
+        </div>
+
+        <div id="ptab-map" style="flex:1;overflow:hidden;display:none;flex-direction:column;">
+            <div id="portal-map-container" style="height:100%;position:relative;">
+                <div id="portal-map" style="height:100%;"></div>
+                <div id="portal-map-panel" style="position:absolute;top:1rem;right:1rem;width:260px;background:rgba(10,10,10,0.95);border:1px solid rgba(201,168,76,0.2);padding:1rem;z-index:500;max-height:80vh;overflow-y:auto;display:none;">
+                    <div style="font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;" id="pmap-tag">SELECT A PROPERTY</div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#fff;margin-bottom:0.25rem;" id="pmap-name">—</div>
+                    <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:0.75rem;" id="pmap-area">—</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem;">
+                        <div style="background:#111;padding:0.6rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#C9A84C;" id="pmap-price">—</div><div style="font-size:0.5rem;text-transform:uppercase;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Price</div></div>
+                        <div style="background:#111;padding:0.6rem;"><div style="font-size:0.9rem;font-weight:600;color:#C9A84C;" id="pmap-yield">—</div><div style="font-size:0.5rem;text-transform:uppercase;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Yield</div></div>
+                        <div style="background:#111;padding:0.6rem;"><div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" id="pmap-handover">—</div><div style="font-size:0.5rem;text-transform:uppercase;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Handover</div></div>
+                        <div style="background:#111;padding:0.6rem;"><div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" id="pmap-plan">—</div><div style="font-size:0.5rem;text-transform:uppercase;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Plan</div></div>
+                    </div>
+                    <button onclick="addToSelectFromMap()" style="width:100%;background:#C9A84C;color:#000;border:none;padding:0.6rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">+ Add to Catalog</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="ptab-calc" style="flex:1;overflow-y:auto;padding:1.5rem;display:none;flex-direction:column;gap:1.5rem;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+                <div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.12);padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+                    <div style="font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;">Payment Plan Calculator</div>
+                    <div>
+                        <div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Select Property</div>
+                        <select id="calc-prop-select" onchange="updatePaymentCalc()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;">
+                            <option value="">Choose a property...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Property Price (AED)</div>
+                        <input id="calc-price" type="number" value="1600000" oninput="updatePaymentCalc()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                        <div>
+                            <div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Down Payment %</div>
+                            <input id="calc-down" type="number" value="20" min="10" max="50" oninput="updatePaymentCalc()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                        </div>
+                        <div>
+                            <div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Construction %</div>
+                            <input id="calc-during" type="number" value="60" min="20" max="80" oninput="updatePaymentCalc()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.3rem;">Construction Duration (months)</div>
+                        <input id="calc-months" type="number" value="24" min="6" max="60" oninput="updatePaymentCalc()" style="width:100%;background:#111;border:1px solid rgba(201,168,76,0.2);color:#fff;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none;">
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.2);padding:1.5rem;">
+                        <div style="font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:1rem;">Payment Schedule</div>
+                        <div id="calc-schedule" style="display:flex;flex-direction:column;gap:0.6rem;"></div>
+                    </div>
+                    <div style="background:#0d0d0d;border:1px solid rgba(201,168,76,0.12);padding:1.2rem;">
+                        <div style="font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.75rem;">Summary</div>
+                        <div id="calc-summary" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;"></div>
+                    </div>
+                    <button onclick="sharePaymentPlan()" style="background:#25D366;color:#fff;border:none;padding:0.85rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">Share Payment Plan via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="ptab-devs" style="flex:1;overflow-y:auto;padding:1.5rem;display:none;flex-direction:column;gap:1rem;">
+            <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Developer Contacts — UAE</div>
+            <div id="devs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.75rem;"></div>
+        </div>
+
+    </div>
+</div>
+<style>
+    .ptab.active { background:rgba(201,168,76,0.12) !important; border-color:rgba(201,168,76,0.35) !important; color:#C9A84C !important; }
+    .pcard { transition: border-color 0.2s, background 0.2s; }
+    .pcard:hover { border-color: rgba(201,168,76,0.25) !important; }
+    .pcard.selected { border-color: #C9A84C !important; background: rgba(201,168,76,0.05) !important; }
+    .pcard-check { transition: all 0.2s; }
+    .pcard.selected .pcard-check { background: #C9A84C !important; color: #000 !important; }
+</style>
+
 </body>
 </html>
